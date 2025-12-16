@@ -1,49 +1,71 @@
 "use client"
 
-import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { useState } from "react"
+import { Dictionary, Locale } from "@/lib/dictionary"
 
-export function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false)
+interface MobileMenuProps {
+  lang?: Locale
+  dict?: Dictionary
+}
+
+export function MobileMenu({ lang = 'zh', dict }: MobileMenuProps) {
+  const [open, setOpen] = useState(false)
+  const t = dict?.common || {
+    loading: "加载中...",
+    brand: "MiraclePlus",
+    gallery: "Gallery",
+    menu: {
+      explore: "探索库",
+      batches: "历届项目",
+      insights: "数据洞察"
+    }
+  }
+
+  const prefix = lang === 'zh' ? '' : `/${lang}`
 
   return (
-    <div className="md:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-3 -mr-3 text-foreground/60 [@media(hover:hover)]:hover:text-brand transition-colors active:scale-95 touch-manipulation"
-        aria-label="Toggle menu"
-      >
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-
-      {isOpen && (
-        <div className="absolute top-14 left-0 right-0 border-b border-gray-100 dark:border-white/10 bg-background/95 backdrop-blur-md p-4 shadow-lg animate-in slide-in-from-top-2 z-50">
-          <nav className="flex flex-col space-y-1">
-            <Link
-              href="/explore"
-              onClick={() => setIsOpen(false)}
-              className="block py-3 text-lg font-medium text-foreground/60 [@media(hover:hover)]:hover:text-brand transition-colors active:text-brand active:bg-secondary/50 rounded-md px-2"
-            >
-              探索库
-            </Link>
-            <Link
-              href="/batches"
-              onClick={() => setIsOpen(false)}
-              className="block py-3 text-lg font-medium text-foreground/60 [@media(hover:hover)]:hover:text-brand transition-colors active:text-brand active:bg-secondary/50 rounded-md px-2"
-            >
-              历届项目
-            </Link>
-            <Link
-              href="/insights"
-              onClick={() => setIsOpen(false)}
-              className="block py-3 text-lg font-medium text-foreground/60 [@media(hover:hover)]:hover:text-brand transition-colors active:text-brand active:bg-secondary/50 rounded-md px-2"
-            >
-              数据洞察
-            </Link>
-          </nav>
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" className="md:hidden">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="pr-0">
+        <SheetHeader className="px-1 text-left">
+            <SheetTitle className="flex items-center space-x-2 font-bold text-xl">
+                <span className="text-brand">{t.brand}</span>
+                <span>{t.gallery}</span>
+            </SheetTitle>
+        </SheetHeader>
+        <div className="grid gap-4 py-8 px-2">
+          <Link
+            href={`${prefix}/explore`}
+            onClick={() => setOpen(false)}
+            className="block px-2 py-1 text-lg font-medium transition-colors hover:text-brand"
+          >
+            {t.menu.explore}
+          </Link>
+          <Link
+            href={`${prefix}/batches`}
+            onClick={() => setOpen(false)}
+            className="block px-2 py-1 text-lg font-medium transition-colors hover:text-brand"
+          >
+            {t.menu.batches}
+          </Link>
+          <Link
+            href={`${prefix}/insights`}
+            onClick={() => setOpen(false)}
+            className="block px-2 py-1 text-lg font-medium transition-colors hover:text-brand"
+          >
+            {t.menu.insights}
+          </Link>
         </div>
-      )}
-    </div>
+      </SheetContent>
+    </Sheet>
   )
 }

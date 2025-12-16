@@ -2,6 +2,7 @@
 
 import { ChartBase } from "@/components/ui/chart-base";
 import { Info } from "lucide-react";
+import { Dictionary } from "@/lib/dictionary";
 
 interface FounderDNAChartProps {
   stats: {
@@ -13,9 +14,14 @@ interface FounderDNAChartProps {
     teamSizeDistribution: { name: string; value: number }[];
     totalFounders: number;
   };
+  dict?: Dictionary;
 }
 
-export function FounderDNAChart({ stats }: FounderDNAChartProps) {
+export function FounderDNAChart({ stats, dict }: FounderDNAChartProps) {
+  const t = dict?.explore || {
+    phd: "含博士成员",
+    overseas: "海外背景"
+  }
   
   const teamSizeOption = {
     tooltip: {
@@ -29,7 +35,7 @@ export function FounderDNAChart({ stats }: FounderDNAChartProps) {
     },
     series: [
       {
-        name: '创始人数量',
+        name: dict?.charts?.team_size_label || '创始人数量',
         type: 'pie',
         radius: ['40%', '70%'],
         center: ['50%', '60%'],
@@ -66,14 +72,14 @@ export function FounderDNAChart({ stats }: FounderDNAChartProps) {
   };
 
   const metrics = [
-    { label: "博士/PhD", value: stats.phdRatio, color: "text-purple-500" },
-    { label: "海外背景", value: stats.overseasRatio, color: "text-blue-500" },
-    { label: "连续创业", value: stats.serialEntrepreneurRatio, color: "text-emerald-500" },
+    { label: dict?.charts?.founder_metrics?.phd || "博士/PhD", value: stats.phdRatio, color: "text-purple-500" },
+    { label: dict?.charts?.founder_metrics?.overseas || "海外背景", value: stats.overseasRatio, color: "text-blue-500" },
+    { label: dict?.charts?.founder_metrics?.serial || "连续创业", value: stats.serialEntrepreneurRatio, color: "text-emerald-500" },
     { 
-      label: "00后/在读", 
+      label: dict?.charts?.founder_metrics?.young || "00后/在读", 
       value: stats.youngFounderRatio, 
       color: "text-pink-500",
-      tooltip: "包含简介中明确提及“00后”、“在读”、“休学”的创始人，或根据入学年份推算的本科/硕士在校生。"
+      tooltip: dict?.charts?.founder_metrics?.young_tooltip || "包含简介中明确提及“00后”、“在读”、“休学”的创始人，或根据入学年份推算的本科/硕士在校生。"
     },
   ];
 
@@ -104,7 +110,7 @@ export function FounderDNAChart({ stats }: FounderDNAChartProps) {
 
        {/* Right: Team Size Distribution */}
        <div className="h-[220px]">
-          <h4 className="text-xs font-semibold text-muted-foreground mb-1 text-center">创始团队规模分布</h4>
+          <h4 className="text-xs font-semibold text-muted-foreground mb-1 text-center">{dict?.charts?.team_size || "创始团队规模分布"}</h4>
           <ChartBase options={teamSizeOption} height={200} minimal={true} />
        </div>
     </div>

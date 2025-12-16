@@ -1,23 +1,26 @@
 import { getAllProjects } from "@/lib/data";
 import { Navbar } from "@/components/navbar";
-import { InsightsDashboard } from "./insights-dashboard";
+import { InsightsDashboard } from "@/components/pages/insights-dashboard";
+import { getDictionary } from "@/lib/dictionary";
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
   const projects = getAllProjects();
+  const dict = await getDictionary('zh');
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Navbar />
+      <Navbar lang="zh" dict={dict} />
       <main className="container mx-auto px-4 py-12 flex-1">
         <div className="flex flex-col space-y-2 mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">数据洞察</h1>
-          <p className="text-muted-foreground">
-            基于 {projects.length} 个入选项目的多维数据分析，揭示赛道演变与人才流动趋势。
-          </p>
-        </div>
-        
-        <InsightsDashboard projects={projects} />
-      </main>
-    </div>
-  );
-}
+          <h1 className="text-3xl font-bold tracking-tight">{dict.insights.title}</h1>
+                    <p className="text-muted-foreground">
+                      {dict.insights.subtitle.replace('{count}', projects.length.toString())}
+                    </p>
+                  </div>
+                  
+                  <InsightsDashboard projects={projects} dict={dict} lang="zh" />
+                </main>
+              </div>
+            );
+          }
+          

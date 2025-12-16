@@ -1,0 +1,229 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "brand": "MiraclePlus",
+    "gallery": "Gallery",
+    "menu": {
+      "explore": "探索库",
+      "batches": "历届项目",
+      "insights": "数据洞察"
+    },
+    "footer": {
+      "copyright": "© 2025 MiraclePlus Gallery. Unofficial Fan Project.",
+      "techStack": "Built with Next.js, Tailwind CSS & ECharts. Data parsed from public articles."
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "✨ 收录 2021-2025 完整创业档案",
+      "title_line1": "奇绩创坛",
+      "title_line2": "历届项目数据洞察",
+      "description_line1": "从 2021 到 2025，全景呈现中国最具野心的技术创新者。",
+      "description_line2": "透视前沿趋势演变，发现下一个独角兽。",
+      "stats": {
+        "projects": "收录项目",
+        "founders": "收录创始人",
+        "masters": "硕士及以上",
+        "overseas": "海外背景"
+      }
+    },
+    "search_hero": {
+      "placeholder_mobile": "搜索项目、赛道或高校...",
+      "placeholder_desktop": "搜索全库：试试 '具身智能'、'大模型' 或 '清华大学'...",
+      "hot_search": "热门搜索:",
+      "tags": {
+        "ai": "AI",
+        "robotics": "机器人",
+        "tsinghua": "清华",
+        "global": "出海"
+      }
+    },
+    "insights_section": {
+      "title": "全貌概览",
+      "subtitle": "从 2021 到 2025，见证中国技术创业的演进之路",
+      "cta": "深度解读：创业趋势与人才画像",
+      "sector_chart": {
+        "title": "赛道风向标",
+        "desc": "AI 与硬科技赛道在过去五年中的占比攀升趋势"
+      },
+      "uni_chart": {
+        "title": "高校势力榜 Top 10",
+        "desc": "清北复交与海外名校共同构成了核心创业力量"
+      }
+    },
+    "batches_section": {
+      "title": "历届创业营",
+      "subtitle": "每一届都是技术与理想的碰撞。点击查看详细项目列表与当届特有的赛道分布。",
+      "season": {
+        "spring": "春季",
+        "fall": "秋季"
+      },
+      "stats": {
+        "projects": "个入围项目",
+        "acceptance": "录取率",
+        "global": "全球化背景"
+      }
+    }
+  },
+  "explore": {
+    "title": "筛选条件",
+    "year": "年份",
+    "category": "赛道",
+    "subcategory": "细分领域",
+    "team_background": "团队背景",
+    "phd": "含博士成员",
+    "overseas": "海外背景",
+    "reset": "重置所有",
+    "reset_short": "重置",
+    "search_placeholder": "搜索项目、标签、创始人或学校...",
+    "found_count": "找到",
+    "found_projects": "个项目",
+    "export_csv": "导出 CSV",
+    "mobile_title": "筛选项目",
+    "mobile_desc": "找到最匹配的创业项目",
+    "empty_title": "未找到相关项目",
+    "empty_desc": "尝试调整筛选条件或搜索关键词",
+    "clear_filters": "清除所有筛选",
+    "more": "更多",
+    "background_hidden": "背景未公开"
+  },
+  "insights": {
+    "title": "数据洞察",
+    "subtitle": "基于 {count} 个入选项目的多维数据分析，揭示赛道演变与人才流动趋势。",
+    "current_sample": "当前样本",
+    "reset_filter": "重置筛选",
+    "year": "年份",
+    "category": "赛道",
+    "metrics": {
+      "total_projects": "项目总数",
+      "total_founders": "覆盖创始人",
+      "advanced_degree": "硕士及以上",
+      "overseas_bg": "海外背景"
+    },
+    "trends": {
+      "title": "赛道趋势",
+      "desc": "各技术领域在过去五年中的消长变化"
+    },
+    "source": {
+      "title": "创新源头",
+      "desc": "创始团队的画像分布、教育背景与职业履历",
+      "persona_dist": "创始人画像分布",
+      "persona_trend": "创始人画像趋势演变",
+      "team_size": "创始团队规模演变",
+      "top_uni": "高校势力榜 Top 15",
+      "top_company": "大厂/独角兽校友 Top 20"
+    }
+  },
+  "batches": {
+    "title": "历届创业营",
+    "spring": "春季",
+    "fall": "秋季",
+    "projects": "个入围项目",
+    "acceptance": "录取率",
+    "phd": "硕博比例",
+    "global": "全球化背景",
+    "global_default": "全球化背景",
+    "detail": {
+      "back_home": "返回首页",
+      "projects_count": "{count} 个入围项目",
+      "official_count": "官方入围 {count} 个。",
+      "actual_count": "本站收录 {count} 个。",
+      "tooltip": "官方入围 {official} 个。本站基于公开路演信息实际收录 {actual} 个，部分项目未包含在内。",
+      "highlights": "本届亮点",
+      "acceptance": "录取率",
+      "phd": "硕博比例",
+      "overseas": "海外背景"
+    },
+    "list": {
+       "all": "全部",
+       "search": "搜索本届项目...",
+       "showing": "显示 {count} 个项目"
+    },
+    "batch_info": {
+      "2025F": {
+        "name": "2025 秋季创业营",
+        "desc": "创新的门槛迅速降低、价值创造逻辑重塑，创新边界不断拓展。"
+      },
+      "2025S": {
+        "name": "2025 春季创业营",
+        "desc": "驱动创新的根本，是在源头支持那些具备研究能力与动手能力的年轻创始人。"
+      },
+      "2024F": {
+        "name": "2024 秋季创业营",
+        "desc": "前沿创新信号集中爆发：大模型、多模态、数据与具身智能引领新一轮创业浪潮。"
+      },
+      "2024S": {
+        "name": "2024 春季创业营",
+        "desc": "申请人越来越年轻，前沿信号越来越强，具身智能、机器人、科研驱动成为主流。"
+      },
+      "2023F": {
+        "name": "2023 秋季创业营",
+        "desc": "暂无数据"
+      },
+      "2023S": {
+        "name": "2023 春季创业营",
+        "desc": "大模型元年，前沿信号明显，人工智能及大模型主题公司占绝对主导地位。"
+      },
+      "2022F": {
+        "name": "2022 秋季创业营",
+        "desc": "大模型驱动行业发展信号明显，元宇宙、生命科学赛道活跃。"
+      },
+      "2022S": {
+        "name": "2022 春季创业营",
+        "desc": "首次纯线上路演日，元宇宙与Web3成为最大亮点。"
+      },
+      "2021F": {
+        "name": "2021 秋季创业营",
+        "desc": "收到超过4000份申请，元宇宙信号显现，硬科技项目占比高。"
+      },
+      "2021S": {
+        "name": "2021 春季创业营",
+        "desc": "技术驱动确立为早期创业的核心范式，创新全面渗透至底层算力、生命科学与先进制造等硬科技深水区。"
+      }
+    }
+  },
+  "project": {
+    "back_batch": "返回 {batch} 届次列表",
+    "intro": "项目介绍",
+    "team": "创始团队",
+    "founders": {
+      "role": "角色",
+      "unknown_bg": "背景未公开"
+    },
+    "sidebar": {
+      "similar": "相似赛道推荐",
+      "network": "人脉与校友",
+      "match": "匹配",
+      "same_batch": "同届校友"
+    }
+  },
+  "taxonomy": {
+    "AI": "AI & 数据",
+    "Hardware": "机器人 & 硬科技",
+    "Software": "软件 & SaaS",
+    "Bio": "生物 & 科学",
+    "Consumer": "消费 & 应用",
+    "Future": "前沿 & Web3",
+    "Other": "其他"
+  },
+  "charts": {
+    "sector_trend": "赛道风向标",
+    "sector_comparison": "赛道对比",
+    "subcategory_trend": "细分趋势",
+    "yearly_buzzwords": "年度热词",
+    "founder_dna": "创始人画像分布",
+    "founder_trend": "创始人画像趋势演变",
+    "team_size": "创始团队规模演变",
+    "university_power": "高校势力榜",
+    "work_history": "大厂/独角兽校友",
+    "team_size_label": "人",
+    "avg_size": "平均规模",
+    "founder_metrics": {
+      "phd": "博士/PhD",
+      "overseas": "海外背景",
+      "serial": "连续创业",
+      "young": "00后/在读",
+      "young_tooltip": "包含简介中明确提及“00后”、“在读”、“休学”的创始人，或根据入学年份推算的本科/硕士在校生。"
+    }
+  }
+}

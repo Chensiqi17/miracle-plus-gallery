@@ -2,13 +2,15 @@
 
 import { ChartBase } from "@/components/ui/chart-base";
 import { useRouter } from "next/navigation";
+import { Dictionary } from "@/lib/dictionary";
 
 interface FounderWorkHistoryChartProps {
   stats: { name: string; value: number }[];
   height?: number;
+  dict?: Dictionary;
 }
 
-export function FounderWorkHistoryChart({ stats, height = 500 }: FounderWorkHistoryChartProps) {
+export function FounderWorkHistoryChart({ stats, height = 500, dict }: FounderWorkHistoryChartProps) {
   const router = useRouter();
 
   const option = {
@@ -42,7 +44,7 @@ export function FounderWorkHistoryChart({ stats, height = 500 }: FounderWorkHist
     },
     series: [
       {
-        name: '创始人数量',
+        name: dict?.charts?.team_size_label || '创始人数量',
         type: 'bar',
         barWidth: '60%',
         data: stats.map(d => {

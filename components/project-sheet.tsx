@@ -8,6 +8,7 @@ import { ArrowUpRight, GraduationCap, Briefcase, User, Calendar, Tag, ExternalLi
 import Link from "next/link"
 import { ProjectImage } from "@/components/project-image"
 import { useMemo, useRef } from "react"
+import { getTranslatedTag } from "@/lib/tag-translations"
 
 // Simple client-side recommendation logic (mirrors lib/data.ts)
 function getRelated(current: Project, all: Project[], limit = 3) {
@@ -29,9 +30,10 @@ interface ProjectSheetProps {
   isOpen: boolean
   onClose: () => void
   onSelectProject: (p: Project) => void // Allow clicking related projects to switch view
+  lang?: 'zh' | 'en'
 }
 
-export function ProjectSheet({ project, allProjects, isOpen, onClose, onSelectProject }: ProjectSheetProps) {
+export function ProjectSheet({ project, allProjects, isOpen, onClose, onSelectProject, lang = 'zh' }: ProjectSheetProps) {
   
   const related = useMemo(() => {
     if (!project) return []
@@ -99,7 +101,7 @@ export function ProjectSheet({ project, allProjects, isOpen, onClose, onSelectPr
                   {project.batch_id}
                 </Badge>
                 {project.tags.slice(0, 2).map(t => (
-                   <span key={t} className="text-xs text-brand font-medium">#{t}</span>
+                   <span key={t} className="text-xs text-brand font-medium">#{getTranslatedTag(t, lang)}</span>
                 ))}
               </div>
               <SheetTitle className="text-2xl font-bold leading-tight">
@@ -187,7 +189,7 @@ export function ProjectSheet({ project, allProjects, isOpen, onClose, onSelectPr
                      <p className="text-xs text-muted-foreground line-clamp-2 mb-2">{item.project.one_liner}</p>
                      <div className="mt-auto">
                         <Badge variant="secondary" className="text-[10px] h-4 px-1 bg-brand/10 text-brand border-brand/10">
-                          匹配: {item.commonTags[0]}
+                          {lang === 'en' ? 'Match: ' : '匹配: '} {getTranslatedTag(item.commonTags[0], lang)}
                         </Badge>
                      </div>
                    </div>

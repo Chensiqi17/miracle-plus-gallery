@@ -9,12 +9,14 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Project } from "@/lib/data"
 import { GraduationCap, Briefcase } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { getTranslatedTag } from "@/lib/tag-translations"
 
 interface ProjectCardProps {
   project: Project
+  lang?: 'zh' | 'en'
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, lang = 'zh' }: ProjectCardProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [imgSrc, setImgSrc] = useState(project.image_url ? project.image_url.replace(/\.(jpg|jpeg|png)$/i, '.webp') : null)
 
@@ -66,7 +68,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
             {project.tags.slice(0, 2).map(tag => (
               <Badge key={tag} variant="secondary" className="bg-background/90 backdrop-blur-sm shadow-sm text-[10px]">
-                {tag}
+                {getTranslatedTag(tag, lang)}
               </Badge>
             ))}
           </div>

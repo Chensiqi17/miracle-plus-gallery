@@ -1,21 +1,43 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Search, ArrowRight } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Dictionary } from "@/lib/dictionary"
 
-export function SearchHero() {
+interface SearchHeroProps {
+  dict?: Dictionary
+}
+
+export function SearchHero({ dict }: SearchHeroProps) {
   const [query, setQuery] = useState("")
   const router = useRouter()
+  const pathname = usePathname()
+  
+  // Detect current locale
+  const isEnglish = pathname.startsWith('/en')
+  const prefix = isEnglish ? '/en' : ''
+  
+  const t = dict?.home.search_hero || {
+    placeholder_mobile: "搜索项目、赛道或高校...",
+    placeholder_desktop: "搜索全库：试试 '具身智能'、'大模型' 或 '清华大学'...",
+    hot_search: "热门搜索:",
+    tags: {
+      ai: "AI",
+      robotics: "机器人",
+      tsinghua: "清华",
+      global: "出海"
+    }
+  }
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (query.trim()) {
-      router.push(`/explore?q=${encodeURIComponent(query)}`)
+      router.push(`${prefix}/explore?q=${encodeURIComponent(query)}`)
     } else {
-      router.push('/explore')
+      router.push(`${prefix}/explore`)
     }
   }
 
@@ -40,8 +62,8 @@ export function SearchHero() {
           {/* Custom Placeholder with CSS-based responsiveness */}
           {!query && (
             <div className="absolute left-12 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none truncate right-16 select-none">
-              <span className="md:hidden">搜索项目、赛道或高校...</span>
-              <span className="hidden md:inline">搜索全库：试试 &apos;具身智能&apos;、&apos;大模型&apos; 或 &apos;清华大学&apos;...</span>
+              <span className="md:hidden">{t.placeholder_mobile}</span>
+              <span className="hidden md:inline">{t.placeholder_desktop}</span>
             </div>
           )}
         </div>
@@ -58,11 +80,11 @@ export function SearchHero() {
       
       {/* 热门搜索提示 */}
       <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-sm text-muted-foreground">
-        <span>热门搜索:</span>
-        <button type="button" onClick={() => router.push('/explore?tag=AI')} className="hover:text-brand hover:underline transition-colors">AI</button>
-        <button type="button" onClick={() => router.push('/explore?q=机器人')} className="hover:text-brand hover:underline transition-colors">机器人</button>
-        <button type="button" onClick={() => router.push('/explore?q=清华大学')} className="hover:text-brand hover:underline transition-colors">清华</button>
-        <button type="button" onClick={() => router.push('/explore?q=出海')} className="hover:text-brand hover:underline transition-colors">出海</button>
+        <span>{t.hot_search}</span>
+        <button type="button" onClick={() => router.push(`${prefix}/explore?tag=AI`)} className="hover:text-brand hover:underline transition-colors">{t.tags.ai}</button>
+        <button type="button" onClick={() => router.push(`${prefix}/explore?q=${t.tags.robotics}`)} className="hover:text-brand hover:underline transition-colors">{t.tags.robotics}</button>
+        <button type="button" onClick={() => router.push(`${prefix}/explore?q=${t.tags.tsinghua}`)} className="hover:text-brand hover:underline transition-colors">{t.tags.tsinghua}</button>
+        <button type="button" onClick={() => router.push(`${prefix}/explore?q=${t.tags.global}`)} className="hover:text-brand hover:underline transition-colors">{t.tags.global}</button>
       </div>
     </form>
   )

@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Project } from "@/lib/types"
-import { TAXONOMY, getCategoryForTag } from "@/lib/taxonomy"
+import { TAXONOMY, getCategoryForTag, getSearchSynonyms } from "@/lib/taxonomy"
 import { Navbar } from "@/components/navbar"
 import { Search, Filter, GraduationCap, Globe, Download } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -13,12 +13,18 @@ import { Card } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ProjectSheet } from "@/components/project-sheet"
+import { Dictionary, Locale } from "@/lib/dictionary"
+import { getTranslatedTag } from "@/lib/tag-translations"
+import { TranslationNotice } from "@/components/translation-notice"
 
 interface ExploreClientPageProps {
   initialProjects: Project[]
+  lang: Locale
+  dict: Dictionary
 }
 
-export default function ExploreClientPage({ initialProjects }: ExploreClientPageProps) {
+export default function ExploreClientPage({ initialProjects, lang, dict }: ExploreClientPageProps) {
+  const t = dict.explore
   const searchParams = useSearchParams()
   const router = useRouter()
   const categorySet = useMemo(() => new Set(TAXONOMY.map(node => node.category)), [])
@@ -91,16 +97,23 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
 
       // 1. Keyword Search
       if (query) {
-        const q = query.toLowerCase()
-        const matchName = p.name.toLowerCase().includes(q)
-        const matchDesc = p.description.toLowerCase().includes(q)
-        const matchTag = p.tags.some(t => t.toLowerCase().includes(q))
-        const matchFounder = p.founders.some(f => 
-          f.name.toLowerCase().includes(q) || 
-          f.education.some(e => e.toLowerCase().includes(q)) ||
-          f.work_history.some(w => w.toLowerCase().includes(q))
-        )
-        if (!matchName && !matchDesc && !matchTag && !matchFounder) return false
+        // Get synonyms (e.g. "Tsinghua" -> ["Tsinghua", "清华大学"])
+        const searchTerms = getSearchSynonyms(query).map(s => s.toLowerCase());
+        
+        // Check if ANY synonym matches ANY field
+        const match = searchTerms.some(term => {
+          const matchName = p.name.toLowerCase().includes(term);
+          const matchDesc = p.description.toLowerCase().includes(term);
+          const matchTag = p.tags.some(t => t.toLowerCase().includes(term));
+          const matchFounder = p.founders.some(f => 
+            f.name.toLowerCase().includes(term) || 
+            f.education.some(e => e.toLowerCase().includes(term)) ||
+            f.work_history.some(w => w.toLowerCase().includes(term))
+          );
+          return matchName || matchDesc || matchTag || matchFounder;
+        });
+
+        if (!match) return false;
       }
 
       // 2. Year Filter
@@ -207,7 +220,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
        `"${p.founders.map(f => f.work_history.join('|')).join('; ')}"`
     ]);
     
-    const csvContent = "data:text/csv;charset=utf-8,\uFEFF" 
+    const csvContent = "data:text/csv;charset=utf-8,﻿" 
         + headers.join(",") + "\n" 
         + rows.map(e => e.join(",")).join("\n");
 
@@ -222,7 +235,8 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
 
   return (
     <div key={searchKey} className="min-h-screen bg-background flex flex-col">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
+      <TranslationNotice lang={lang} />
       
       <div className="container mx-auto px-4 py-8 flex-1 flex flex-col md:flex-row gap-8">
         
@@ -230,15 +244,15 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
         <aside className="hidden md:block w-64 flex-shrink-0 space-y-8 sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-2">
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">筛选条件</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.title}</h3>
             {/* Year Filter */}
             <div className="space-y-3 mb-6">
-              <h4 className="text-sm font-medium text-muted-foreground">年份</h4>
+              <h4 className="text-sm font-medium text-muted-foreground">{t.year}</h4>
               <div className="grid grid-cols-2 gap-2">
                 {years.map(year => (
                   <div key={year} className="flex items-center space-x-2">
                     <Checkbox 
-                      id={`year-${year}`} 
+                      id={`year-${year}`}
                       checked={selectedYears.includes(year)}
                       onCheckedChange={() => toggleYear(year)}
                     />
@@ -250,29 +264,28 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
               </div>
             </div>
 
-            {/* Category Filter */}
-            <div className="space-y-3 mb-6">
-              <h4 className="text-sm font-medium text-muted-foreground">赛道</h4>
-              <div className="space-y-2">
-                {TAXONOMY.map(node => (
-                  <div key={node.category} className="flex items-center space-x-2">
-                    <Checkbox 
-                      id={`cat-${node.category}`} 
-                      checked={selectedCategories.includes(node.category)}
-                      onCheckedChange={() => toggleCategory(node.category)}
-                    />
-                    <label htmlFor={`cat-${node.category}`} className="text-sm font-medium leading-none">
-                      {node.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Dynamic Sub-Category Tags (Level 2) */}
+                        {/* Category Filter */}
+                        <div className="space-y-3 mb-6">
+                          <h4 className="text-sm font-medium text-muted-foreground">{t.category}</h4>
+                          <div className="space-y-2">
+                            {TAXONOMY.map(node => (
+                              <div key={node.category} className="flex items-center space-x-2">
+                                <Checkbox 
+                                  id={`cat-${node.category}`} 
+                                  checked={selectedCategories.includes(node.category)}
+                                  onCheckedChange={() => toggleCategory(node.category)}
+                                />
+                                <label htmlFor={`cat-${node.category}`} className="text-sm font-medium leading-none">
+                                  {dict?.taxonomy?.[node.category] || node.label}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {/* Dynamic Sub-Category Tags (Level 2) */}
             {selectedCategories.length > 0 && (
               <div className="space-y-3 mb-6 animate-in slide-in-from-left-2 duration-300">
-                <h4 className="text-sm font-medium text-muted-foreground">细分领域</h4>
+                <h4 className="text-sm font-medium text-muted-foreground">{t.subcategory}</h4>
                 <div className="flex flex-wrap gap-2">
                   {TAXONOMY
                     .filter(node => selectedCategories.includes(node.category))
@@ -284,7 +297,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                         className="cursor-pointer hover:bg-secondary/80"
                         onClick={() => toggleExactTag(tag)}
                       >
-                        {tag}
+                        {getTranslatedTag(tag, lang)}
                       </Badge>
                     ))}
                 </div>
@@ -293,7 +306,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
 
             {/* Other Filters */}
             <div className="space-y-3">
-              <h4 className="text-sm font-medium text-muted-foreground">团队背景</h4>
+              <h4 className="text-sm font-medium text-muted-foreground">{t.team_background}</h4>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <Checkbox 
@@ -303,7 +316,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                   />
                   <label htmlFor="phd-filter" className="text-sm font-medium leading-none flex items-center gap-1">
                     <GraduationCap className="h-3 w-3" />
-                    含博士成员
+                    {t.phd}
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -314,7 +327,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                   />
                   <label htmlFor="overseas-filter" className="text-sm font-medium leading-none flex items-center gap-1">
                     <Globe className="h-3 w-3" />
-                    海外背景
+                    {t.overseas}
                   </label>
                 </div>
               </div>
@@ -322,7 +335,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
           </div>
           
           <Button variant="outline" size="sm" onClick={clearFilters} className="w-full">
-            重置所有
+            {t.reset}
           </Button>
 
         </aside>
@@ -336,7 +349,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input 
-                  placeholder="搜索项目、标签、创始人或学校..." 
+                  placeholder={t.search_placeholder} 
                   className="pl-9"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
@@ -348,20 +361,20 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                 <SheetTrigger asChild>
                   <Button variant="outline" className="md:hidden">
                     <Filter className="h-4 w-4 mr-2" />
-                    筛选
+                    {t.title}
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right">
                   <SheetHeader>
-                    <SheetTitle>筛选项目</SheetTitle>
+                    <SheetTitle>{t.mobile_title}</SheetTitle>
                     <SheetDescription>
-                      找到最匹配的创业项目
+                      {t.mobile_desc}
                     </SheetDescription>
                   </SheetHeader>
                   <div className="py-6 space-y-6">
                      {/* Mobile Filters UI (Simplified duplication of desktop) */}
                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium">年份</h4>
+                        <h4 className="text-sm font-medium">{t.year}</h4>
                         <div className="grid grid-cols-3 gap-2">
                           {years.map(year => (
                             <Button 
@@ -376,7 +389,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                         </div>
                      </div>
                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium">赛道</h4>
+                        <h4 className="text-sm font-medium">{t.category}</h4>
                         <div className="flex flex-wrap gap-2">
                           {TAXONOMY.map(node => (
                              <Badge 
@@ -385,12 +398,12 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                                className="cursor-pointer"
                                onClick={() => toggleCategory(node.category)}
                              >
-                               {node.label}
+                               {dict?.taxonomy?.[node.category] || node.label}
                              </Badge>
                           ))}
                         </div>
                      </div>
-                     <Button onClick={clearFilters} variant="secondary" className="w-full">重置</Button>
+                     <Button onClick={clearFilters} variant="secondary" className="w-full">{t.reset_short}</Button>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -400,11 +413,11 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">
-                  找到 <span className="font-bold text-foreground">{filteredProjects.length}</span> 个项目
+                  {t.found_count} <span className="font-bold text-foreground">{filteredProjects.length}</span> {t.found_projects}
                 </p>
                 <Button variant="ghost" size="sm" onClick={downloadCSV} className="text-xs text-muted-foreground hover:text-foreground h-8 px-2">
                    <Download className="h-3.5 w-3.5 mr-1.5" />
-                   导出 CSV
+                   {t.export_csv}
                 </Button>
               </div>
               
@@ -418,7 +431,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                        className="px-2 py-1 flex items-center gap-1 cursor-pointer hover:bg-primary/90"
                        onClick={() => removeExactTag(tag)}
                      >
-                       #{tag}
+                       #{getTranslatedTag(tag, lang)}
                        <span className="ml-1 text-xs opacity-70">✕</span>
                      </Badge>
                    ))}
@@ -451,7 +464,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                         <div className="flex flex-wrap gap-2 pt-1">
                           {project.tags.slice(0, 4).map(tag => (
                             <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
-                              {tag}
+                              {getTranslatedTag(tag, lang)}
                             </span>
                           ))}
                         </div>
@@ -463,12 +476,12 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
                            <div key={idx} className="text-xs">
                               <div className="font-medium truncate">{f.name}</div>
                               <div className="text-muted-foreground truncate" title={f.education.join(", ")}>
-                                {f.education[0] || f.work_history[0] || "背景未公开"}
+                                {f.education[0] || f.work_history[0] || t.background_hidden}
                               </div>
                            </div>
                          ))}
                          {project.founders.length > 2 && (
-                           <span className="text-xs text-muted-foreground">+ {project.founders.length - 2} 更多</span>
+                           <span className="text-xs text-muted-foreground">+ {project.founders.length - 2} {t.more}</span>
                          )}
                       </div>
 
@@ -483,12 +496,12 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-4">
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
-              <h3 className="text-lg font-medium">未找到相关项目</h3>
+              <h3 className="text-lg font-medium">{t.empty_title}</h3>
               <p className="text-muted-foreground mt-2">
-                尝试调整筛选条件或搜索关键词
+                {t.empty_desc}
               </p>
               <Button variant="link" onClick={clearFilters} className="mt-4">
-                清除所有筛选
+                {t.clear_filters}
               </Button>
             </div>
           )}
@@ -502,6 +515,7 @@ export default function ExploreClientPage({ initialProjects }: ExploreClientPage
         onClose={closeProject} 
         allProjects={initialProjects}
         onSelectProject={openProject}
+        lang={lang}
       />
 
     </div>

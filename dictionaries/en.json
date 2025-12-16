@@ -1,0 +1,229 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "brand": "MiraclePlus",
+    "gallery": "Gallery",
+    "menu": {
+      "explore": "Explore",
+      "batches": "Batches",
+      "insights": "Insights"
+    },
+    "footer": {
+      "copyright": "© 2025 MiraclePlus Gallery. Unofficial Fan Project.",
+      "techStack": "Built with Next.js, Tailwind CSS & ECharts. Data parsed from public articles."
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "✨ Including 2021-2025 Complete Startup Archive",
+      "title_line1": "MiraclePlus (Formerly YC China)",
+      "title_line2": "Startup Archive & Insights",
+      "description_line1": "From 2021 to 2025, a panoramic view of China's most ambitious tech innovators.",
+      "description_line2": "Discover trends and find the next unicorn.",
+      "stats": {
+        "projects": "Projects",
+        "founders": "Founders",
+        "masters": "Master's+",
+        "overseas": "Overseas Bg"
+      }
+    },
+    "search_hero": {
+      "placeholder_mobile": "Search projects, sectors or universities...",
+      "placeholder_desktop": "Search entire library: try 'Embodied AI', 'LLM' or 'Tsinghua'...",
+      "hot_search": "Hot Search:",
+      "tags": {
+        "ai": "AI",
+        "robotics": "Robotics",
+        "tsinghua": "Tsinghua",
+        "global": "Global"
+      }
+    },
+    "insights_section": {
+      "title": "Overview",
+      "subtitle": "Witness the evolution of tech entrepreneurship in China from 2021 to 2025",
+      "cta": "Deep Dive: Trends & Personas",
+      "sector_chart": {
+        "title": "Sector Trends",
+        "desc": "Rising share of AI & Deep Tech over the last 5 years"
+      },
+      "uni_chart": {
+        "title": "Top Universities",
+        "desc": "Top schools forming the core entrepreneurial force"
+      }
+    },
+    "batches_section": {
+      "title": "Startup Batches",
+      "subtitle": "Every batch is a collision of technology and ideals. Click to view detailed project lists.",
+      "season": {
+        "spring": "Spring",
+        "fall": "Fall"
+      },
+      "stats": {
+        "projects": "Projects",
+        "acceptance": "Acceptance",
+        "global": "Global"
+      }
+    }
+  },
+  "explore": {
+    "title": "Filter",
+    "year": "Year",
+    "category": "Category",
+    "subcategory": "Subcategory",
+    "team_background": "Team Background",
+    "phd": "PhD Member",
+    "overseas": "Overseas Bg",
+    "reset": "Reset All",
+    "reset_short": "Reset",
+    "search_placeholder": "Search projects, tags, founders or schools...",
+    "found_count": "Found",
+    "found_projects": "projects",
+    "export_csv": "Export CSV",
+    "mobile_title": "Filter Projects",
+    "mobile_desc": "Find the most matching startup projects",
+    "empty_title": "No projects found",
+    "empty_desc": "Try adjusting filters or search keywords",
+    "clear_filters": "Clear All Filters",
+    "more": "More",
+    "background_hidden": "Background Undisclosed"
+  },
+  "insights": {
+    "title": "Data Insights",
+    "subtitle": "Multidimensional data analysis based on {count} selected projects, revealing trends in tracks and talent flow.",
+    "current_sample": "Current Sample",
+    "reset_filter": "Reset Filter",
+    "year": "YEAR",
+    "category": "CATEGORY",
+    "metrics": {
+      "total_projects": "Total Projects",
+      "total_founders": "Founders",
+      "advanced_degree": "Master's+",
+      "overseas_bg": "Overseas Bg"
+    },
+    "trends": {
+      "title": "Sector Trends",
+      "desc": "The rise and fall of various technology sectors over the past five years"
+    },
+    "source": {
+      "title": "Innovation Source",
+      "desc": "Founder persona distribution, educational background, and career history",
+      "persona_dist": "Founder Persona Distribution",
+      "persona_trend": "Founder Persona Trend Evolution",
+      "team_size": "Founding Team Size Evolution",
+      "top_uni": "Top 15 University Power List",
+      "top_company": "Top 20 Tech Giant/Unicorn Alumni"
+    }
+  },
+  "batches": {
+    "title": "Startup Batches",
+    "spring": "Spring",
+    "fall": "Fall",
+    "projects": "Projects",
+    "acceptance": "Acceptance",
+    "phd": "PhD Ratio",
+    "global": "Global",
+    "global_default": "Global Bg",
+    "detail": {
+      "back_home": "Back to Home",
+      "projects_count": "{count} Projects",
+      "official_count": "Official Count: {count}",
+      "actual_count": "Collected: {count}",
+      "tooltip": "Official count is {official}. This site collected {actual} based on public roadshow data.",
+      "highlights": "Highlights",
+      "acceptance": "Acceptance",
+      "phd": "Masters/PhD",
+      "overseas": "Overseas Bg"
+    },
+    "list": {
+       "all": "All",
+       "search": "Search projects in this batch...",
+       "showing": "Showing {count} projects"
+    },
+    "batch_info": {
+      "2025F": {
+        "name": "2025 Fall Batch",
+        "desc": "Innovation thresholds drop rapidly, value creation logic is reshaped, and innovation boundaries continue to expand."
+      },
+      "2025S": {
+        "name": "2025 Spring Batch",
+        "desc": "The root of driving innovation is to support young founders with both research and hands-on capabilities at the source."
+      },
+      "2024F": {
+        "name": "2024 Fall Batch",
+        "desc": "Frontier innovation signals explode: LLMs, Multimodal, Data, and Embodied AI lead a new wave of entrepreneurship."
+      },
+      "2024S": {
+        "name": "2024 Spring Batch",
+        "desc": "Applicants are younger, frontier signals stronger. Embodied AI, Robotics, and Research-driven become mainstream."
+      },
+      "2023F": {
+        "name": "2023 Fall Batch",
+        "desc": "No data available"
+      },
+      "2023S": {
+        "name": "2023 Spring Batch",
+        "desc": "Year of the LLM. Strong frontier signals, with AI and LLM-themed companies dominating."
+      },
+      "2022F": {
+        "name": "2022 Fall Batch",
+        "desc": "Strong signals of LLM driving industry development. Metaverse and Life Sciences sectors are active."
+      },
+      "2022S": {
+        "name": "2022 Spring Batch",
+        "desc": "First purely online Demo Day. Metaverse and Web3 become the biggest highlights."
+      },
+      "2021F": {
+        "name": "2021 Fall Batch",
+        "desc": "Received over 4000 applications. Metaverse signals appear, high proportion of Hard Tech projects."
+      },
+      "2021S": {
+        "name": "2021 Spring Batch",
+        "desc": "Tech-driven established as the core paradigm of early-stage startups. Innovation permeates deep into compute infra, life sciences, and advanced manufacturing."
+      }
+    }
+  },
+  "project": {
+    "back_batch": "Back to {batch}",
+    "intro": "Introduction",
+    "team": "Founding Team",
+    "founders": {
+      "role": "Role",
+      "unknown_bg": "Background Undisclosed"
+    },
+    "sidebar": {
+      "similar": "Similar Projects",
+      "network": "Network & Alumni",
+      "match": "Match",
+      "same_batch": "Batch Alumni"
+    }
+  },
+  "taxonomy": {
+    "AI": "AI & Data",
+    "Hardware": "Robotics & Hard Tech",
+    "Software": "Software & SaaS",
+    "Bio": "Bio & Science",
+    "Consumer": "Consumer & App",
+    "Future": "Frontier & Web3",
+    "Other": "Other"
+  },
+  "charts": {
+    "sector_trend": "Sector Trends",
+    "sector_comparison": "Sector Comparison",
+    "subcategory_trend": "Subcategory Trends",
+    "yearly_buzzwords": "Yearly Buzzwords",
+    "founder_dna": "Founder DNA",
+    "founder_trend": "Founder Trend Evolution",
+    "team_size": "Team Size Evolution",
+    "university_power": "University Power List",
+    "work_history": "Alumni Network",
+    "team_size_label": "Founders",
+    "avg_size": "Avg Size",
+    "founder_metrics": {
+      "phd": "PhD/Doctorate",
+      "overseas": "Overseas Bg",
+      "serial": "Serial Entrepreneur",
+      "young": "Gen Z / Student",
+      "young_tooltip": "Includes founders explicitly mentioned as 'Gen Z', 'Student', 'Dropout' in bio, or current undergrad/master students estimated by enrollment year."
+    }
+  }
+}

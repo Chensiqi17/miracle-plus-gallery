@@ -2,15 +2,17 @@
 
 import { ChartBase } from "@/components/ui/chart-base";
 import * as echarts from 'echarts';
+import { Dictionary } from "@/lib/dictionary";
 
 interface TeamSizeTrendChartProps {
   data: {
     name: string;
     avgTeamSize: number;
   }[];
+  dict?: Dictionary;
 }
 
-export function TeamSizeTrendChart({ data }: TeamSizeTrendChartProps) {
+export function TeamSizeTrendChart({ data, dict }: TeamSizeTrendChartProps) {
   
   const option = {
     tooltip: {
@@ -20,8 +22,8 @@ export function TeamSizeTrendChart({ data }: TeamSizeTrendChartProps) {
         return `
           <div class="font-medium mb-1">${params[0].name}</div>
           <div class="flex items-center justify-between gap-4 text-xs">
-             <span>平均创始团队规模</span>
-             <span class="font-mono font-bold">${val} 人</span>
+             <span>${dict?.charts?.avg_size || '平均创始团队规模'}</span>
+             <span class="font-mono font-bold">${val} ${dict?.charts?.team_size_label || '人'}</span>
           </div>
         `;
       }
@@ -53,7 +55,7 @@ export function TeamSizeTrendChart({ data }: TeamSizeTrendChartProps) {
     },
     series: [
       {
-        name: '平均创始团队规模',
+        name: dict?.charts?.avg_size || '平均创始团队规模',
         type: 'line',
         smooth: true,
         showSymbol: false,

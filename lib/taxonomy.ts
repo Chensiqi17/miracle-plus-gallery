@@ -1,3 +1,5 @@
+import { TAG_TRANSLATIONS } from "./tag-translations";
+
 // 赛道分类体系 (Taxonomy)
 // 用于归一化标签，并将标签分组到大类中以便筛选
 
@@ -41,6 +43,8 @@ export const TAG_ALIASES: Record<string, string> = {
   "DevTools": "开发者工具",
   "Open Source": "开源",
   "Smart Manufacturing": "智能制造",
+  "Global": "海外",
+  "Overseas": "海外",
 };
 
 // 2. 高校名称别名映射 (University Aliases)
@@ -166,4 +170,41 @@ export function getCategoryForTag(tag: string): Category {
     }
   }
   return "Other";
+}
+
+// 辅助函数：获取搜索词的同义词/映射词
+export function getSearchSynonyms(query: string): string[] {
+  const q = query.trim();
+  const lowerQ = q.toLowerCase();
+  const synonyms = new Set<string>();
+  
+  synonyms.add(q);
+  
+  // 1. 检查 Tag Aliases (Key -> Value)
+  Object.entries(TAG_ALIASES).forEach(([key, value]) => {
+    if (key.toLowerCase() === lowerQ) {
+      synonyms.add(value);
+    }
+  });
+
+  // 2. 检查 University Aliases (Key -> Value)
+  Object.entries(UNI_ALIASES).forEach(([key, value]) => {
+    if (key.toLowerCase() === lowerQ) {
+      synonyms.add(value);
+    }
+  });
+
+  // 3. 检查 Translation Map (Bidirectional)
+  Object.entries(TAG_TRANSLATIONS).forEach(([zh, en]) => {
+    // ZH -> EN
+    if (zh.toLowerCase() === lowerQ) {
+      synonyms.add(en);
+    }
+    // EN -> ZH (Reverse Lookup)
+    if (en.toLowerCase() === lowerQ) {
+      synonyms.add(zh);
+    }
+  });
+
+  return Array.from(synonyms);
 }

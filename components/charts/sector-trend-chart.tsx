@@ -5,11 +5,13 @@ import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { Project } from "@/lib/types";
 import { Category, getCategoryForTag, TAXONOMY } from "@/lib/taxonomy";
+import { Dictionary } from "@/lib/dictionary";
 
 interface SectorTrendChartProps {
   projects: Project[];
   height?: number;
   selectedCategories?: Category[];
+  dict?: Dictionary;
 }
 
 type TooltipPoint = {
@@ -23,17 +25,22 @@ type ClickParams = {
   seriesName: string;
 };
 
-export function SectorTrendChart({ projects, height = 400, selectedCategories = [] }: SectorTrendChartProps) {
+export function SectorTrendChart({ projects, height = 400, selectedCategories = [], dict }: SectorTrendChartProps) {
   const router = useRouter();
 
   const categoryLabelMap = useMemo(() => {
+    // If dict is provided, use it for translation. Fallback to TAXONOMY labels.
+    if (dict?.taxonomy) {
+      return { ...dict.taxonomy } as Record<string, string>;
+    }
+    
     const map = TAXONOMY.reduce((acc, curr) => {
       acc[curr.category] = curr.label;
       return acc;
     }, {} as Record<string, string>);
     map["Other"] = "其他";
     return map;
-  }, []);
+  }, [dict]);
 
   const chartMode = useMemo(() => {
     if (selectedCategories.length === 0) return 'overview';
@@ -128,7 +135,7 @@ export function SectorTrendChart({ projects, height = 400, selectedCategories = 
        return {
           batches: sortedBatches,
           series,
-          title: `${categoryLabelMap[targetCategory] || targetCategory} · 细分趋势`
+          title: `${categoryLabelMap[targetCategory] || targetCategory} · ${dict?.charts?.subcategory_trend || '细分趋势'}`
        };
     } 
     
@@ -169,10 +176,12 @@ export function SectorTrendChart({ projects, height = 400, selectedCategories = 
         return {
            batches: sortedBatches,
            series,
-           title: chartMode === 'comparison' ? '赛道对比' : '赛道风向标'
+           title: chartMode === 'comparison' 
+             ? (dict?.charts?.sector_comparison || '赛道对比') 
+             : (dict?.charts?.sector_trend || '赛道风向标')
         };
     }
-  }, [projects, selectedCategories, chartMode, categoryLabelMap]);
+  }, [projects, selectedCategories, chartMode, categoryLabelMap, dict]);
 
   const option = {
     color: ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#6366f1', '#9ca3af'],

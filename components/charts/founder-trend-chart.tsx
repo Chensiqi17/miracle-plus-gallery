@@ -1,6 +1,7 @@
 "use client"
 
 import { ChartBase } from "@/components/ui/chart-base";
+import { Dictionary } from "@/lib/dictionary";
 
 interface FounderTrendChartProps {
   data: {
@@ -11,9 +12,14 @@ interface FounderTrendChartProps {
     serial: number;
     avgTeamSize: number;
   }[];
+  dict?: Dictionary;
 }
 
-export function FounderTrendChart({ data }: FounderTrendChartProps) {
+export function FounderTrendChart({ data, dict }: FounderTrendChartProps) {
+  const t = dict?.explore || {
+    phd: "含博士成员",
+    overseas: "海外背景"
+  }
   
   const option = {
     tooltip: {
@@ -65,7 +71,7 @@ export function FounderTrendChart({ data }: FounderTrendChartProps) {
     },
     series: [
       {
-        name: '博士/PhD',
+        name: dict?.charts?.founder_metrics?.phd || "博士/PhD",
         type: 'line',
         smooth: true,
         showSymbol: false,
@@ -74,7 +80,7 @@ export function FounderTrendChart({ data }: FounderTrendChartProps) {
         lineStyle: { width: 3 }
       },
       {
-        name: '海外背景',
+        name: dict?.charts?.founder_metrics?.overseas || "海外背景",
         type: 'line',
         smooth: true,
         showSymbol: false,
@@ -83,7 +89,7 @@ export function FounderTrendChart({ data }: FounderTrendChartProps) {
         lineStyle: { width: 3 }
       },
       {
-        name: '连续创业',
+        name: dict?.charts?.founder_metrics?.serial || '连续创业',
         type: 'line',
         smooth: true,
         showSymbol: false,
@@ -92,7 +98,7 @@ export function FounderTrendChart({ data }: FounderTrendChartProps) {
         lineStyle: { width: 3 }
       },
       {
-        name: '00后/在读',
+        name: dict?.charts?.founder_metrics?.young || '00后/在读',
         type: 'line',
         smooth: true,
         showSymbol: false,

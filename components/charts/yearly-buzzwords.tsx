@@ -6,12 +6,16 @@ import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
 import { TrendingUp } from "lucide-react";
 import { getCategoryForTag } from "@/lib/taxonomy";
+import { Dictionary, Locale } from "@/lib/dictionary";
+import { getTranslatedTag } from "@/lib/tag-translations";
 
 interface YearlyBuzzwordsProps {
   projects: Project[];
+  dict?: Dictionary;
+  lang?: Locale;
 }
 
-export function YearlyBuzzwords({ projects }: YearlyBuzzwordsProps) {
+export function YearlyBuzzwords({ projects, dict, lang = 'zh' }: YearlyBuzzwordsProps) {
   const router = useRouter();
 
   const buzzwords = useMemo(() => {
@@ -50,7 +54,7 @@ export function YearlyBuzzwords({ projects }: YearlyBuzzwordsProps) {
   return (
     <div className="h-full">
       <div className="flex items-center gap-2 mb-6">
-        <h3 className="text-lg font-semibold tracking-tight">年度热词</h3>
+        <h3 className="text-lg font-semibold tracking-tight">{dict?.charts?.yearly_buzzwords || "年度热词"}</h3>
       </div>
 
       <div className="space-y-8">
@@ -81,10 +85,11 @@ export function YearlyBuzzwords({ projects }: YearlyBuzzwordsProps) {
                     onClick={() => {
                       const category = getCategoryForTag(tag);
                       const catParam = category && category !== 'Other' ? `&cat=${category}` : '';
-                      router.push(`/explore?exact_tag=${tag}&year=${year}${catParam}`);
+                      const prefix = lang === 'zh' ? '' : `/${lang}`;
+                      router.push(`${prefix}/explore?exact_tag=${tag}&year=${year}${catParam}`);
                     }}
                   >
-                    #{tag} <span className="ml-1 text-[10px] opacity-70 font-normal">({count})</span>
+                    #{getTranslatedTag(tag, lang)} <span className="ml-1 text-[10px] opacity-70 font-normal">({count})</span>
                   </Badge>
                 );
               })}

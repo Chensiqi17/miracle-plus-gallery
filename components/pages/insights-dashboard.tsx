@@ -13,12 +13,16 @@ import { TeamSizeTrendChart } from "@/components/charts/team-size-trend-chart";
 import { YearlyBuzzwords } from "@/components/charts/yearly-buzzwords";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
+import { Dictionary, Locale } from "@/lib/dictionary";
 
 interface InsightsDashboardProps {
   projects: Project[];
+  dict: Dictionary;
+  lang?: Locale;
 }
 
-export function InsightsDashboard({ projects }: InsightsDashboardProps) {
+export function InsightsDashboard({ projects, dict, lang = 'zh' }: InsightsDashboardProps) {
+  const t = dict.insights;
   const allYears = Array.from(new Set(projects.map(p => parseInt(p.batch_id.substring(0, 4))))).sort((a, b) => b - a);
   const [selectedYears, setSelectedYears] = useState<number[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -49,18 +53,18 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
              <div className="text-sm text-muted-foreground">
-                当前样本: <span className="font-mono text-foreground font-medium">{filteredProjects.length}</span> / {projects.length}
+                {t.current_sample}: <span className="font-mono text-foreground font-medium">{filteredProjects.length}</span> / {projects.length}
              </div>
              {(selectedYears.length > 0 || selectedCategories.length > 0) && (
                 <button onClick={clearFilters} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                  重置筛选
+                  {t.reset_filter}
                 </button>
              )}
           </div>
           
           <div className="flex flex-wrap gap-x-8 gap-y-3">
              <div className="flex items-center gap-3">
-               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">年份</span>
+               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{t.year}</span>
                <div className="flex gap-3">
                  {allYears.map(year => (
                     <label key={year} className="flex items-center gap-1.5 cursor-pointer group">
@@ -80,7 +84,7 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
              <div className="w-px h-4 bg-border/60 self-center hidden sm:block" />
 
              <div className="flex items-center gap-3">
-               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">赛道</span>
+               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{t.category}</span>
                <div className="flex flex-wrap gap-3">
                  {TAXONOMY.map(node => (
                     <label key={node.category} className="flex items-center gap-1.5 cursor-pointer group">
@@ -90,7 +94,7 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
                          onCheckedChange={() => toggleCategory(node.category)} 
                       />
                       <span className={`text-sm group-hover:text-foreground transition-colors ${selectedCategories.includes(node.category) ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
-                        {node.label}
+                        {dict?.taxonomy?.[node.category] || node.label}
                       </span>
                     </label>
                  ))}
@@ -103,10 +107,10 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
       {/* 2. 关键指标 (Key Metrics - Pure & Elegant) */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-8 px-2">
         {[
-          { label: "项目总数", value: founderStats.totalProjects },
-          { label: "覆盖创始人", value: founderStats.totalFounders },
-          { label: "硕士及以上", value: `${(founderStats.advancedDegreeRatio * 100).toFixed(1)}%` },
-          { label: "海外背景", value: `${(founderStats.overseasRatio * 100).toFixed(1)}%` },
+          { label: t.metrics.total_projects, value: founderStats.totalProjects },
+          { label: t.metrics.total_founders, value: founderStats.totalFounders },
+          { label: t.metrics.advanced_degree, value: `${(founderStats.advancedDegreeRatio * 100).toFixed(1)}%` },
+          { label: t.metrics.overseas_bg, value: `${(founderStats.overseasRatio * 100).toFixed(1)}%` },
         ].map((stat, i) => (
           <div key={i} className="flex flex-col items-start space-y-1">
             <span className="text-xs text-muted-foreground font-medium tracking-wide">{stat.label}</span>
@@ -122,9 +126,9 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
       {/* 3. 趋势洞察 (Trend Insights) */}
       <section className="space-y-8">
         <div className="px-2">
-           <h2 className="text-xl font-light tracking-tight text-foreground">赛道趋势</h2>
+           <h2 className="text-xl font-light tracking-tight text-foreground">{t.trends.title}</h2>
            <p className="text-sm text-muted-foreground mt-1 max-w-2xl font-light">
-             各技术领域在过去五年中的消长变化
+             {t.trends.desc}
            </p>
         </div>
 
@@ -134,10 +138,11 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
                 key={selectedCategories.join(',')}
                 projects={filteredProjects} 
                 selectedCategories={selectedCategories as any} 
+                dict={dict}
               />
            </div>
            <div className="lg:col-span-2">
-              <YearlyBuzzwords projects={filteredProjects} />
+              <YearlyBuzzwords projects={filteredProjects} dict={dict} lang={lang} />
            </div>
         </div>
       </section>
@@ -147,40 +152,40 @@ export function InsightsDashboard({ projects }: InsightsDashboardProps) {
       {/* 4. 人才与创新源头 (Talent & Source) */}
       <section className="space-y-12">
         <div className="px-2">
-           <h2 className="text-xl font-light tracking-tight text-foreground">创新源头</h2>
+           <h2 className="text-xl font-light tracking-tight text-foreground">{t.source.title}</h2>
            <p className="text-sm text-muted-foreground mt-1 max-w-2xl font-light">
-             创始团队的画像分布、教育背景与职业履历
+             {t.source.desc}
            </p>
         </div>
 
         {/* Founder DNA (Persona) - Top Priority */}
         <div className="bg-card/50 rounded-xl p-6 border border-border/50">
-           <h3 className="text-sm font-medium text-muted-foreground mb-6">创始人画像分布</h3>
-           <FounderDNAChart stats={founderStats} />
+           <h3 className="text-sm font-medium text-muted-foreground mb-6">{t.source.persona_dist}</h3>
+           <FounderDNAChart stats={founderStats} dict={dict} />
         </div>
 
         {/* Trends Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">创始人画像趋势演变</h3>
-              <FounderTrendChart data={founderTrendData} />
+              <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">{t.source.persona_trend}</h3>
+              <FounderTrendChart data={founderTrendData} dict={dict} />
            </div>
            <div>
-              <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">创始团队规模演变</h3>
-              <TeamSizeTrendChart data={founderTrendData} />
+              <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">{t.source.team_size}</h3>
+              <TeamSizeTrendChart data={founderTrendData} dict={dict} />
            </div>
         </div>
 
         {/* Source Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
            <div>
-             <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">高校势力榜 Top 15</h3>
-             <UniversityPowerChart projects={filteredProjects} height={400} />
+             <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">{t.source.top_uni}</h3>
+             <UniversityPowerChart projects={filteredProjects} height={400} dict={dict} lang={lang} />
            </div>
 
            <div>
-             <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">大厂/独角兽校友 Top 20</h3>
-             <FounderWorkHistoryChart stats={workHistoryStats} height={400} />
+             <h3 className="text-sm font-medium text-muted-foreground mb-6 pl-2">{t.source.top_company}</h3>
+             <FounderWorkHistoryChart stats={workHistoryStats} height={400} dict={dict} />
            </div>
         </div>
       </section>

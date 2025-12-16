@@ -4,14 +4,17 @@ import { ChartBase } from "@/components/ui/chart-base";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { Project } from "@/lib/types";
+import { Dictionary } from "@/lib/dictionary";
 
 interface UniversityPowerChartProps {
   projects: Project[];
   limit?: number;
   height?: number;
+  dict?: Dictionary;
+  lang?: 'zh' | 'en';
 }
 
-export function UniversityPowerChart({ projects, limit = 15, height = 600 }: UniversityPowerChartProps) {
+export function UniversityPowerChart({ projects, limit = 15, height = 600, dict, lang = 'zh' }: UniversityPowerChartProps) {
   const router = useRouter();
 
   // Compute stats: Top unis overall
@@ -83,7 +86,7 @@ export function UniversityPowerChart({ projects, limit = 15, height = 600 }: Uni
     },
     series: [
       {
-        name: '创始人数量',
+        name: dict?.charts?.team_size_label || '创始人数量',
         type: 'bar',
         barWidth: '60%',
         data: data.map(d => ({
@@ -104,7 +107,8 @@ export function UniversityPowerChart({ projects, limit = 15, height = 600 }: Uni
 
   const handleChartClick = (params: any) => {
     if (params.name) {
-      router.push(`/explore?uni=${encodeURIComponent(params.name)}`);
+      const prefix = lang === 'zh' ? '' : `/${lang}`;
+      router.push(`${prefix}/explore?uni=${encodeURIComponent(params.name)}`);
     }
   };
 
