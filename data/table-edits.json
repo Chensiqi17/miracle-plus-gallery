@@ -1,0 +1,27 @@
+{
+  "columns": [
+    {
+      "name": "Notes",
+      "type": "text"
+    }
+  ],
+  "cellData": {},
+  "columnOrder": [
+    "batch_id",
+    "name",
+    "one_liner",
+    "description",
+    "tags",
+    "founders",
+    "custom:Notes"
+  ],
+  "colWidths": {
+    "batch_id": 90,
+    "name": 140,
+    "one_liner": 234,
+    "description": 320,
+    "tags": 280,
+    "founders": 400,
+    "custom:Notes": 280
+  }
+}
