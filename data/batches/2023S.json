@@ -50,7 +50,7 @@
         "role": "创始人 & CEO",
         "bio": "乔布斯校友，Reed College 计算机专业，2020年辍学创业，获得包括风和资本和奇绩创坛的投资。",
         "education": [
-          "Reed College"
+          "里德学院"
         ],
         "work_history": []
       },
@@ -85,7 +85,7 @@
         "role": "Co-founder",
         "bio": "MIT 物理和计算机双专业学士，为消费者提供深度的技术专业知识；谷歌的产品经理和人工智能专家。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "Google"
@@ -96,7 +96,7 @@
         "role": "Co-founder",
         "bio": "辍学于 MIT CS，喜欢从0到1实现不可能的技术问题；有在 Presto、Allurion 等高度技术型公司的建设和商业化经验。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "Presto",
@@ -166,7 +166,7 @@
         "role": "CTO",
         "bio": "卡内基梅隆大学博士后研究员，博士毕业于北京大学计算机学院，曾获VLDB 2022国际会议最佳可扩展数据科学论文奖。",
         "education": [
-          "CMU",
+          "卡耐基梅隆大学",
           "北京大学"
         ],
         "work_history": []
@@ -200,7 +200,7 @@
         "role": "CTO",
         "bio": "剑桥大学本硕博，发表10余篇计算机领域顶会顶刊论文，总引用700+。",
         "education": [
-          "University of Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       }
@@ -373,7 +373,7 @@
         "role": "CEO、机器人技术负责人",
         "bio": "毕业于卡耐基梅隆大学机器人学院，有超过八年的 AI 与机器人跨领域研究和落地经验，参与/主导过 NASA 火星车研发、L4级自动驾驶和室内外机器人全栈研发与运营落地等项目。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "NASA"
@@ -409,7 +409,7 @@
         "role": "创始人",
         "bio": "前大疆产品经理，伊利诺伊大学电子工程本科毕业，有丰富的把产品卖点转化成市场营销图文视频内容的经验。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "大疆"
@@ -420,7 +420,7 @@
         "role": "项目负责人",
         "bio": "前 Hyperloop One 高级软件工程师，伊利诺伊大学计算机科学硕士毕业，曾研发落地多个复杂 3D 模型的 Web App 项目。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "Hyperloop One"
@@ -446,8 +446,8 @@
         "role": "创始人/CEO",
         "bio": "牛津大学生物化学博士，哈佛大学公共卫生硕士（MPH），十余年国际生物科研及医药产业经验，任职经历包括博奥生物、IQVIA 等。",
         "education": [
-          "University of Oxford",
-          "Harvard"
+          "牛津大学",
+          "哈佛大学"
         ],
         "work_history": [
           "IQVIA",
@@ -531,7 +531,7 @@
         "bio": "澳门大学生物医药博士，发表多篇 SCI 论文，毕业后在香港中文大学（深圳）Kobilka Institute 做访问学者和风险投资机构任研究员。",
         "education": [
           "University of Macau",
-          "CUHK(SZ)"
+          "香港中文大学(深圳)"
         ],
         "work_history": []
       },
@@ -622,7 +622,7 @@
         "role": "创始人",
         "bio": "加州大学伯克利分校计算机和统计双专业。曾为王菲，孙俪设计服装。18岁创建个人服装品牌。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       },
@@ -632,7 +632,7 @@
         "bio": "本科就读清华大学，博士毕业于麻省理工大学。研究方向包括 NLP 和大模型。",
         "education": [
           "清华大学",
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": []
       }
@@ -714,7 +714,7 @@
         "bio": "清华大学本科；美国杜克大学合成生物博士；合成生物独角兽 Ginkgo Bioworks 早期员工，擅长 DNA 设计和物种改造。",
         "education": [
           "清华大学",
-          "Duke University"
+          "杜克大学"
         ],
         "work_history": [
           "Ginkgo Bioworks"
@@ -726,7 +726,7 @@
         "bio": "北京大学博士；哈佛大学 Dana Farber 癌症中心博士后；Ginkgo Bioworks 员工，擅长蛋白质设计和实验平台搭建。",
         "education": [
           "北京大学",
-          "Harvard"
+          "哈佛大学"
         ],
         "work_history": [
           "Ginkgo Bioworks"
@@ -871,7 +871,7 @@
         "role": "创始人/CEO",
         "bio": "苏黎世联邦理工学院博士、博士后。",
         "education": [
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": []
       },
@@ -880,7 +880,7 @@
         "role": "联合创始人/CTO",
         "bio": "获得苏黎世联邦理工学院博士学位。",
         "education": [
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": []
       }
@@ -904,7 +904,7 @@
         "role": "创始人/CEO",
         "bio": "苏黎世联邦理工学院土木系硕士，在欧洲隧道巨头以及全球轨道扫描龙头安伯格集团从事多年三维 BIM 建模研发。",
         "education": [
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": [
           "Amberg Group"
@@ -915,7 +915,7 @@
         "role": "创始人/CTO",
         "bio": "苏黎世联邦理工学院计算机系博士，三维深度学习领域的专家，曾在德国宇航局，EthonAI 做核心研发。",
         "education": [
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": [
           "DLR",
@@ -975,7 +975,7 @@
         "role": "创始人/CEO",
         "bio": "技术发明人，UC San Diego博士，在电化学领域发表了超过40篇高影响力论文及数篇专利。",
         "education": [
-          "UCSD"
+          "加州大学圣地亚哥分校"
         ],
         "work_history": []
       },
@@ -984,8 +984,8 @@
         "role": "创始人/COO",
         "bio": "他本科毕业于 UCSD 纳米工程专业，管理学硕士毕业于杜克大学，在硅谷有多年产品管理和开发经验。",
         "education": [
-          "UCSD",
-          "Duke University"
+          "加州大学圣地亚哥分校",
+          "杜克大学"
         ],
         "work_history": []
       }
@@ -1009,7 +1009,7 @@
         "role": "创始人&CEO",
         "bio": "从事计算机视觉、机器人和计算机模拟方向的研究。加州大学洛杉矶分校（UCLA）博士，导师为朱松纯教授。",
         "education": [
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": []
       }
@@ -1033,8 +1033,8 @@
         "role": "CEO",
         "bio": "毕业于（帝国理工+皇艺）戴森设计工程学院本硕。有过两次盈利的消费级硬件出海创业经验，在出海消费电子独角兽做过孵化期产品设计师，在小米做过产品设计经理。",
         "education": [
-          "Imperial College London",
-          "RCA"
+          "帝国理工学院",
+          "皇家艺术学院"
         ],
         "work_history": [
           "小米"
@@ -1093,7 +1093,7 @@
         "role": "CEO",
         "bio": "教育背景包括加州理工学院的 EE 课程，并专注于可持续农业实践和劳工问题的文科研究。",
         "education": [
-          "Caltech"
+          "加州理工学院"
         ],
         "work_history": []
       }
@@ -1117,8 +1117,8 @@
         "role": "联合创始人/CEO",
         "bio": "多伦多大学经济和国际发展双学位。滑铁卢大学硕士在读。",
         "education": [
-          "University of Toronto",
-          "University of Waterloo"
+          "多伦多大学",
+          "滑铁卢大学"
         ],
         "work_history": []
       },
@@ -1127,7 +1127,7 @@
         "role": "联合创始人/CTO",
         "bio": "多伦多大学硕博。西门菲莎大学博士后，发表9余篇生物医学工程领域顶会顶刊论文。",
         "education": [
-          "University of Toronto",
+          "多伦多大学",
           "SFU"
         ],
         "work_history": []
@@ -1189,8 +1189,8 @@
         "role": "CEO",
         "bio": "剑桥制造业研究所博士，数字化建模方向。曾于牛津大学研究钛合金材料裂缝扩张并发表相关文章。",
         "education": [
-          "University of Cambridge",
-          "University of Oxford"
+          "剑桥大学",
+          "牛津大学"
         ],
         "work_history": []
       },
@@ -1199,7 +1199,7 @@
         "role": "CTO",
         "bio": "剑桥制造业研究所博士后，自动化、人工智能算法方向。曾于上汽、长安汽车任职高级工程师岗位多年。",
         "education": [
-          "University of Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "上汽",
@@ -1298,7 +1298,7 @@
         "role": "Founder",
         "bio": "UCL 电子电气工程本科，听力学直博，前中科院声学所研究助理。",
         "education": [
-          "UCL"
+          "伦敦大学学院"
         ],
         "work_history": [
           "中国科学院"
@@ -1309,7 +1309,7 @@
         "role": "Founder",
         "bio": "UCL 政治、经济、历史专业。放弃了攻读法学院，已回国全职创业。",
         "education": [
-          "UCL"
+          "伦敦大学学院"
         ],
         "work_history": []
       }
@@ -1358,7 +1358,7 @@
         "bio": "西安交通大学博士、苏黎世联邦理工学院联培博士，电力电子专业。曾获全球能源挑战赛冠军。",
         "education": [
           "西安交通大学",
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": []
       },
@@ -1391,7 +1391,7 @@
         "role": "创始人/CEO",
         "bio": "剑桥大学助理教授、博导。",
         "education": [
-          "University of Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "University of Cambridge"
@@ -1402,7 +1402,7 @@
         "role": "首席科学家",
         "bio": "英国皇家工程院院士，剑桥大学技术学院院长。",
         "education": [
-          "University of Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "University of Cambridge"
@@ -1543,7 +1543,7 @@
         "bio": "前Heartly Lab心理健康产品运营负责人；字节跳动产品经理，清华大学工业工程本，卡内基梅隆人机交互硕。",
         "education": [
           "清华大学",
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "字节跳动",
@@ -1570,7 +1570,7 @@
         "role": "Founder & CEO",
         "bio": "加州理工学院博士。从事光学系统设计、自适应光学技术、图像处理等工作多年，在美国头部消费电子公司担任研究科学家。",
         "education": [
-          "Caltech"
+          "加州理工学院"
         ],
         "work_history": []
       },
@@ -1580,7 +1580,7 @@
         "bio": "浙江大学本科，华盛顿大学博士。多年从事 OCT 系统及软件开发，并且直接参与眼科临床医学研究。",
         "education": [
           "浙江大学",
-          "University of Washington"
+          "华盛顿大学"
         ],
         "work_history": []
       }
@@ -1604,7 +1604,7 @@
         "role": "创始人",
         "bio": "德国慕尼黑工业大学硕士，曾代表宝马参与汽车软件 AUTOSAR 标准编写。在上汽主导并完成智能驾驶域控制器平台软件从0到1的国产化开发。",
         "education": [
-          "TUM"
+          "慕尼黑工业大学"
         ],
         "work_history": [
           "BMW",
@@ -1676,7 +1676,7 @@
         "role": "创始人/CEO",
         "bio": "前腾讯，Cloudflare 软件工程师，多次创业者；2022年本科毕业于美国华盛顿大学，在校期间发布的 Restock Alerts 商品库存监控 APP 火爆北美。",
         "education": [
-          "University of Washington"
+          "华盛顿大学"
         ],
         "work_history": [
           "腾讯",
@@ -1688,8 +1688,8 @@
         "role": "联合创始人/CTO",
         "bio": "本科毕业于美国华盛顿大学，康奈尔大学硕士。多次创业者，在校期间开发的 Discord 聊天机器人在全球拥有超300,000+用户。",
         "education": [
-          "University of Washington",
-          "Cornell University"
+          "华盛顿大学",
+          "康奈尔大学"
         ],
         "work_history": []
       }
@@ -1713,7 +1713,7 @@
         "role": "CEO",
         "bio": "沃顿商学院校友，非洲创业者，拥有十多年在非洲的创业经验，曾在 Rocket Internet 工作。",
         "education": [
-          "Wharton"
+          "沃顿商学院"
         ],
         "work_history": [
           "Rocket Internet"
@@ -1773,7 +1773,7 @@
         "role": "CEO",
         "bio": "毕业于英国帝国理工学院本科，曼切斯特大学博士辍学，专业为材料化学。有多年柔性电子系统与可穿戴研究经验，软硬件开发经验以及前沿柔性电子科研产经验。",
         "education": [
-          "Imperial College London",
+          "帝国理工学院",
           "University of Manchester"
         ],
         "work_history": []
@@ -1807,7 +1807,7 @@
         "role": "创始人",
         "bio": "毕业于牛津大学，且具备丰富的商业运营、工程放大以及产业投融资经验。",
         "education": [
-          "University of Oxford"
+          "牛津大学"
         ],
         "work_history": []
       },
@@ -1816,7 +1816,7 @@
         "role": "创始人",
         "bio": "毕业于牛津大学。",
         "education": [
-          "University of Oxford"
+          "牛津大学"
         ],
         "work_history": []
       }
@@ -1892,7 +1892,7 @@
         "bio": "毕业于清华大学、哥伦比亚大学，曾任麦肯锡、宝洁、雅虎、谷歌等跨国公司高管，是 Google 中文名“谷歌”命名者。2007年创立母婴在线平台宝宝树。",
         "education": [
           "清华大学",
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": [
           "Google",

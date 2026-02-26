@@ -29,7 +29,7 @@
         "role": "CTO",
         "bio": "斯坦福大学机械专业硕士，进入斯坦福 BDML 实验室；苹果前算法工程师；连续创业者，曾获头部美元资本融资。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Apple"
@@ -108,7 +108,7 @@
         "role": "CEO",
         "bio": "麻省理工大学 EECS 计算机科学与 SMarchS 设计学硕士，城市空间计算实验室 MIT SCL；华为河图社交产品负责人，增强现实系统与交互领域多项专利与顶会论文。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "华为"
@@ -119,7 +119,7 @@
         "role": "CTO",
         "bio": "前字节软件架构专家，Allride.ai 从 0-1 搭建自动驾驶仿真系统；WPI Game and Interactive Media专业，近 10 年游戏引擎、 后端与 Infra 构建经验。",
         "education": [
-          "WPI"
+          "伍斯特理工学院"
         ],
         "work_history": [
           "字节跳动",
@@ -235,7 +235,7 @@
         "role": "CEO",
         "bio": "NUS 计算机机器人 PhD，多篇 AI 顶会一作，李光耀金牌，新加坡总统奖学金，AISG 奖学金 （最高奖学金)，连续创业者。",
         "education": [
-          "National University of Singapore"
+          "新加坡国立大学"
         ],
         "work_history": []
       },
@@ -244,7 +244,7 @@
         "role": "CMO",
         "bio": "新加坡南洋理工大学（NTU）。新加坡连续创业者，多年新加坡创业经验，主导了 UniwebPay 支付平台和 POS 机终端 Jeripay。",
         "education": [
-          "Nanyang Technological University"
+          "南洋理工大学"
         ],
         "work_history": []
       }
@@ -268,7 +268,7 @@
         "role": "CEO",
         "bio": "苏黎世联邦理工学院（ETH Zurich）博士，长期从事人工智能系统方向研究，在 AI 顶会发表学术论文十余篇。由其主导的研究成果成功落地于 Pytorch Lightning、快手、诺基亚等公司。",
         "education": [
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": []
       },
@@ -400,7 +400,7 @@
         "role": "技术负责人",
         "bio": "斯坦福硕士，7 年谷歌工作经验，连续创业者。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Google"
@@ -461,8 +461,8 @@
         "bio": "南开大学软件工程本科，伯克利交换，在职斯坦福 AI 课程，5 年 Google 资深软件工程师。",
         "education": [
           "南开大学",
-          "UC Berkeley",
-          "Stanford"
+          "加州大学伯克利分校",
+          "斯坦福大学"
         ],
         "work_history": [
           "Google"
@@ -502,7 +502,7 @@
         "education": [
           "东华大学",
           "TU Delft",
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": []
       }
@@ -564,7 +564,7 @@
         "role": "创始人/CEO",
         "bio": "杜克大学计算机硕士。曾在商汤和蔚来从事自动驾驶算法研发和测试工作，AI 开发与落地经验丰富。",
         "education": [
-          "Duke University"
+          "杜克大学"
         ],
         "work_history": [
           "商汤科技",
@@ -576,7 +576,7 @@
         "role": "COO",
         "bio": "杜克大学工学硕士，曾就职于斯伦贝谢，有丰富的企业管理和运营经验。",
         "education": [
-          "Duke University"
+          "杜克大学"
         ],
         "work_history": [
           "Schlumberger"
@@ -602,7 +602,7 @@
         "role": "CEO",
         "bio": "UCSD，Google，连续创业者，多年 AI 应用开发。",
         "education": [
-          "UCSD"
+          "加州大学圣地亚哥分校"
         ],
         "work_history": [
           "Google"
@@ -741,7 +741,7 @@
         "bio": "中南大学材料学本科，美国宾夕法尼亚大学材料学毕业，2 年时间带领团队成为国内龙头企业核心一级供应商，并获优秀供应商荣誉。累计营收破千万元，产品已量产遍布全球 28 个国家。",
         "education": [
           "中南大学",
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": []
       },
@@ -1123,7 +1123,7 @@
         "role": "CEO",
         "bio": "加州⼤学洛杉矶分校，Computer Engineering，嵌⼊式系统工程师，智慧农业实验室主要负责人，浙江大学 The Next Lab 项目负责人，UCLA UWR 小组负责人。全国科技创新大赛一等奖。",
         "education": [
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": []
       },
@@ -1166,7 +1166,7 @@
         "bio": "加拿大麦吉尔大学电子工程博士生，英国牛津大学数学系硕士。前博世汽车全球功能负责人，中国区软件平台负责人。",
         "education": [
           "McGill University",
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": [
           "Bosch"
@@ -1201,7 +1201,7 @@
         "role": "联合创始人/COO",
         "bio": "美国约翰霍普金斯大学生物工程系硕士，前美国强生医疗资深工程师，前美国美敦力研究工程师。",
         "education": [
-          "Johns Hopkins University"
+          "约翰霍普金斯大学"
         ],
         "work_history": [
           "Johnson & Johnson",
@@ -1247,7 +1247,7 @@
         "role": "COO",
         "bio": "纽约大学硕士，15 岁举办歌手比赛请到易烊千玺做嘉宾，欧莱雅 brandstorm TOP 10。",
         "education": [
-          "NYU"
+          "纽约大学"
         ],
         "work_history": [
           "L'Oreal"
@@ -1404,7 +1404,7 @@
         "role": "联合创始人/CEO",
         "bio": "东京大学 AI 分子设计博士，东京大学奖学金、东京大学全球领导力（GSDM）奖学金得主。毕业后在 Preferred Networks（日本估值最高独角兽）任 AI 药物设计研究员，为多家日本一线药企提供 AI 药物设计服务。",
         "education": [
-          "The University of Tokyo"
+          "东京大学"
         ],
         "work_history": [
           "Preferred Networks"
@@ -1448,7 +1448,7 @@
         "role": "创始人 & CEO",
         "bio": "多伦多大学工程科学系学士，中国科学院计算所硕士。以第一参与者在国际 AI 赛事 CGED-2018 和 CommonsenseQA 夺冠。",
         "education": [
-          "University of Toronto",
+          "多伦多大学",
           "中国科学院"
         ],
         "work_history": []
@@ -1502,7 +1502,7 @@
         "bio": "上海科技大学博士生，UPenn 访问学生。主要研究领域为 850nm 及 c 波段高速光电探测器。",
         "education": [
           "上海科技大学",
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": []
       },
@@ -1561,7 +1561,7 @@
         "role": "Co-founder",
         "bio": "计算机 / 哲学 / 媒介研究，本科 CMUQ SCS，多模态实验室；创立的上家美本申请咨询公司三士渡教育做到 8000 万年营业额。",
         "education": [
-          "Carnegie Mellon University"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "三士渡教育"
@@ -1572,7 +1572,7 @@
         "role": "Co-founder",
         "bio": "语言学 / 数学 / 编程语言理论，本科就读于 UCSD；语言学奥林匹克国家队成员；资深全栈开发。",
         "education": [
-          "UCSD"
+          "加州大学圣地亚哥分校"
         ],
         "work_history": []
       },
@@ -1614,7 +1614,7 @@
         "role": "联合创始人 & CFO",
         "bio": "曾任石溪交响乐团首席，哈佛大学 EMBA，清华苏世民学院 24 年录取。",
         "education": [
-          "Harvard",
+          "哈佛大学",
           "清华大学",
           "Stony Brook University"
         ],
@@ -1641,7 +1641,7 @@
         "bio": "纽约大学阿布扎比分校学士，并获全额奖学金；卡耐基梅隆大学计算机硕士。曾就职于谷歌、微信的 AI 中台团队，微信 AI 平台创始成员。",
         "education": [
           "NYU Abu Dhabi",
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "Google",
@@ -1653,7 +1653,7 @@
         "role": "联合创始人/CTO",
         "bio": "卡耐基梅隆大学计算机硕士，师从 Louis-Philippe Morency 教授，曾就职于字节跳动 AI Lab、乾象投资深度学习团队，曾发表多篇 LLM 顶会论文。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "字节跳动",
@@ -1666,7 +1666,7 @@
         "bio": "武汉大学学士，斯坦福计算社会科学研究助理。前微信首位 00 后高级产品经理，参与公众号、小程序等多产品模块开发。",
         "education": [
           "武汉大学",
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "微信"
@@ -1693,7 +1693,7 @@
         "bio": "天津大学求是学部光电子学士，英国爱丁堡大学全奖博士、博士后，大连理工大学校外研究生导师，重庆大学国家卓越工程师学院特聘副教授。",
         "education": [
           "天津大学",
-          "University of Edinburgh",
+          "爱丁堡大学",
           "重庆大学"
         ],
         "work_history": [
@@ -1707,7 +1707,7 @@
         "education": [
           "浙江大学",
           "University of Bristol",
-          "University of Edinburgh",
+          "爱丁堡大学",
           "重庆大学"
         ],
         "work_history": [
@@ -1759,7 +1759,7 @@
         "role": "CEO",
         "bio": "MIT EECS博士，22 篇 AI / Robotics方向论文，CORL 2021 最佳论文一作，Science Robotics 论文一作。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": []
       },
@@ -1768,7 +1768,7 @@
         "role": "CTO",
         "bio": "UCSD 计算机博士，25篇 AI / Robotics方向论文，Sapien 仿真器核心开发者，Nvidia 的遥操作系统核心开发者。",
         "education": [
-          "UCSD"
+          "加州大学圣地亚哥分校"
         ],
         "work_history": [
           "NVIDIA"
@@ -1779,7 +1779,7 @@
         "role": "COO",
         "bio": "MIT 理学硕士，欧洲工商管理学院 MBA。10+ 年科技行业运营、销售和管理经验，曾在美国创立过一家机器人公司。",
         "education": [
-          "MIT",
+          "麻省理工学院",
           "INSEAD"
         ],
         "work_history": []
@@ -1805,8 +1805,8 @@
         "role": "CEO",
         "bio": "哈佛 / MIT，明星导演，连续创业。15 年 CG 视效制作经验，曾创办 Play.Work，作为导演 / 主创合作过 Burberry、梅赛德斯奔驰等。",
         "education": [
-          "Harvard",
-          "MIT"
+          "哈佛大学",
+          "麻省理工学院"
         ],
         "work_history": [
           "Play.Work"
@@ -1818,8 +1818,8 @@
         "bio": "多模态 AI 专家，上海交大 / UIUC / USC 计算机专业。前迪士尼动画工作室、快手、Meta 人工智能工程师。",
         "education": [
           "上海交通大学",
-          "UIUC",
-          "USC"
+          "伊利诺伊大学香槟分校",
+          "南加州大学"
         ],
         "work_history": [
           "Disney",
@@ -1832,8 +1832,8 @@
         "role": "CPO",
         "bio": "哈佛硕士，麻省理工媒体实验室触觉媒介组，时尚品牌联创。前 Meta、Gensler、捷豹路虎、PayPal、华为交互设计师。",
         "education": [
-          "Harvard",
-          "MIT"
+          "哈佛大学",
+          "麻省理工学院"
         ],
         "work_history": [
           "Meta",
@@ -1933,7 +1933,7 @@
         "role": "联合创始人",
         "bio": "Duke University 大二休学。曾就职于腾讯，发表 AI 顶会论文。",
         "education": [
-          "Duke University"
+          "杜克大学"
         ],
         "work_history": [
           "腾讯"
@@ -1959,7 +1959,7 @@
         "role": "联创 & CEO & CTO",
         "bio": "北美生活 6 年，创作 100 万字网文，积累了一批个人网文粉丝。本科密歇根大学安娜堡分校，全栈软件工程师，连续 AI 创业者。",
         "education": [
-          "University of Michigan"
+          "密歇根大学"
         ],
         "work_history": []
       },
@@ -1993,7 +1993,7 @@
         "bio": "南京大学学士，帝国理工学院硕士。曾任职于阿里巴巴淘天集团，香港 Web3 风险投资与英国 AI 创业项目经历。青年诗人。",
         "education": [
           "南京大学",
-          "Imperial College London"
+          "帝国理工学院"
         ],
         "work_history": [
           "阿里巴巴"
@@ -2062,7 +2062,7 @@
         "role": "COO",
         "bio": "新加坡国立大学博士。前新加坡电信首席数据科学家，有多段科技领域成功创业经验。",
         "education": [
-          "National University of Singapore"
+          "新加坡国立大学"
         ],
         "work_history": [
           "Singtel"
@@ -2089,7 +2089,7 @@
         "role": "CEO",
         "bio": "耶鲁大学毕业生，拥有五年的亚马逊网络服务（AWS）工作经验，曾担任高级软件工程师一职。亚马逊任职期间，在构建 AWS CloudFormation 的 Contract Tests 框架方面发挥了关键作用。",
         "education": [
-          "Yale"
+          "耶鲁大学"
         ],
         "work_history": [
           "AWS",
@@ -2101,7 +2101,7 @@
         "role": "CTO",
         "bio": "宾夕法尼亚大学计算机科学和数据科学硕士，曾在谷歌云端担任高级软件工程师，GKE 安全领域的杰出工程师。",
         "education": [
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": [
           "Google"
@@ -2112,7 +2112,7 @@
         "role": "COO",
         "bio": "耶鲁大学硕士，曾在阿里巴巴担任高级商务运营三年。",
         "education": [
-          "Yale"
+          "耶鲁大学"
         ],
         "work_history": [
           "阿里巴巴"
@@ -2200,7 +2200,7 @@
         "bio": "北京大学信息管理系学士，美国 Buffalo 与中国人民大学合办 EMBA。拥有超过 25 年的 IT 行业销售、销售管理和总经理经验。",
         "education": [
           "北京大学",
-          "Renmin University of China",
+          "中国人民大学",
           "University at Buffalo"
         ],
         "work_history": []

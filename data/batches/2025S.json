@@ -18,7 +18,7 @@
         "role": "创始人/CEO",
         "bio": "UCLA 机械工程拉丁荣誉学士，连续创业者，曾作为创始人/ CEO 创办 Squab Gaming，获美国 VC 机构投资，服务 1 万+ 付费用户。",
         "education": [
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": [
           "Squab Gaming"
@@ -88,8 +88,8 @@
         "role": "Founder/CEO",
         "bio": "哈佛大学设计硕士，麻省理工大学计算机跨选。曾获 MIT AI Venture Studio 铜奖、NVIDIA Inception Project 卓越企业称号。",
         "education": [
-          "Harvard",
-          "MIT"
+          "哈佛大学",
+          "麻省理工学院"
         ],
         "work_history": []
       },
@@ -98,7 +98,7 @@
         "role": "CTO",
         "bio": "卡耐基梅隆大学计算机硕士。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": []
       },
@@ -175,7 +175,7 @@
         "role": "创始人",
         "bio": "南加州大学电子工程毕业，前海康威视研究院智慧交通领域项目 AITraffic 核心开发人员；连续创业者，Tau Beta Pi Engineering 成员，企业主家庭背景。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": [
           "海康威视"
@@ -186,7 +186,7 @@
         "role": "联合创始人",
         "bio": "南加州大学电子工程毕业，具备光电、科学计算与电子工程三领域的跨学科背景。曾在多所学校实验室与企业从事通信、纳米光子、汽车电子电气架构及计算机视觉学科技术工作。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": []
       }
@@ -265,7 +265,7 @@
         "bio": "香港大学正教授，前爱丁堡大学正教授。担任图形学顶会 Siggraph asia 大会主席。首创了深度学习驱动的 3D 角色动画，项目 AI4Animation 在 Github 获得 8k+ star。",
         "education": [
           "香港大学",
-          "University of Edinburgh"
+          "爱丁堡大学"
         ],
         "work_history": [
           "香港大学",
@@ -370,7 +370,7 @@
         "bio": "北理工本科，UCLA 机械工程博士；领导建立全球首个数字微流控云端制造平台；8+ 年数字微流控研发经验。",
         "education": [
           "北京理工大学",
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": []
       },
@@ -379,7 +379,7 @@
         "role": "联合创始人/顾问",
         "bio": "数字微流控技术发明人；UCLA 教授， IEEE/ASME/AIMBE Fellow；创立两家公司，被惠普和 Illumina 收购。",
         "education": [
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": [
           "UCLA",
@@ -464,7 +464,7 @@
         "role": "创始人",
         "bio": "新加坡国立大学博士，发表 16 篇顶尖会议和学术期刊论文，全球首次利用图人工智能执行加速 Dataflow 芯片编译，流片出世界上能效最高的 dataflow 芯片，曾经和 AMD 在内的多家公司合作研发。",
         "education": [
-          "National University of Singapore"
+          "新加坡国立大学"
         ],
         "work_history": [
           "AMD"
@@ -484,7 +484,7 @@
         "role": "首席科学顾问",
         "bio": "新加坡国立大学副校长，Dataflow 芯片 的领军人物，获得等额 1 亿人民币科研基金支持， Google Scholar 引用 11000 +。",
         "education": [
-          "National University of Singapore"
+          "新加坡国立大学"
         ],
         "work_history": [
           "National University of Singapore"
@@ -567,8 +567,8 @@
         "role": "联合创始人",
         "bio": "多伦多大学数学专业本科，新加坡国立大学计算机硕士。研究兴趣聚焦于机器学习与 DNS 加密流量分析。",
         "education": [
-          "University of Toronto",
-          "National University of Singapore"
+          "多伦多大学",
+          "新加坡国立大学"
         ],
         "work_history": []
       }
@@ -612,7 +612,7 @@
         "role": "CMO",
         "bio": "加州大学伯克利分校心理学本科，曾任职宾夕法尼亚州立大学，Dotdash Meredith 和字节跳动。",
         "education": [
-          "UC Berkeley",
+          "加州大学伯克利分校",
           "Penn State University"
         ],
         "work_history": [
@@ -675,8 +675,8 @@
         "role": "创始人/CEO/CTO",
         "bio": "拥有 8 年机器人开发经验的全栈极客。佐治亚理工学院机械工程与计算机科学双荣誉学士学位，曾在宾夕法尼亚大学 GRASP 机器人实验室深造，专注于触觉强化学习与灵巧操作控制。2024 年从宾大辍学，创办 SOMA Robotics。",
         "education": [
-          "Georgia Tech",
-          "UPenn"
+          "佐治亚理工学院",
+          "宾夕法尼亚大学"
         ],
         "work_history": []
       }
@@ -701,7 +701,7 @@
         "role": "联合创始人/CEO",
         "bio": "参与过多款亚马逊明星产品的从 0 到 1 落地， IDSA IDEA Jury，布朗大学与罗德岛设计学院双学历，工业技术世家出身，长期关注材料工业中的智能化决策与人机协同的边界问题。",
         "education": [
-          "Brown University",
+          "布朗大学",
           "Rhode Island School of Design"
         ],
         "work_history": [
@@ -713,8 +713,8 @@
         "role": "联合创始人/CTO",
         "bio": "毕业于加州大学伯克利分校（本科）与宾夕法尼亚大学（研究生），美国能源部IMPEL提名，曾在伯克利劳伦斯国家实验室参与前沿材料研究，具备材料科学与 AI4S融合的深厚技术背景。",
         "education": [
-          "UC Berkeley",
-          "UPenn"
+          "加州大学伯克利分校",
+          "宾夕法尼亚大学"
         ],
         "work_history": [
           "Berkeley Lab"
@@ -806,7 +806,7 @@
         "bio": "清华大学工程物理系教授，国内低温等离子体物理的领军人物，麻省理工学院物理学博士。",
         "education": [
           "清华大学",
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "清华大学"
@@ -833,7 +833,7 @@
         "role": "创始人/CEO",
         "bio": "香港城市大学本科，俄亥俄州立大学博士，均为电子工程专业。曾任 Apple 高级硬件工程师、OPPO 技术总监，主导全线射频系统研发。创业前任好未来集团学而思学习机硬件负责人。",
         "education": [
-          "City University of Hong Kong",
+          "香港城市大学",
           "Ohio State University"
         ],
         "work_history": [
@@ -875,7 +875,7 @@
         "bio": "俄亥俄州立本科，康奈尔硕士。Groupon /Meta 资深工程师。连续创业者，函子科技创始人/ CEO，获得奇绩，线性资本，红杉中国投资。",
         "education": [
           "Ohio State University",
-          "Cornell"
+          "康奈尔大学"
         ],
         "work_history": [
           "Groupon",
@@ -888,7 +888,7 @@
         "bio": "南京大学本科，卡耐基梅隆硕士。Meta Staff 工程师/工程经理，商业化产品 leader，帮助 WhatsApp 商业化扩展到 >200 亿人民币年化收入，从0-1搭建 AR / VR APP Store。",
         "education": [
           "南京大学",
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "Meta"
@@ -899,7 +899,7 @@
         "role": "COO",
         "bio": "美国西北大学。Meta 数据科学经理，Snap 战略/分析负责人，爱奇艺总监。连续创业者，获得过真格基金投资。",
         "education": [
-          "Northwestern University"
+          "西北大学"
         ],
         "work_history": [
           "Meta",
@@ -1143,7 +1143,7 @@
         "role": "创始人/CEO",
         "bio": "剑桥大学博士，光电传感、通信领域专家。曾代表剑桥CPS主导英国EPSRC四校合作项目。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "Cambridge"
@@ -1155,7 +1155,7 @@
         "bio": "浙江大学博士， ETH-INSAIT人工智能研究所研究员，事件算法、 SNN 专家。",
         "education": [
           "浙江大学",
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": [
           "ETH Zurich"
@@ -1167,7 +1167,7 @@
         "bio": "埃因霍温理工大学博士， 剑桥大学研究员，光纤传感、集成光学领域专家。",
         "education": [
           "Eindhoven University of Technology",
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "Cambridge"
@@ -1282,7 +1282,7 @@
         "role": "创始人 CEO/CTO",
         "bio": "2025 届佐治亚理工计算机本科生，擅长各类创作，有 6+ 年电子绘画经验、2 年视频创作经历（最高有 38 万粉丝）。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": []
       },
@@ -1291,7 +1291,7 @@
         "role": "联合创始人/设计",
         "bio": "2026 届佐治亚理工工业设计本科，曾获 IF、IDE 等国际设计大奖。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": []
       },
@@ -1300,7 +1300,7 @@
         "role": "联合创始人/AI开发",
         "bio": "2027 届佐治亚理工计算机本科生，曾获全国经济学奥林匹克竞赛微观经济学金奖。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": []
       }
@@ -1324,7 +1324,7 @@
         "role": "CEO",
         "bio": "新加坡国立大学博士，在 ICLR、CVPR、NeurIPS 等多个 AI 会议发表论文，博士在读期间在华为诺亚 AI 研究实习。",
         "education": [
-          "National University of Singapore"
+          "新加坡国立大学"
         ],
         "work_history": [
           "华为",
@@ -1536,8 +1536,8 @@
         "role": "联合创始人/COO",
         "bio": "伦敦大学学院硕士，南加州大学本科。AI 领域连续创业者，前奇绩 Fellow 负责人，具备多段零到一团队产品搭建经验。",
         "education": [
-          "UCL",
-          "USC"
+          "伦敦大学学院",
+          "南加州大学"
         ],
         "work_history": [
           "奇绩创坛"
@@ -1576,7 +1576,7 @@
         "role": "联合创始人/COO",
         "bio": "约翰·霍普金斯大学硕士，顶级私行 + 北京市政府 + 资管机构从业背景；推动科创板数亿补贴政策落地。",
         "education": [
-          "Johns Hopkins University"
+          "约翰霍普金斯大学"
         ],
         "work_history": []
       }
@@ -1661,7 +1661,7 @@
         "bio": "英国伯明翰、帝国理工 AI 硕士背景的计算及人工智能工程领域技术专家。曾是 S23 奇绩校友。",
         "education": [
           "University of Birmingham",
-          "Imperial College London"
+          "帝国理工学院"
         ],
         "work_history": []
       }
@@ -1707,7 +1707,7 @@
         "role": "合伙人",
         "bio": "牛津大学硕士。链接大半个中国 AI 学术界的真大佬。",
         "education": [
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": []
       }
@@ -1731,7 +1731,7 @@
         "role": "CEO",
         "bio": "卡内基梅隆大学–机器学习硕士，在 CMU 研究 AI 持续学习与可控生成，2018 年自研做出 AI 声音克隆模型。曾任 AWS VectorScan 团队负责人。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "AWS",
@@ -1792,7 +1792,7 @@
         "role": "联合创始人/CEO",
         "bio": "宾夕法尼亚大学机械工程专业；美团 3.5 年 AI PM；以用户为中心并持续学习的产品人；16 岁一人去南非做义工；18 岁和同学暑假创办留学机构；21 岁开发北美留学生生活用品外卖 App。",
         "education": [
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": [
           "美团"
@@ -1803,7 +1803,7 @@
         "role": "联合创始人/CTO",
         "bio": "宾夕法尼亚大学机械工程专业；百度 3.5 年算法工程师；本科创立 3D 打印社团；积木行业头部厂二代；从小习武韧性极强。",
         "education": [
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": [
           "百度"
@@ -1840,7 +1840,7 @@
         "role": "联合创始人",
         "bio": "德国亚琛工业大学与 Dunkermotoren 集团联合培养博士，电机方向。目前担任项目组无磁直驱电机 CAE 仿真工作负责人。",
         "education": [
-          "RWTH Aachen University"
+          "亚琛工业大学"
         ],
         "work_history": [
           "Dunkermotoren"
@@ -2084,7 +2084,7 @@
         "role": "COO",
         "bio": "NTU 计算机博士，图森未来早期合伙人。",
         "education": [
-          "Nanyang Technological University"
+          "南洋理工大学"
         ],
         "work_history": [
           "图森未来",

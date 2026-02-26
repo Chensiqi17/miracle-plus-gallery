@@ -19,7 +19,7 @@
         "role": "创始人/CEO",
         "bio": "加州伯克利心理学 & 商科背景，皇家艺术学院服务设计硕士，前 Apple 体验设计师，全美最大学生科技峰会 Decode 前主席。",
         "education": [
-          "UC Berkeley",
+          "加州大学伯克利分校",
           "皇家艺术学院"
         ],
         "work_history": [
@@ -34,7 +34,7 @@
           "哈佛大学",
           "同济大学",
           "柏林工业大学",
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "微软亚洲研究院"
@@ -45,9 +45,9 @@
         "role": "Marketing Lead",
         "bio": "MIT 量化营销博士（录取率 < 0.5%），斯坦福统计学硕士、UC Berkeley 本科。擅长因果推断、内容优化与 AI 驱动的营销策略。",
         "education": [
-          "MIT",
-          "Stanford",
-          "UC Berkeley"
+          "麻省理工学院",
+          "斯坦福大学",
+          "加州大学伯克利分校"
         ],
         "work_history": []
       },
@@ -56,8 +56,8 @@
         "role": "Growth Lead",
         "bio": "Amazon 全球营销项目经理，独立掌控 6500 万美金预算，推动多区域业务增长。拥有北美第一的西北大学 IMC 研究生与加州伯克利本科背景。",
         "education": [
-          "Northwestern University",
-          "UC Berkeley"
+          "西北大学",
+          "加州大学伯克利分校"
         ],
         "work_history": [
           "Amazon"
@@ -111,7 +111,7 @@
         "role": "CEO",
         "bio": "University of Michigan 2022, EECS，计算机工程专业；留过东西南北洋的连续创业者，上一款游戏 Steam 播放量 20w+。",
         "education": [
-          "University of Michigan"
+          "密歇根大学"
         ],
         "work_history": []
       },
@@ -120,7 +120,7 @@
         "role": "CTO",
         "bio": "University of Michigan 2020, EECS，人工智能与机器学习专业，国家教育部“珠峰计划”优秀毕业生；国际理论物理奥林匹克竞赛金牌；腾讯王者荣耀游戏开发；诺奖级实验室研究员。",
         "education": [
-          "University of Michigan"
+          "密歇根大学"
         ],
         "work_history": [
           "腾讯"
@@ -181,7 +181,7 @@
         "role": "创始人/CEO",
         "bio": "英国化合物半导体研究院（ICS）博士生，伦敦大学国王学院理论物理学士。会手搓芯片，拥有多项集成电路布图和芯片设计专利，同时罕见地在芯片制造、工艺路线与成本控制上具备实战经验。",
         "education": [
-          "KCL",
+          "伦敦国王学院",
           "英国化合物半导体研究院"
         ],
         "work_history": []
@@ -191,7 +191,7 @@
         "role": "Hardware Lead",
         "bio": "剑桥大学物理 MSci/BA，本科与硕士阶段均深耕半导体器件与复杂系统仿真。专注高自旋材料、电场调控磁各向异性、贝叶斯反演等前沿研究。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       },
@@ -200,7 +200,7 @@
         "role": "AI Lead",
         "bio": "剑桥大学物理 MSci/BA，长期耕耘机器人感知与机器学习算法方向。参与软体机器人传感器系统、骨骼动作识别、卷积网络等研究。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       }
@@ -224,8 +224,8 @@
         "role": "Co-founder",
         "bio": "宾大沃顿 M&T 工程商业双学位（全球 50 人）；曾任 Bain、Silver Lake；技术 × 商业复合背景，负责产品、商业化与战略。",
         "education": [
-          "UPenn",
-          "Wharton"
+          "宾夕法尼亚大学",
+          "沃顿商学院"
         ],
         "work_history": [
           "Bain",
@@ -237,7 +237,7 @@
         "role": "Co-founder",
         "bio": "MIT Media Lab 最年轻的研究员；打造亚洲最大 Hackathon AdventureX，累计 6 亿+ 播放，深度技术与开发者社区经验，负责开发者生态与互动体验。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "MIT Media Lab"
@@ -264,7 +264,7 @@
         "role": "创始人/CEO",
         "bio": "佐治亚理工计算机硕士，参与非洲马拉维分布式水质监测系统工程部署。具备计算机 × 环境工程的交叉背景，长期专注 AI4S 中科研自动化与具身智能落地。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": []
       },
@@ -273,7 +273,7 @@
         "role": "联合创始人/CSO",
         "bio": "佐治亚理工学院助理教授，研究方向涵盖分离材料、碳捕集与水处理的交叉技术。获美国环保署 P3 技术大奖。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": [
           "Georgia Tech"
@@ -416,7 +416,7 @@
         "role": "创始人/CEO",
         "bio": "帝国理工机械工程硕士。送过学生进英国牛剑 G5。做过 VR 游戏、火箭、火星车、自动驾驶船只，开过飞机，长期关心现代教育问题。",
         "education": [
-          "Imperial College London"
+          "帝国理工学院"
         ],
         "work_history": []
       },
@@ -425,8 +425,8 @@
         "role": "COO",
         "bio": "康奈尔大学硕士，耶鲁大学博士。送过学生进哈耶普斯麻常春藤。连续创业成功经验，小红书教育垂直领域变现前三账号博主，获 400 万+ 年收入。",
         "education": [
-          "Cornell",
-          "Yale"
+          "康奈尔大学",
+          "耶鲁大学"
         ],
         "work_history": []
       }
@@ -516,7 +516,7 @@
         "role": "软件合伙人",
         "bio": "爱丁堡大学人工智能硕士，全栈技术能力，曾获中国虚拟现实大赛一等奖。",
         "education": [
-          "University of Edinburgh"
+          "爱丁堡大学"
         ],
         "work_history": []
       },
@@ -616,7 +616,7 @@
         "role": "创始人",
         "bio": "斯坦福本科数学 + 音乐专业，辍学创业。作曲家，小说作者，游戏文案作者。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       },
@@ -625,7 +625,7 @@
         "role": "联合创始人",
         "bio": "斯坦福本科。辍学创业。全网百万阅读作家，环游世界七大洲的背包客，工业水准叙事片导演。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       }
@@ -695,7 +695,7 @@
         "bio": "南京大学哲学学院本硕，南京大学—约翰斯·霍普金斯大学中美文化研究中心。打过算法竞赛的签约网文写手，前剧本杀监制。",
         "education": [
           "南京大学",
-          "Johns Hopkins University"
+          "约翰霍普金斯大学"
         ],
         "work_history": []
       },
@@ -705,7 +705,7 @@
         "bio": "南京大学外国语学院本，南京大学、约翰斯·霍普金斯大学国际关系双硕士学位。草拟的国际政策曾被采纳；卖过航天零件，也卖过珠宝成衣的跨国品牌主理人。",
         "education": [
           "南京大学",
-          "Johns Hopkins University"
+          "约翰霍普金斯大学"
         ],
         "work_history": []
       },
@@ -973,7 +973,7 @@
         "role": "创始人/CEO",
         "bio": "毕业于剑桥大学经济系本科，全网 150 万粉丝自媒体博主，千万营收电商品牌创始人。中国最早期的学习直播博主，连续两年几乎每天直播陪伴 5 万多名年轻人 3,650+ 小时。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       }
@@ -1138,7 +1138,7 @@
         "role": "Founder/CEO",
         "bio": "帝国理工计算科学应用硕士、数据分析师。02 年连续创业者，经验横跨数据、法律、医学、科研。",
         "education": [
-          "Imperial College London"
+          "帝国理工学院"
         ],
         "work_history": []
       },
@@ -1215,7 +1215,7 @@
         "role": "联合创始人/CEO",
         "bio": "前特斯拉灵巧手负责人。CMU 机器人机械设计硕士。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "Tesla"
@@ -1226,7 +1226,7 @@
         "role": "联合创始人/CTO",
         "bio": "前 Waymo 基座模型早期成员。弗吉尼亚理工计算机视觉博士。",
         "education": [
-          "Virginia Tech"
+          "弗吉尼亚理工"
         ],
         "work_history": [
           "Waymo"
@@ -1263,7 +1263,7 @@
         "role": "创始人/CEO",
         "bio": "纽约大学硕士，前 Amazon BI，2024 年裸辞创立旅行公司，首年实现 300 万营收，对旅行场景的用户需求和一线市场痛点有深刻理解。",
         "education": [
-          "NYU"
+          "纽约大学"
         ],
         "work_history": [
           "Amazon"
@@ -1274,7 +1274,7 @@
         "role": "联合创始人/CTO",
         "bio": "哥伦比亚大学硕士，前华为 AI 算法工程师，曾多次主导垂域大模型、Agent 应用研发落地，获总裁新人奖，对 Agent 系统架构、产品体验有深刻洞察。",
         "education": [
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": [
           "华为"
@@ -1285,7 +1285,7 @@
         "role": "科学顾问",
         "bio": "哥伦比亚大学硕士，共发表论文 21 篇，其中 CCF A 类和 B 类论文 11 篇。",
         "education": [
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": []
       }
@@ -1366,7 +1366,7 @@
         "role": "CTO",
         "bio": "东京大学 AI 博士生在读，开源社区 Camel-AI 研究团队核心成员。",
         "education": [
-          "The University of Tokyo"
+          "东京大学"
         ],
         "work_history": []
       }
@@ -1444,8 +1444,8 @@
         "role": "CPO",
         "bio": "康奈尔大学 & 华盛顿大学，4 年完成本硕，专业课全 A。白天做产品、晚上打德扑，闲暇研究古建筑，着迷于结构与细节；主导产品规划与交互设计，把想法做成真正能跑的产品。",
         "education": [
-          "Cornell",
-          "University of Washington"
+          "康奈尔大学",
+          "华盛顿大学"
         ],
         "work_history": []
       }
@@ -1492,7 +1492,7 @@
         "role": "CCO",
         "bio": "美国南加州大学电影学院，丰富的电影制片、导演、摄影经验，曾与徐峥导演合作拍摄影片《逆行人生》。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": []
       }
@@ -1517,7 +1517,7 @@
         "bio": "武汉大学本科、UIUC 博士。长期研究地球内部的大尺度动力系统，善于把复杂问题拆成可理解的结构。曾获国家奖学金，连续被学生评为优秀教师。",
         "education": [
           "武汉大学",
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": []
       },
@@ -1538,8 +1538,8 @@
         "bio": "科大本科和硕士、UIUC 博士，UCSD 博士后，Green Scholar。发表 15 + 篇国际期刊论文，是复杂系统建模与高性能计算专家。",
         "education": [
           "中国科学技术大学",
-          "UIUC",
-          "UCSD"
+          "伊利诺伊大学香槟分校",
+          "加州大学圣地亚哥分校"
         ],
         "work_history": []
       }
@@ -1575,7 +1575,7 @@
         "role": "联合创始人/COO",
         "bio": "英国剑桥大学硕士，前英国 LDA、Farrells 建筑设计事务所首席设计师，3D 空间建模与可视化专家，深耕建筑、景观、室内领域。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "LDA",
@@ -1763,7 +1763,7 @@
         "role": "联合创始人",
         "bio": "哈佛大学生物医学博士，香港城市大学数字医疗研究院研究助理教授，DeSci（Web + Science）社区发起人。研究方向为生物多组学技术和数据分析、Web3 技术与生物医疗的创新融合。",
         "education": [
-          "Harvard",
+          "哈佛大学",
           "香港城市大学"
         ],
         "work_history": []
@@ -1853,7 +1853,7 @@
         "bio": "北京大学本科，入选教育部第一批珠峰计划，斯坦福大学博士，近十年化学单分子检测研发经验，发表顶级 SCI 论文 40 余篇。",
         "education": [
           "北京大学",
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       },
@@ -1862,7 +1862,7 @@
         "role": "联合创始人/CTO",
         "bio": "原德国比勒菲尔德物理系副教授，帝国理工学院玛丽居里学者，主持中内外科研项目经费超 4000 万元。",
         "education": [
-          "Imperial College London",
+          "帝国理工学院",
           "Bielefeld University"
         ],
         "work_history": []
@@ -1887,7 +1887,7 @@
         "role": "创始人/CEO",
         "bio": "连续创业者、自学全栈开发。伦敦大学学院管理科学本科。HappyStudy 项目开发者，10 天落地产品。",
         "education": [
-          "UCL"
+          "伦敦大学学院"
         ],
         "work_history": []
       },

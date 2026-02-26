@@ -53,7 +53,7 @@
         "role": "CEO",
         "bio": "滑铁卢大学研究生毕业，曾任职于谷歌机器学习自动化团队。Bilibili独立游戏开发区up主。",
         "education": [
-          "University of Waterloo"
+          "滑铁卢大学"
         ],
         "work_history": [
           "Google",
@@ -65,7 +65,7 @@
         "role": "CTO",
         "bio": "滑铁卢大学软件工程专业，毕业时一手拿了6份offer。多伦多独角兽公司super.com人工智能项目总监。",
         "education": [
-          "University of Waterloo"
+          "滑铁卢大学"
         ],
         "work_history": [
           "super.com"
@@ -129,7 +129,7 @@
         "role": "Founder",
         "bio": "哈佛医学院手术机器人实验室辍学创业，范德堡大学本科三专业四辅修最高荣誉学者，ETHNYC Skale Network Grant PrizeWinner，福布斯U30优秀学者。",
         "education": [
-          "Harvard Medical School",
+          "哈佛医学院",
           "Vanderbilt University"
         ],
         "work_history": []
@@ -139,8 +139,8 @@
         "role": "Founder",
         "bio": "斯坦福本硕计算机，数学荣誉学位满绩毕业，伯克利数学博士（在读），本科师从李飞飞教授。",
         "education": [
-          "Stanford",
-          "UC Berkeley"
+          "斯坦福大学",
+          "加州大学伯克利分校"
         ],
         "work_history": []
       }
@@ -257,7 +257,7 @@
         "role": "创始人",
         "bio": "在年轻人领域多次创业。高中因为喜爱球鞋文化成立了一个球鞋配件公司，最后收获了爱奇艺、北美最大的连锁球鞋零售公司、Footlocker等客户。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       },
@@ -266,7 +266,7 @@
         "role": "联合创始人",
         "bio": "创立第一家全国性专注于民航、铁路等接送机细分领域的网约车服务平台，拿到二十多个城市的网约车牌照，并达到年营业额五千万元。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       }
@@ -394,7 +394,7 @@
         "bio": "上海科技大学硕士研究生，UC Berkeley访问学生。上科大信息学院本/硕综合排名第一。曾于计算机图形学顶刊ACM TOG发表论文。",
         "education": [
           "上海科技大学",
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       },
@@ -456,8 +456,8 @@
         "bio": "从0到1参与TikTok社区管理和发展，搭建和管理过万人跨国团队。做过业务负责人也做过HR。中国和日本两国工作经验。",
         "education": [
           "北京大学",
-          "Harvard",
-          "MIT"
+          "哈佛大学",
+          "麻省理工学院"
         ],
         "work_history": [
           "TikTok"
@@ -469,7 +469,7 @@
         "bio": "在字节跳动从0到1参与国际化社区搭建，抖音直播电商和TikTok电商创始团队成员。",
         "education": [
           "Brandeis University",
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": [
           "字节跳动",
@@ -535,7 +535,7 @@
         "role": "CEO",
         "bio": "博士毕业于加州理工学院应用物理专业。",
         "education": [
-          "Caltech"
+          "加州理工学院"
         ],
         "work_history": []
       },
@@ -544,7 +544,7 @@
         "role": "CTO",
         "bio": "博士毕业于加州理工学院电子工程专业，曾就职于AWS quantum hardware。",
         "education": [
-          "Caltech"
+          "加州理工学院"
         ],
         "work_history": [
           "AWS"
@@ -665,7 +665,7 @@
         "role": "Founder",
         "bio": "00后创业者，包玉刚实验学校计算机方向荣誉毕业生，卡耐基梅隆大学计算机本科。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": []
       },
@@ -735,7 +735,7 @@
         "role": "Founder",
         "bio": "多年企服和用户体验从业经验。曾就职于美国企服公司 Palantir 产品研发部门、SaaS上市公司Yext产品策略部门。毕业于卡内基梅隆大学(CMU)。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "Palantir",
@@ -747,7 +747,7 @@
         "role": "Founder",
         "bio": "曾就职于硅谷独角兽公司Houzz。毕业于卡内基梅隆(CMU)人机交互学院、清华大学工业工程系。",
         "education": [
-          "CMU",
+          "卡耐基梅隆大学",
           "清华大学"
         ],
         "work_history": [
@@ -774,7 +774,7 @@
         "role": "创始人/CEO",
         "bio": "德国慕尼黑工业大学计算机科学本硕，先进人机交互和混合现实研究。",
         "education": [
-          "TUM"
+          "慕尼黑工业大学"
         ],
         "work_history": []
       },
@@ -783,7 +783,7 @@
         "role": "联合创始人/CMO",
         "bio": "德国慕尼黑工业大学计算机工程与商科硕士，EY企业咨询/人工智能/工业软件行业经验。",
         "education": [
-          "TUM"
+          "慕尼黑工业大学"
         ],
         "work_history": [
           "EY"
@@ -833,7 +833,7 @@
         "role": "创始人/主设计师",
         "bio": "著名日本建筑师；B.L.U.E建筑设计工作室创始人和主持设计师；毕业于东京大学建筑系。",
         "education": [
-          "The University of Tokyo"
+          "东京大学"
         ],
         "work_history": [
           "B.L.U.E. Architecture Studio"
@@ -866,7 +866,7 @@
         "role": "创始人&CEO",
         "bio": "美国约翰霍普金斯大学数学专业，连续创业者。",
         "education": [
-          "Johns Hopkins University"
+          "约翰霍普金斯大学"
         ],
         "work_history": []
       },
@@ -899,7 +899,7 @@
         "role": "CEO",
         "bio": "加州理工学院经济学博士，曾供职于微软研究院任数据科学家，后加入Outreach公司，历任机器学习工程师、研发经理、研发总监。",
         "education": [
-          "Caltech"
+          "加州理工学院"
         ],
         "work_history": [
           "Microsoft",
@@ -912,7 +912,7 @@
         "bio": "资深全栈工程师。毕业于清华大学、斯坦福大学计算机系，曾供职于微软、亚马逊、Outreach。",
         "education": [
           "清华大学",
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Microsoft",
@@ -1034,7 +1034,7 @@
         "role": "CEO/联合创始人",
         "bio": "前Braskem的全球首席技术官。麻省理工学院MBA。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": [
           "Braskem"
@@ -1045,8 +1045,8 @@
         "role": "联合创始人和科学顾问",
         "bio": "麻省理工学院终身教授，是结合使用铝+高通量实验进行材料研究的先驱。",
         "education": [
-          "UC Berkeley",
-          "MIT"
+          "加州大学伯克利分校",
+          "麻省理工学院"
         ],
         "work_history": [
           "MIT"
@@ -1072,7 +1072,7 @@
         "role": "Founder Team",
         "bio": "团队目前由三名斯坦福大学的博士组成，对于生成型Al和图神经网络有深刻的理解和实践经验。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       }
@@ -1096,7 +1096,7 @@
         "role": "Founders",
         "bio": "核心团队10人：4位斯坦福博士，8位在硅谷大厂工作过，如苹果、Meta等。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Apple",
@@ -1221,7 +1221,7 @@
         "bio": "北京大学光华和艺术双学位，芝加哥大学MA，文科状元，腾讯行业分析。",
         "education": [
           "北京大学",
-          "University of Chicago"
+          "芝加哥大学"
         ],
         "work_history": [
           "腾讯"
@@ -1269,7 +1269,7 @@
         "role": "创始人",
         "bio": "加州大学洛杉矶机械本硕。曾就职于中国重汽，负责重卡电驱研发。15岁造涡轮喷气发动机，19岁开始做电动重卡。",
         "education": [
-          "UCLA"
+          "加州大学洛杉矶分校"
         ],
         "work_history": [
           "中国重汽"
@@ -1331,8 +1331,8 @@
         "bio": "中科大少年班本科，加州理工学院量子学和计算机科学博士，曾任芝加哥大学和IBM公司量子学博士后。",
         "education": [
           "中国科学技术大学",
-          "Caltech",
-          "University of Chicago"
+          "加州理工学院",
+          "芝加哥大学"
         ],
         "work_history": [
           "IBM"
@@ -1343,7 +1343,7 @@
         "role": "联合创始人",
         "bio": "芝加哥大学经济学专业，丰富的创投经历，在美多年深耕硬科技领域并积累独特的市场经验。",
         "education": [
-          "University of Chicago"
+          "芝加哥大学"
         ],
         "work_history": []
       }
@@ -1434,7 +1434,7 @@
         "bio": "毕业于复旦大学与哥伦比亚大学，曾任复旦大学学生会主席，中科院PhD在读。",
         "education": [
           "复旦大学",
-          "Columbia University",
+          "哥伦比亚大学",
           "中国科学院"
         ],
         "work_history": []
@@ -1518,7 +1518,7 @@
         "bio": "连续创业者。国家数字娱乐产业第一批本科生，中国传媒大学本科状元，卡耐基梅隆大学（CMU）数字娱乐技术研究生。近20年游戏、动画从业经验。",
         "education": [
           "中国传媒大学",
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": []
       }
@@ -1579,7 +1579,7 @@
         "role": "CEO",
         "bio": "香港科技大学全球商业和信息系统专业，并获得全额奖学金。有数字营销和数据方面丰富背景。",
         "education": [
-          "HKUST"
+          "香港科技大学"
         ],
         "work_history": []
       },
@@ -1588,7 +1588,7 @@
         "role": "COO",
         "bio": "香港科技大学运营管理专业。有流程管理的丰富背景。",
         "education": [
-          "HKUST"
+          "香港科技大学"
         ],
         "work_history": []
       }
@@ -1649,7 +1649,7 @@
         "bio": "北理工本科，斯坦福生物信息学硕士，ACM世界总决赛选手，谷歌七年软件工程师；回国后历任 Momenta 资深专家，NeuroXess 技术总监。",
         "education": [
           "北京理工大学",
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Google",
@@ -1663,7 +1663,7 @@
         "bio": "本科南开大学数学系，硕士芝加哥大学计算机，美国谷歌工作五年，曾负责谷歌医疗大数据相关开发，Momenta 数据闭环自动化专家。",
         "education": [
           "南开大学",
-          "University of Chicago"
+          "芝加哥大学"
         ],
         "work_history": [
           "Google",
@@ -1690,7 +1690,7 @@
         "role": "创始人&CEO",
         "bio": "美国伊利诺伊大学香槟分校 (UIUC)计算机科学系博士，清华大学计算机科学与技术系学士、硕士。曾在Google、Facebook Al研究院工作多年。",
         "education": [
-          "UIUC",
+          "伊利诺伊大学香槟分校",
           "清华大学"
         ],
         "work_history": [
@@ -1703,7 +1703,7 @@
         "role": "联合创始人",
         "bio": "MIT博士、硕士，清华大学计算机科学与技术系学士。",
         "education": [
-          "MIT",
+          "麻省理工学院",
           "清华大学"
         ],
         "work_history": []

@@ -45,7 +45,7 @@
         "bio": "拥有中国科学院的博士学位，并在耶鲁大学完成了生物统计学的博士后研究。她曾创立 CB Payments，成功领导公司在 2020 年成为中国银行美国分行的独家科技合作伙伴，达成 20 亿美元交易量。",
         "education": [
           "中国科学院",
-          "Yale"
+          "耶鲁大学"
         ],
         "work_history": [
           "CB Payments"
@@ -56,7 +56,7 @@
         "role": "CTO",
         "bio": "拥有超过十年的大数据计算、分布式系统和数据库设计领域的研究经验。曾在耶鲁大学等知名学术机构，以及微软和英特尔等科技巨头任职。",
         "education": [
-          "Yale",
+          "耶鲁大学",
           "清华大学"
         ],
         "work_history": [
@@ -71,7 +71,7 @@
         "education": [
           "Université Claude Bernard Lyon 1",
           "INSA Lyon",
-          "Yale"
+          "耶鲁大学"
         ],
         "work_history": [
           "Flagship Pioneering",
@@ -84,7 +84,7 @@
         "bio": "清华大学钱学森班本科，剑桥大学博士。主导了公司 CancerGPT 的研发并完成交付。",
         "education": [
           "清华大学",
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       }
@@ -157,7 +157,7 @@
         "role": "CEO",
         "bio": "英国帝国理工大学（QS 排名 2）博士三年级，研究方向为机器人与 3D 视觉。硕士毕业于英国帝国理工大学，本科毕业于南开大学。",
         "education": [
-          "Imperial College London",
+          "帝国理工学院",
           "南开大学"
         ],
         "work_history": []
@@ -167,7 +167,7 @@
         "role": "CTO",
         "bio": "英国帝国理工大学（QS 排名 2）博士四年级，研究方向为三维计算机视觉，SLAM 以及生成式 AI 大模型。",
         "education": [
-          "Imperial College London"
+          "帝国理工学院"
         ],
         "work_history": []
       }
@@ -217,7 +217,7 @@
         "role": "创始人/CEO",
         "bio": "毕业于美国佐治亚理工学院，师从机器人领域知名专家；科技领域连续创业者，超 7 年机器人开发经验。",
         "education": [
-          "Georgia Tech"
+          "佐治亚理工学院"
         ],
         "work_history": []
       },
@@ -261,7 +261,7 @@
         "bio": "国家级海外高层次人才，清华大学软件工程博士、博士后，曾任图灵人工智能研究院技术专家、英国牛津大学区块链研究中心及 Blockhouse 公司资深研究科学家。",
         "education": [
           "清华大学",
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": [
           "图灵人工智能研究院"
@@ -298,7 +298,7 @@
         "role": "创始人/CEO",
         "bio": "PhD 哥伦比亚大学，美国自然科学基金会人工智能研究所项目成员，主攻人工智能、机器人领域。自媒体博主：U 航 （全网 50 万粉丝）。",
         "education": [
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": []
       },
@@ -307,7 +307,7 @@
         "role": "联合创始人/材料总监",
         "bio": "美国宾夕法尼亚大学研究生，中国化学奥林匹克竞赛一等奖，专注仿生皮肤硅胶材料技术突破。",
         "education": [
-          "UPenn"
+          "宾夕法尼亚大学"
         ],
         "work_history": []
       }
@@ -350,7 +350,7 @@
         "role": "联合创始人/COO",
         "bio": "清华大学创客空间技术骨干，伦敦大学学院（UCL）硕士，知名 MR 体验设计师，获得过多项国内、国际大奖。",
         "education": [
-          "UCL"
+          "伦敦大学学院"
         ],
         "work_history": []
       }
@@ -532,7 +532,7 @@
         "role": "创始人/CEO",
         "bio": "美国伊利诺伊香槟大学 UIUC 本科 4 年 3 专业（计算机科学，化学，统计），并辅修商业；UIUC 计算机硕士全奖。研究领域为 AI for Science；前 Google，Goldman Sachs 软件算法工程师。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "Google",
@@ -544,7 +544,7 @@
         "role": "联创/CTO",
         "bio": "美国伊利诺伊大学香槟分校计算机工程大二肄业。五年 RPA 架构师，五年全栈 AI 落地解决方案工程师，ex-Nvidia Tegra SoC 工程师。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "NVIDIA"
@@ -634,7 +634,7 @@
         "role": "联合创始人",
         "bio": "英国皇家艺术学院设计硕士，Textiles soft system 方向，全球性顶级建筑设计公司 Foster+Partners 脑电波可穿戴装置项目负责人。",
         "education": [
-          "Royal College of Art"
+          "皇家艺术学院"
         ],
         "work_history": [
           "Foster+Partners"
@@ -697,7 +697,7 @@
         "role": "首席失眠官",
         "bio": "慕尼黑工业大学（简称慕工大）电子系博士博后，西电技术物理本硕连读。吉他手，正在自学成才的神经生物学家。",
         "education": [
-          "Technical University of Munich",
+          "慕尼黑工业大学",
           "西安电子科技大学"
         ],
         "work_history": []
@@ -707,7 +707,7 @@
         "role": "算法工程师",
         "bio": "慕工大电子计算机系博士，传感器融合和图像重建专家，擅长数学建模、算法设计与软件架构。",
         "education": [
-          "Technical University of Munich"
+          "慕尼黑工业大学"
         ],
         "work_history": []
       },
@@ -839,8 +839,8 @@
         "role": "创始人/CEO",
         "bio": "剑桥大学数学专业学士、系统生物学专业硕士。有AI制药公司的丰富工作经验。曾在哈佛大学医学院等处做脑科学研究。",
         "education": [
-          "Cambridge",
-          "Harvard"
+          "剑桥大学",
+          "哈佛大学"
         ],
         "work_history": []
       },
@@ -875,7 +875,7 @@
         "bio": "清华大学电机工程与应用电子技术系学士，苏黎世联邦理工学院电子信息硕士。前腾讯员工。",
         "education": [
           "清华大学",
-          "ETH Zurich"
+          "苏黎世联邦理工学院"
         ],
         "work_history": [
           "腾讯"
@@ -950,7 +950,7 @@
         "role": "联合创始人/COO",
         "bio": "美国西北大学硕士；具有扩张千万级市场份额的经验。",
         "education": [
-          "Northwestern University"
+          "西北大学"
         ],
         "work_history": []
       },
@@ -1100,7 +1100,7 @@
         "role": "CEO",
         "bio": "Dartmouth College 工程学士，AI 行业连续创业者；曾经在年销售额百亿的独角兽科技公司担任总经理助理，协助完成 CFO、CHO 的猎头工作和招聘。",
         "education": [
-          "Dartmouth College"
+          "达特茅斯学院"
         ],
         "work_history": []
       },
@@ -1118,7 +1118,7 @@
         "role": "CTO",
         "bio": "Dartmouth College 计算机硕士，Staff Engineer at Meta；全栈工程师，对于开发AI产品具有极大热情。",
         "education": [
-          "Dartmouth College"
+          "达特茅斯学院"
         ],
         "work_history": [
           "Meta"
@@ -1145,7 +1145,7 @@
         "role": "CEO",
         "bio": "加州大学伯克利分校辍学，连续创业者，大学创建了一个高精度地图的众包平台，实现从 0-1 的开发和落地。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       },
@@ -1154,7 +1154,7 @@
         "role": "CTO",
         "bio": "加州大学伯克利分校计算机和数学系毕业，高中期间获得美国大赛区机器人比赛亚军，本科深耕机器学习加速和软硬件协同设计，发表一篇 IEEE 论文。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": [
           "华为"
@@ -1309,7 +1309,7 @@
         "bio": "连续创业者。上海交大计算机本科毕业， Berkeley 硕士 dropout。",
         "education": [
           "上海交通大学",
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       }
@@ -1333,7 +1333,7 @@
         "role": "CEO",
         "bio": "牛津大学计算机博士，生成模型领域专家，曾在多家科技公司（包括 Meta、Toshiba Research 和英国独角兽 Tractable AI）工作，开发 AI 算法。",
         "education": [
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": [
           "Meta",
@@ -1346,7 +1346,7 @@
         "role": "首席科学家",
         "bio": "牛津大学计算机教授，计算机视觉、深度学习、机器人领域专家，发表超过 30 篇 AI、计算机、视觉顶级期刊论文。目前在牛津大学计算机系任教，是PIXL (Perceptual Intelligence and Extended Reality Lab) 的创始人。",
         "education": [
-          "Oxford"
+          "牛津大学"
         ],
         "work_history": [
           "Oxford",
@@ -1374,7 +1374,7 @@
         "role": "CEO",
         "bio": "加州大学伯克利分校计算机系辍学，高中创业项目利润超 200 万人民币，3 万粉丝博主。本科多段初创公司软件工程、产品、创业经验。奇绩 / 真格 VC 经验。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": [
           "奇绩创坛",
@@ -1386,7 +1386,7 @@
         "role": "CTO",
         "bio": "加州大学伯克利分校计算机+数学荣誉学位毕业。大二辍学在 Microsoft Research 独立开发了最新 Excel AI。本科期间曾在伯克利包括 Sky Lab 的三个实验室做研究，发表 ICML，以及在华为做软件工程。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": [
           "Microsoft Research",
@@ -1413,8 +1413,8 @@
         "role": "创始人兼 CEO",
         "bio": "计算机+教育学交叉背景。卡内基梅隆大学硕士，香港科技大学本科。在人工智能、人机交互和教育科技领域顶会发表过多篇论文。",
         "education": [
-          "CMU",
-          "HKUST"
+          "卡耐基梅隆大学",
+          "香港科技大学"
         ],
         "work_history": []
       }
@@ -1439,7 +1439,7 @@
         "bio": "迈阿密大学博士，密西根大学博士后。曾任 SilicoSpine 联合创始人，南京航空航天大学副研究员，拥有 10 年 AI 与仿真经验。",
         "education": [
           "University of Miami",
-          "University of Michigan",
+          "密歇根大学",
           "南京航空航天大学"
         ],
         "work_history": [
@@ -1511,7 +1511,7 @@
         "role": "联合创始人/CEO",
         "bio": "斯坦福大学机械工程机器人方向硕士，前 Pony.ai 算法工程师。连续创业者。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Pony.ai"
@@ -1597,7 +1597,7 @@
         "role": "CEO",
         "bio": "港科大计算机与金融学士，清华网络空间研究院研究者，自幼对网络安全与创业充满热情，曾为上市公司和机构挖掘漏洞。精通五门语言，荣获香港创新科技奖学金。",
         "education": [
-          "HKUST",
+          "香港科技大学",
           "清华大学"
         ],
         "work_history": []
@@ -1665,7 +1665,7 @@
         "role": "创始人/CEO",
         "bio": "哥伦比亚大学教育学 & 经济学硕士，8 年教育+AI 行业经验，牵头多款产品从 0 到 1，过往背景兼具教育底层理论、商业经营策略、前沿技术应用的综合认知，大一开始创业，曾就职于好未来总裁办、字节教育产品战略、快手技术战略。",
         "education": [
-          "Columbia University"
+          "哥伦比亚大学"
         ],
         "work_history": [
           "好未来",
@@ -1809,7 +1809,7 @@
         "role": "创始人/CEO",
         "bio": "毕业于加拿大阿尔伯塔大学，机械工程硕士。加拿大工程器械自动驾驶公司 Robolution 公司联合创始人 / CEO；后就职于大疆，作为核心感知算法负责人参与了多个预研项目的研发和落地工作。",
         "education": [
-          "University of Alberta"
+          "阿尔伯塔大学"
         ],
         "work_history": [
           "Robolution",
@@ -1821,7 +1821,7 @@
         "role": "创始人/CTO",
         "bio": "毕业于加拿大阿尔伯塔大学，电子与电气工程硕士，机器人控制领域专家。加拿大首支 RoboMaster 机甲大师比赛团队创始人。前 Robolution 公司联合创始人 / CTO。大疆农业无人机航线规划负责人，拥有多项国际专利。",
         "education": [
-          "University of Alberta"
+          "阿尔伯塔大学"
         ],
         "work_history": [
           "Robolution",
@@ -1991,7 +1991,7 @@
         "role": "内容合伙人",
         "bio": "香港浸会大学硕士，曾任职字节跳动、完美世界游戏策划，有 3 部历史方向著作和译作。",
         "education": [
-          "Hong Kong Baptist University"
+          "香港浸会大学"
         ],
         "work_history": [
           "字节跳动",
@@ -2143,7 +2143,7 @@
         "role": "创始人/CEO",
         "bio": "曾为超 1000 位材料科学家定制测试和研究方案。超十年分析测试从业经验。国家级人才，瑞士洛桑联邦理工材料学+机器学习博士，连续创业者，前科研分析测试仪器应用科学家和销售工程师，前爱立信商业咨询顾问，前雷诺汽车检测和认证专家。",
         "education": [
-          "EPFL"
+          "洛桑联邦理工学院"
         ],
         "work_history": [
           "Ericsson",
@@ -2155,7 +2155,7 @@
         "role": "联合创始人/CTO",
         "bio": "德国亚琛工业大学材料博士辍学创业，材料+数值模拟+软件开发+AI 复合型老兵。",
         "education": [
-          "RWTH Aachen University"
+          "亚琛工业大学"
         ],
         "work_history": []
       },
@@ -2224,7 +2224,7 @@
         "bio": "清华大学工学学士，杜克大学工程管理硕士。先后任职于国家开发投资公司、中信建投资本、集富亚洲投资公司；8 年科技行业风险投资经验。",
         "education": [
           "清华大学",
-          "Duke University"
+          "杜克大学"
         ],
         "work_history": [
           "国家开发投资公司",

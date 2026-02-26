@@ -104,7 +104,7 @@
         "role": "创始人",
         "bio": "加州大学伯克利分校的分子环境生物学和计算机生物学本科，约翰霍普金斯大学计算机硕士，前喜马拉雅海外产品负责人。",
         "education": [
-          "UC Berkeley",
+          "加州大学伯克利分校",
           "约翰霍普金斯大学"
         ],
         "work_history": [
@@ -138,7 +138,7 @@
         "role": "创始人",
         "bio": "Virginia Tech 生物工程和机器学习 Phd，前小鹏自动驾驶高级工程师，Waymo 自动驾驶自动驾驶高级工程师。",
         "education": [
-          "Virginia Tech"
+          "弗吉尼亚理工"
         ],
         "work_history": [
           "Waymo",
@@ -164,7 +164,7 @@
         "role": "创始人",
         "bio": "联合创始人 / CEO，UIUC 计算机科学博士，曾获 ACM SIGSOFT 杰出论文奖。曾负责 Uber 中国区反作弊，帮助 Uber 节省 1 亿美元。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "Uber"
@@ -310,7 +310,7 @@
         "bio": "联合创始人 / 首席科学家，浙江大学海宁国际校区研究员，博士生导师，浙江省万人青年拔尖基金获得者。UIUC 电子与计算机工程专业博士。IBM发明专利奖。",
         "education": [
           "浙江大学",
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "IBM"
@@ -492,7 +492,7 @@
         "bio": "CTO，剑桥大学机器人学博士，北京大学本科，在复杂系统领域获得多篇机器人顶会 Oral，获得剑桥大学华为奖学金。",
         "education": [
           "北京大学",
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "华为"
@@ -686,7 +686,7 @@
         "role": "创始人",
         "bio": "多年从事实体创业，具备丰富的行业资源；全栈开发者，产品设计师，伊利诺伊大学香槟分校航空航天专业辍学生。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": []
       }
@@ -988,7 +988,7 @@
         "role": "创始人",
         "bio": "市场负责人，95 后，UCSD 生物人类学与经济学双学位，前细分领域头部 UP 主，曾在知名 VC 与被投负责市场与增长策略。",
         "education": [
-          "UCSD"
+          "加州大学圣地亚哥分校"
         ],
         "work_history": []
       }
@@ -1014,7 +1014,7 @@
         "role": "创始人",
         "bio": "全职创业前就读于哈佛大学，并在哈佛费正清中心担任研究助理。本科毕业于全美前三的斯沃斯莫尔文理学院。",
         "education": [
-          "Harvard"
+          "哈佛大学"
         ],
         "work_history": []
       },
@@ -1107,7 +1107,7 @@
         "role": "创始人",
         "bio": "创始人 / CEO，来自加州伯克利大学和威斯康星大学麦迪逊分校，拥有三次全栈工程师经验。二次创业。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": []
       }
@@ -1195,7 +1195,7 @@
         "role": "创始人",
         "bio": "创始人 / CEO，MIT CSAIL 博士，研究曾获 Nature Medicine “2022 年推动医学发展的十大全球突破和关键进展” 。sky 音乐教育联合创始人。",
         "education": [
-          "MIT"
+          "麻省理工学院"
         ],
         "work_history": []
       },
@@ -1204,7 +1204,7 @@
         "role": "创始人",
         "bio": "联合创始人，工程 VP， USC ECE 系工学博士，入学即一次性获得获得未来 4 年的 USC 的博士生最高奖学金 “Annenberg Fellowship ” 。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": []
       },
@@ -1260,7 +1260,7 @@
         "role": "创始人",
         "bio": "14 岁考入西交大少年班本科，卡耐基梅隆大学计算机硕士，曾任职于硅谷字节跳动 AI 算法研发岗位。",
         "education": [
-          "CMU"
+          "卡耐基梅隆大学"
         ],
         "work_history": [
           "字节跳动"
@@ -1329,7 +1329,7 @@
         "role": "创始人",
         "bio": "剑桥大学博士后，主持一项英国 EPSRC 基金，作为核心主研参与多个中英国家级科研项目，发表多篇 IEEE Trans 论文与多项专利。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       },
@@ -1338,7 +1338,7 @@
         "role": "创始人",
         "bio": "剑桥大学计算机系博士，曾在多家大型 IT 公司负责部署机器学习模型、开发商用系统及工程项目。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       },
@@ -1380,7 +1380,7 @@
         "role": "创始人",
         "bio": "连续创业者，斯坦福大学博士，非盈利组织斯坦福华人创业者协会前主席。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       },
@@ -1389,7 +1389,7 @@
         "role": "创始人",
         "bio": "连续创业者，斯坦福大学硕士，前谷歌 AI 工程师，非盈利组织斯坦福华人创业者协会前主席。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": [
           "Google"
@@ -1495,7 +1495,7 @@
         "role": "创始人",
         "bio": "创始人 / CEO，伊利诺伊大学香槟分校 AI 方向在读硕士，詹姆斯学者。于 Google 实习参与搜索引擎的优化与自然语言处理于网页分类的应用的研究。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": [
           "Google"
@@ -1506,7 +1506,7 @@
         "role": "创始人",
         "bio": "联合创始人 / CFO，UIUC 会计学学士，入选 Hoeft Technology and Management Class XXVI ，詹姆斯学者，最高荣誉毕业生。",
         "education": [
-          "UIUC"
+          "伊利诺伊大学香槟分校"
         ],
         "work_history": []
       },
@@ -1540,7 +1540,7 @@
         "bio": "CEO，芬兰阿尔托大学 Ph.D. Researcher AI 可控 3D 生成方向；意大利米兰理工建筑学硕士；芬兰 SAFA 注册建筑师；西安建筑大学 AI 空间设计讲师。",
         "education": [
           "芬兰阿尔托大学",
-          "意大利米兰理工"
+          "意大利米兰理工学院"
         ],
         "work_history": []
       },
@@ -1625,7 +1625,7 @@
         "role": "创始人",
         "bio": "创始人，前和平精英技术策划。国内首款 GA （斯坦福小镇like）游戏《伊甸岛》制作人。国内首批虚幻 4 引擎开发者。曾多次创业且获得大厂融资。",
         "education": [
-          "Stanford"
+          "斯坦福大学"
         ],
         "work_history": []
       },
@@ -1643,7 +1643,7 @@
         "role": "创始人",
         "bio": "算法负责人，南加大博士，研究方向为 CV 及 NLP。曾担任 MetaAI-Facebook 广告推荐系统算法工程师、Siri 算法工程师。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": [
           "Meta"
@@ -1711,7 +1711,7 @@
         "role": "创始人",
         "bio": "剑桥大学机器学习方向高级研究员，达尔文学院院士。毕业于剑桥大学。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       },
@@ -1720,7 +1720,7 @@
         "role": "创始人",
         "bio": "谷歌 DeepMind VP Research，前 Google Brain 主管，剑桥大学教授，前 Uber 首席科学家兼人工智能副总裁，Geometric Intelligence 联合创始人（被 Uber 收购）。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "Google",
@@ -1749,7 +1749,7 @@
         "role": "创始人",
         "bio": "CEO，UC Berkeley CS Dropout，17 岁凭物理竞赛金牌进入腾讯研发；曾在 OneFlow FlowGPT 等公司研究大模型相关工作。",
         "education": [
-          "UC Berkeley"
+          "加州大学伯克利分校"
         ],
         "work_history": [
           "腾讯"
@@ -2205,7 +2205,7 @@
         "role": "创始人",
         "bio": "技术合伙人，剑桥大学博士。主要研究为多模态 AI。曾就职于英国 National Health Service。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": [
           "National Health Service"
@@ -2236,7 +2236,7 @@
         "role": "创始人",
         "bio": "首席科学家，零知识证明、加密算法（抗量子）及 zkEDA 课题专家，哈佛大学计算机专业博士，曾在多所知名高校任教。",
         "education": [
-          "Harvard"
+          "哈佛大学"
         ],
         "work_history": []
       },
@@ -2266,8 +2266,8 @@
         "role": "创始人",
         "bio": "研究团队来自 MIT、剑桥等，拥有 20+ 合作研究员。商业化团队曾实现过数千万用户产品与数千万人民币年营收。",
         "education": [
-          "MIT",
-          "Cambridge"
+          "麻省理工学院",
+          "剑桥大学"
         ],
         "work_history": []
       }
@@ -2454,7 +2454,7 @@
         "role": "创始人",
         "bio": "创始人 / CEO，毕业于 USC。全世界能搭建万卡级算力平台的十人之一。曾在谷歌搭建的万卡级算力平台，正在被 Google Research、 Anthropic、DeepMind 和 OPEN AI 所使用。",
         "education": [
-          "USC"
+          "南加州大学"
         ],
         "work_history": [
           "Google"
@@ -2488,7 +2488,7 @@
         "role": "创始人",
         "bio": "CEO，剑桥大学商学院 MStE ， UAL 创新计算机学院创新计算机硕士，UAL 中央圣马丁 工业设计学士。连续创业者。",
         "education": [
-          "Cambridge"
+          "剑桥大学"
         ],
         "work_history": []
       },
