@@ -22,6 +22,7 @@ import {
   Plus,
   X,
   Download,
+  GripVertical,
 } from "lucide-react";
 
 interface TablePageProps {
@@ -37,6 +38,9 @@ type SortDir = "asc" | "desc";
 const LS_COLS_KEY = "mp-table-custom-cols";
 const LS_DATA_KEY = "mp-table-custom-data";
 const LS_WIDTHS_KEY = "mp-table-col-widths";
+const LS_ORDER_KEY = "mp-table-column-order";
+
+const BUILTIN_COL_KEYS = ["batch_id", "name", "one_liner", "description", "tags", "founders"] as const;
 
 /** 多选列存储时多个值用此分隔 */
 const MULTI_SEP = "、";
@@ -160,12 +164,23 @@ export default function TablePage({
   const colWidthsRef = useRef(colWidths);
   colWidthsRef.current = colWidths;
 
+  // --- Column order (for drag-to-reorder) ---
+  const [columnOrder, setColumnOrder] = useState<string[]>(() => [...BUILTIN_COL_KEYS]);
+
   useEffect(() => {
     const raw = loadJson<unknown>(LS_COLS_KEY, []);
-    setCustomCols(normalizeCustomCols(raw));
+    const cols = normalizeCustomCols(raw);
+    setCustomCols(cols);
     customDataRef.current = loadJson<Record<string, Record<string, string>>>(LS_DATA_KEY, {});
     setCustomDataVersion((v) => v + 1);
     setColWidths({ ...DEFAULT_WIDTHS, ...loadJson<Record<string, number>>(LS_WIDTHS_KEY, {}) });
+    const savedOrder = loadJson<string[]>(LS_ORDER_KEY, []);
+    const customKeys = cols.map((c) => `custom:${c.name}`);
+    const validOrder = savedOrder.filter(
+      (k) => BUILTIN_COL_KEYS.includes(k as typeof BUILTIN_COL_KEYS[number]) || customKeys.includes(k)
+    );
+    const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
+    setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
     setIsHydrated(true);
   }, []);
 
@@ -213,6 +228,11 @@ export default function TablePage({
       ...(options && options.length > 0 ? { options } : {}),
     };
     persistCols([...customCols, newCol]);
+    setColumnOrder((prev) => {
+      const next = [...prev, `custom:${trimmed}`];
+      localStorage.setItem(LS_ORDER_KEY, JSON.stringify(next));
+      return next;
+    });
   }, [customCols, persistCols, lang]);
 
   const removeColumn = useCallback(
@@ -234,6 +254,11 @@ export default function TablePage({
       customDataRef.current = next;
       localStorage.setItem(LS_DATA_KEY, JSON.stringify(next));
       setCustomDataVersion((v) => v + 1);
+      setColumnOrder((prev) => {
+        const next = prev.filter((k) => k !== `custom:${colName}`);
+        localStorage.setItem(LS_ORDER_KEY, JSON.stringify(next));
+        return next;
+      });
     },
     [customCols, persistCols, lang]
   );
@@ -410,14 +435,41 @@ export default function TablePage({
     [colWidths]
   );
 
-  const builtinCols = ["batch_id", "name", "one_liner", "description", "tags", "founders"] as const;
+  const displayOrder = useMemo(() => {
+    const valid = columnOrder.filter(
+      (k) =>
+        BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) ||
+        customCols.some((c) => `custom:${c.name}` === k)
+    );
+    const customKeys = customCols.map((c) => `custom:${c.name}`);
+    const missing = customKeys.filter((k) => !valid.includes(k));
+    return [...valid, ...missing];
+  }, [columnOrder, customCols]);
 
   const totalWidth = useMemo(() => {
     let w = 0;
-    for (const c of builtinCols) w += getW(c);
-    if (isHydrated) for (const c of customCols) w += getW(`custom:${c.name}`);
+    for (const k of displayOrder) w += getW(k);
     return w;
-  }, [builtinCols, customCols, getW, isHydrated]);
+  }, [displayOrder, getW]);
+
+  const persistOrder = useCallback((order: string[]) => {
+    setColumnOrder(order);
+    localStorage.setItem(LS_ORDER_KEY, JSON.stringify(order));
+  }, []);
+
+  const reorderColumn = useCallback(
+    (dragKey: string, dropKey: string) => {
+      if (dragKey === dropKey) return;
+      const list = [...displayOrder];
+      const fromIdx = list.indexOf(dragKey);
+      const toIdx = list.indexOf(dropKey);
+      if (fromIdx === -1 || toIdx === -1) return;
+      const [removed] = list.splice(fromIdx, 1);
+      list.splice(toIdx, 0, removed);
+      persistOrder(list);
+    },
+    [displayOrder, persistOrder]
+  );
 
   const ResizeHandle = ({ colKey }: { colKey: string }) => (
     <div
@@ -508,107 +560,117 @@ export default function TablePage({
               style={{ tableLayout: "fixed", width: `${totalWidth}px`, minWidth: `${totalWidth}px` }}
             >
               <colgroup>
-                {builtinCols.map((c) => (
-                  <col key={c} style={{ width: `${getW(c)}px`, minWidth: `${getW(c)}px` }} />
-                ))}
-                {isHydrated && customCols.map((c) => (
-                  <col key={`custom:${c.name}`} style={{ width: `${getW(`custom:${c.name}`)}px`, minWidth: `${getW(`custom:${c.name}`)}px` }} />
+                {displayOrder.map((k) => (
+                  <col key={k} style={{ width: `${getW(k)}px`, minWidth: `${getW(k)}px` }} />
                 ))}
               </colgroup>
               <thead>
                 <tr className="bg-muted/50 border-b border-border/60">
-                  <th className="text-left font-semibold p-3 cursor-pointer hover:bg-muted/80 transition-colors relative select-none w-0 align-top" onClick={(e) => { if ((e.target as HTMLElement).closest("[data-resize-handle]")) return; toggleSort("batch_id"); }}>
-                    <div className="min-w-0 overflow-hidden pr-4">{t.columns.batch} <SortIcon column="batch_id" /></div>
-                    <ResizeHandle colKey="batch_id" />
-                  </th>
-                  <th className="text-left font-semibold p-3 cursor-pointer hover:bg-muted/80 transition-colors relative select-none w-0 align-top" onClick={(e) => { if ((e.target as HTMLElement).closest("[data-resize-handle]")) return; toggleSort("name"); }}>
-                    <div className="min-w-0 overflow-hidden break-words pr-4">{t.columns.name} <SortIcon column="name" /></div>
-                    <ResizeHandle colKey="name" />
-                  </th>
-                  <th className="text-left font-semibold p-3 relative select-none w-0 align-top">
-                    <div className="min-w-0 overflow-hidden break-words pr-4">{t.columns.one_liner}</div>
-                    <ResizeHandle colKey="one_liner" />
-                  </th>
-                  <th className="text-left font-semibold p-3 relative select-none w-0 align-top">
-                    <div className="min-w-0 overflow-hidden break-words pr-4">{t.columns.description}</div>
-                    <ResizeHandle colKey="description" />
-                  </th>
-                  <th className="text-left font-semibold p-3 relative select-none w-0 align-top">
-                    <div className="min-w-0 overflow-hidden break-words pr-4">{t.columns.tags}</div>
-                    <ResizeHandle colKey="tags" />
-                  </th>
-                  <th className="text-left font-semibold p-3 cursor-pointer hover:bg-muted/80 transition-colors relative select-none w-0 align-top" onClick={(e) => { if ((e.target as HTMLElement).closest("[data-resize-handle]")) return; toggleSort("founders"); }}>
-                    <div className="min-w-0 overflow-hidden break-words pr-4">{t.columns.founders_full} <SortIcon column="founders" /></div>
-                    <ResizeHandle colKey="founders" />
-                  </th>
-                  {isHydrated && customCols.map((col) => (
-                    <th key={col.name} className="text-left font-semibold p-3 group relative select-none w-0 align-top">
-                      <div className="min-w-0 overflow-hidden break-words pr-4">
-                        <span className="inline-flex items-center gap-1.5 flex-wrap">
-                          {col.name}
-                          {col.type === "multiselect" && (
-                            <span className="text-xs text-muted-foreground font-normal">
-                              {lang === "zh" ? "(多选)" : "(multi)"}
-                            </span>
-                          )}
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); removeColumn(col.name); }}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive shrink-0"
-                            title={lang === "zh" ? "删除此列" : "Delete column"}
+                  {displayOrder.map((colKey) => {
+                    const isCustom = colKey.startsWith("custom:");
+                    const customCol = isCustom ? customCols.find((c) => `custom:${c.name}` === colKey) : null;
+                    const sortKey = !isCustom && (colKey === "batch_id" || colKey === "name" || colKey === "one_liner" || colKey === "tags" || colKey === "founders") ? colKey as SortKey : null;
+                    const headerLabel =
+                      colKey === "batch_id" ? t.columns.batch
+                      : colKey === "name" ? t.columns.name
+                      : colKey === "one_liner" ? t.columns.one_liner
+                      : colKey === "description" ? t.columns.description
+                      : colKey === "tags" ? t.columns.tags
+                      : colKey === "founders" ? t.columns.founders_full
+                      : customCol?.name ?? colKey;
+                    return (
+                      <th
+                        key={colKey}
+                        className="text-left font-semibold p-3 relative select-none w-0 align-top group"
+                        onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add("bg-muted/80"); }}
+                        onDragLeave={(e) => { e.currentTarget.classList.remove("bg-muted/80"); }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          e.currentTarget.classList.remove("bg-muted/80");
+                          const dragKey = e.dataTransfer.getData("text/plain");
+                          if (dragKey) reorderColumn(dragKey, colKey);
+                        }}
+                      >
+                        <div className="flex items-center gap-1 min-w-0">
+                          <span
+                            draggable
+                            onDragStart={(e) => {
+                              e.dataTransfer.setData("text/plain", colKey);
+                              e.dataTransfer.effectAllowed = "move";
+                            }}
+                            className="cursor-grab active:cursor-grabbing touch-none p-0.5 -ml-0.5 rounded text-muted-foreground/60 hover:text-foreground [@media(hover:hover)]:hover:bg-muted/80"
+                            title={lang === "zh" ? "拖拽调整列顺序" : "Drag to reorder column"}
                           >
-                            <X className="h-3.5 w-3.5" />
-                          </button>
-                        </span>
-                      </div>
-                      <ResizeHandle colKey={`custom:${col.name}`} />
-                    </th>
-                  ))}
+                            <GripVertical className="h-4 w-4" />
+                          </span>
+                          <div
+                            className={sortKey ? "cursor-pointer hover:bg-muted/80 transition-colors flex-1 min-w-0 pr-4" : "flex-1 min-w-0 pr-4"}
+                            onClick={sortKey ? (e) => { if ((e.target as HTMLElement).closest("[data-resize-handle]") || (e.target as HTMLElement).closest("[draggable]")) return; toggleSort(sortKey); } : undefined}
+                          >
+                            <div className="min-w-0 overflow-hidden break-words">
+                              {headerLabel}
+                              {sortKey && <SortIcon column={sortKey} />}
+                              {customCol && (
+                                <>
+                                  {customCol.type === "multiselect" && (
+                                    <span className="text-xs text-muted-foreground font-normal ml-0.5">{lang === "zh" ? "(多选)" : "(multi)"}</span>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={(e) => { e.stopPropagation(); removeColumn(customCol.name); }}
+                                    className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive shrink-0 ml-1"
+                                    title={lang === "zh" ? "删除此列" : "Delete column"}
+                                  >
+                                    <X className="h-3.5 w-3.5 inline" />
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        <ResizeHandle colKey={colKey} />
+                      </th>
+                    );
+                  })}
                 </tr>
               </thead>
               <tbody>
                 {filteredAndSorted.map((p) => (
                   <tr key={p.id} className="border-b border-border/40 hover:bg-muted/30 transition-colors align-top">
-                    <td className="p-3 font-mono text-muted-foreground align-top w-0">
-                      <div className="min-w-0 overflow-hidden">{p.batch_id}</div>
-                    </td>
-                    <td className="p-3 font-medium align-top w-0">
-                      <div className="min-w-0 overflow-hidden break-words">{p.name}</div>
-                    </td>
-                    <td className="p-3 text-muted-foreground align-top w-0">
-                      <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">{p.one_liner || "—"}</div>
-                    </td>
-                    <td className="p-3 text-muted-foreground align-top w-0">
-                      <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">{p.description || "—"}</div>
-                    </td>
-                    <td className="p-3 align-top w-0">
-                      <div className="min-w-0 overflow-hidden break-words">
-                        <TagsCell project={p} />
-                      </div>
-                    </td>
-                    <td className="p-3 text-muted-foreground align-top w-0">
-                      <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">
-                        <FoundersCell founders={p.founders} />
-                      </div>
-                    </td>
-                    {isHydrated && customCols.map((col) =>
-                      col.type === "multiselect" ? (
-                        <MultiSelectCell
-                          key={col.name}
-                          value={getCustomCell(p.id, col.name)}
-                          options={col.options ?? []}
-                          onChange={(v) => updateCell(p.id, col.name, v)}
-                          placeholder={lang === "zh" ? "点击选择…" : "Click to select…"}
-                        />
-                      ) : (
-                        <EditableCell
-                          key={col.name}
-                          value={getCustomCell(p.id, col.name)}
-                          onChange={(v) => updateCell(p.id, col.name, v)}
-                          placeholder={lang === "zh" ? "点击编辑…" : "Click to edit…"}
-                        />
-                      )
-                    )}
+                    {displayOrder.map((colKey) => {
+                      const isCustom = colKey.startsWith("custom:");
+                      const customCol = isCustom ? customCols.find((c) => `custom:${c.name}` === colKey) : null;
+                      if (isCustom && customCol) {
+                        return customCol.type === "multiselect" ? (
+                          <MultiSelectCell
+                            key={colKey}
+                            value={getCustomCell(p.id, customCol.name)}
+                            options={customCol.options ?? []}
+                            onChange={(v) => updateCell(p.id, customCol.name, v)}
+                            placeholder={lang === "zh" ? "点击选择…" : "Click to select…"}
+                          />
+                        ) : (
+                          <EditableCell
+                            key={colKey}
+                            value={getCustomCell(p.id, customCol.name)}
+                            onChange={(v) => updateCell(p.id, customCol.name, v)}
+                            placeholder={lang === "zh" ? "点击编辑…" : "Click to edit…"}
+                          />
+                        );
+                      }
+                      return (
+                        <td key={colKey} className="p-3 align-top w-0">
+                          <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">
+                            {colKey === "batch_id" && <span className="font-mono text-muted-foreground">{p.batch_id}</span>}
+                            {colKey === "name" && <span className="font-medium">{p.name}</span>}
+                            {colKey === "one_liner" && <span className="text-muted-foreground">{p.one_liner || "—"}</span>}
+                            {colKey === "description" && <span className="text-muted-foreground">{p.description || "—"}</span>}
+                            {colKey === "tags" && <TagsCell project={p} />}
+                            {colKey === "founders" && <FoundersCell founders={p.founders} />}
+                          </div>
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
