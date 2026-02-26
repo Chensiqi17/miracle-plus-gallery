@@ -93,18 +93,22 @@
     "name": "2023 秋季创业营",
     "year": 2023,
     "season": "Fall",
-    "date": "2023-11",
+    "date": "2023-11-24",
     "location": "北京·中关村",
     "stats": {
-      "project_count": 0,
+      "project_count": 67,
       "acceptance_rate": "-",
-      "phd_ratio": "-",
-      "researcher_founder_ratio": "-",
-      "overseas_experience": "-"
+      "phd_ratio": "65.6% 硕士及以上",
+      "overseas_experience": "51.9%",
+      "founder_age": "平均 28.8 岁"
     },
-    "highlights": [],
-    "description": "暂无数据",
-    "disabled": true
+    "highlights": [
+      "大模型 (51家)",
+      "Agent (34家)",
+      "人工智能",
+      "机器人"
+    ],
+    "description": "2023 年秋季路演日共有 67 家公司参与路演，其中 51 家为大模型主题公司，34 家为 Agent 相关项目，创始人平均年龄 28.8 岁，65.6% 拥有硕士及以上学位，51.9% 具有海外背景。"
   },
   {
     "id": "2023S",

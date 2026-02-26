@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { Github } from "lucide-react"
 import { MobileMenu } from "@/components/mobile-menu"
 import { TouchLink } from "@/components/ui/touch-link"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -26,7 +25,8 @@ export function Navbar({ lang = 'zh', dict }: NavbarProps) {
     menu: {
       explore: "探索库",
       batches: "历届项目",
-      insights: "数据洞察"
+      insights: "数据洞察",
+      table: "数据表格"
     }
   }
 
@@ -79,18 +79,18 @@ export function Navbar({ lang = 'zh', dict }: NavbarProps) {
             >
               {t.menu.insights}
             </Link>
+            <Link
+              href={`${prefix}/table`}
+              className={cn(
+                "transition-colors touch-manipulation active:opacity-80 [@media(hover:hover)]:hover:text-foreground/80 [@media(hover:hover)]:hover:text-brand",
+                isActive('/table') ? "text-foreground font-semibold" : "text-foreground/60"
+              )}
+            >
+              {t.menu.table}
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Link
-            href="https://github.com/Nimbus318/miracle-plus-gallery"
-            target="_blank"
-            rel="noreferrer"
-            className="p-2 text-foreground/60 [@media(hover:hover)]:hover:text-brand transition-colors active:scale-95 touch-manipulation"
-          >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Link>
           <LanguageToggle lang={lang} />
           <ModeToggle />
           <MobileMenu lang={lang} dict={dict} />

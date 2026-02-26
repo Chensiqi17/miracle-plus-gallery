@@ -40,6 +40,36 @@
     ```
     访问 http://localhost:3000
 
+## 发布到线上
+
+本项目使用 Next.js 静态导出（`output: 'export'`），构建产物在 `out` 目录，可部署到任意静态托管。
+
+### 方式一：Vercel（推荐）
+
+1. 将仓库推送到 GitHub（若尚未推送）。
+2. 打开 [vercel.com](https://vercel.com)，用 GitHub 登录。
+3. 点击 **Add New → Project**，选择 `miracle-plus-gallery` 仓库。
+4. **Framework Preset** 选 Next.js，**Build Command** 保持 `next build`，**Output Directory** 填 `out`（若 Vercel 未自动识别静态导出）。
+5. 点击 **Deploy**，等待构建完成即可获得一个 `xxx.vercel.app` 的线上地址。
+
+### 方式二：Netlify
+
+1. 打开 [netlify.com](https://www.netlify.com)，用 GitHub 登录。
+2. **Add new site → Import an existing project**，选择该仓库。
+3. Build command 填：`npm run build` 或 `pnpm build`  
+   Publish directory 填：`out`
+4. 点击 **Deploy**，完成后会得到 `xxx.netlify.app` 的地址。
+
+### 方式三：GitHub Pages
+
+1. 在项目根目录执行：
+   ```bash
+   npm run build
+   ```
+2. 将 `out` 目录内容推送到仓库的 `gh-pages` 分支，或使用 [GitHub Actions](https://github.com/peaceiris/actions-gh-pages) 在每次 push 后自动构建并发布。
+3. 在仓库 **Settings → Pages** 里将 Source 设为 `gh-pages` 分支的根目录。
+4. 若项目不在根路径（如 `username.github.io/repo-name`），需在 `next.config.ts` 中设置 `assetPrefix` 和 `basePath` 为 `'/repo-name/'` 后重新构建。
+
 ## License
 
 MIT © Nimbus318

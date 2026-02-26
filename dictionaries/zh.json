@@ -6,7 +6,8 @@
     "menu": {
       "explore": "探索库",
       "batches": "历届项目",
-      "insights": "数据洞察"
+      "insights": "数据洞察",
+      "table": "数据表格"
     },
     "footer": {
       "copyright": "© 2025 MiraclePlus Gallery. Unofficial Fan Project.",
@@ -86,6 +87,25 @@
     "clear_filters": "清除所有筛选",
     "more": "更多",
     "background_hidden": "背景未公开"
+  },
+  "table": {
+    "title": "数据表格",
+    "subtitle": "按批次、标签筛选，点击表头排序；表格展示全量原始信息",
+    "filter_batch": "批次",
+    "filter_tag": "标签",
+    "filter_all": "全部",
+    "sort_asc": "升序",
+    "sort_desc": "降序",
+    "reset": "重置筛选",
+    "count": "共 {count} 条",
+    "columns": {
+      "batch": "批次",
+      "name": "项目名称",
+      "one_liner": "一句话介绍",
+      "description": "项目简介",
+      "tags": "标签",
+      "founders_full": "团队介绍"
+    }
   },
   "insights": {
     "title": "数据洞察",

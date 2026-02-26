@@ -6,7 +6,8 @@
     "menu": {
       "explore": "Explore",
       "batches": "Batches",
-      "insights": "Insights"
+      "insights": "Insights",
+      "table": "Table"
     },
     "footer": {
       "copyright": "© 2025 MiraclePlus Gallery. Unofficial Fan Project.",
@@ -86,6 +87,25 @@
     "clear_filters": "Clear All Filters",
     "more": "More",
     "background_hidden": "Background Undisclosed"
+  },
+  "table": {
+    "title": "Data Table",
+    "subtitle": "Filter by batch or tag, click header to sort; full raw data in table",
+    "filter_batch": "Batch",
+    "filter_tag": "Tag",
+    "filter_all": "All",
+    "sort_asc": "Asc",
+    "sort_desc": "Desc",
+    "reset": "Reset",
+    "count": "{count} rows",
+    "columns": {
+      "batch": "Batch",
+      "name": "Project",
+      "one_liner": "One Liner",
+      "description": "Description",
+      "tags": "Tags",
+      "founders_full": "Team"
+    }
   },
   "insights": {
     "title": "Data Insights",

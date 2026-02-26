@@ -21,7 +21,8 @@ export function MobileMenu({ lang = 'zh', dict }: MobileMenuProps) {
     menu: {
       explore: "探索库",
       batches: "历届项目",
-      insights: "数据洞察"
+      insights: "数据洞察",
+      table: "数据表格"
     }
   }
 
@@ -63,6 +64,13 @@ export function MobileMenu({ lang = 'zh', dict }: MobileMenuProps) {
             className="block px-2 py-1 text-lg font-medium transition-colors hover:text-brand"
           >
             {t.menu.insights}
+          </Link>
+          <Link
+            href={`${prefix}/table`}
+            onClick={() => setOpen(false)}
+            className="block px-2 py-1 text-lg font-medium transition-colors hover:text-brand"
+          >
+            {t.menu.table}
           </Link>
         </div>
       </SheetContent>
