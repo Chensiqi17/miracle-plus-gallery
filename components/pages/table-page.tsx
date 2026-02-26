@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback, useRef, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
-import { Project, Batch } from "@/lib/types";
+import { Project, Batch, TableEdits } from "@/lib/types";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,11 +23,14 @@ import {
   X,
   Download,
   GripVertical,
+  Save,
 } from "lucide-react";
 
 interface TablePageProps {
   initialProjects: Project[];
   batches: Batch[];
+  /** 来自 data/table-edits.json（保存到仓库后下次部署会带下来） */
+  initialTableEdits?: TableEdits | null;
   lang: Locale;
   dict: Dictionary;
 }
@@ -126,6 +129,7 @@ function projectFoundersString(founders?: Project["founders"]): string {
 export default function TablePage({
   initialProjects,
   batches,
+  initialTableEdits = null,
   lang,
   dict,
 }: TablePageProps) {
@@ -152,6 +156,8 @@ export default function TablePage({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortKey, setSortKey] = useState<SortKey>("batch_id");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [saveStatus, setSaveStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
+  const [saveError, setSaveError] = useState<string>("");
 
   // --- Custom columns ---
   const [customCols, setCustomCols] = useState<CustomColumn[]>([]);
@@ -168,20 +174,36 @@ export default function TablePage({
   const [columnOrder, setColumnOrder] = useState<string[]>(() => [...BUILTIN_COL_KEYS]);
 
   useEffect(() => {
-    const raw = loadJson<unknown>(LS_COLS_KEY, []);
-    const cols = normalizeCustomCols(raw);
-    setCustomCols(cols);
-    customDataRef.current = loadJson<Record<string, Record<string, string>>>(LS_DATA_KEY, {});
-    setCustomDataVersion((v) => v + 1);
-    setColWidths({ ...DEFAULT_WIDTHS, ...loadJson<Record<string, number>>(LS_WIDTHS_KEY, {}) });
-    const savedOrder = loadJson<string[]>(LS_ORDER_KEY, []);
-    const customKeys = cols.map((c) => `custom:${c.name}`);
-    const validOrder = savedOrder.filter(
-      (k) => BUILTIN_COL_KEYS.includes(k as typeof BUILTIN_COL_KEYS[number]) || customKeys.includes(k)
-    );
-    const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
-    setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
+    if (initialTableEdits && initialTableEdits.columns?.length >= 0) {
+      const cols = normalizeCustomCols(initialTableEdits.columns);
+      setCustomCols(cols);
+      customDataRef.current = initialTableEdits.cellData ?? {};
+      setCustomDataVersion((v) => v + 1);
+      setColWidths({ ...DEFAULT_WIDTHS, ...(initialTableEdits.colWidths ?? {}) });
+      const customKeys = cols.map((c) => `custom:${c.name}`);
+      const savedOrder = initialTableEdits.columnOrder ?? [];
+      const validOrder = savedOrder.filter(
+        (k) => BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) || customKeys.includes(k)
+      );
+      const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
+      setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
+    } else {
+      const raw = loadJson<unknown>(LS_COLS_KEY, []);
+      const cols = normalizeCustomCols(raw);
+      setCustomCols(cols);
+      customDataRef.current = loadJson<Record<string, Record<string, string>>>(LS_DATA_KEY, {});
+      setCustomDataVersion((v) => v + 1);
+      setColWidths({ ...DEFAULT_WIDTHS, ...loadJson<Record<string, number>>(LS_WIDTHS_KEY, {}) });
+      const savedOrder = loadJson<string[]>(LS_ORDER_KEY, []);
+      const customKeys = cols.map((c) => `custom:${c.name}`);
+      const validOrder = savedOrder.filter(
+        (k) => BUILTIN_COL_KEYS.includes(k as typeof BUILTIN_COL_KEYS[number]) || customKeys.includes(k)
+      );
+      const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
+      setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
+    }
     setIsHydrated(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- hydrate once on mount
   }, []);
 
   const persistCols = useCallback((cols: CustomColumn[]) => {
@@ -471,6 +493,47 @@ export default function TablePage({
     [displayOrder, persistOrder]
   );
 
+  const saveToRepo = useCallback(async () => {
+    const secret =
+      lang === "zh"
+        ? window.prompt("输入保存密码（即 Vercel 中配置的 TABLE_SAVE_SECRET）：")
+        : window.prompt("Enter save password (TABLE_SAVE_SECRET from Vercel env):");
+    if (secret == null || secret.trim() === "") return;
+    setSaveStatus("loading");
+    setSaveError("");
+    const validOrder = columnOrder.filter(
+      (k) =>
+        BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) ||
+        customCols.some((c) => `custom:${c.name}` === k)
+    );
+    const customKeys = customCols.map((c) => `custom:${c.name}`);
+    const order = [...validOrder, ...customKeys.filter((k) => !validOrder.includes(k))];
+    const payload = {
+      columns: customCols,
+      cellData: customDataRef.current,
+      columnOrder: order.length > 0 ? order : [...BUILTIN_COL_KEYS, ...customKeys],
+      colWidths: colWidthsRef.current,
+    };
+    try {
+      const res = await fetch("/api/save-table-edits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-save-secret": secret.trim() },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSaveError(data.error || data.details || res.statusText);
+        setSaveStatus("err");
+        return;
+      }
+      setSaveStatus("ok");
+      setTimeout(() => setSaveStatus("idle"), 3000);
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : String(e));
+      setSaveStatus("err");
+    }
+  }, [lang, columnOrder, customCols]);
+
   const ResizeHandle = ({ colKey }: { colKey: string }) => (
     <div
       data-resize-handle
@@ -540,7 +603,32 @@ export default function TablePage({
           <span className="text-sm text-muted-foreground ml-2">
             {t.count.replace("{count}", String(filteredAndSorted.length))}
           </span>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-2 flex-wrap">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={saveToRepo}
+              disabled={saveStatus === "loading"}
+            >
+              <Save className="h-3.5 w-3.5 mr-1" />
+              {saveStatus === "loading"
+                ? lang === "zh"
+                  ? "保存中…"
+                  : "Saving…"
+                : lang === "zh"
+                  ? "保存到仓库"
+                  : "Save to repo"}
+            </Button>
+            {saveStatus === "ok" && (
+              <span className="text-sm text-green-600 dark:text-green-400">
+                {lang === "zh" ? "已保存，下次部署后生效" : "Saved. Will apply after next deploy."}
+              </span>
+            )}
+            {saveStatus === "err" && saveError && (
+              <span className="text-sm text-destructive" title={saveError}>
+                {lang === "zh" ? "保存失败" : "Save failed"}
+              </span>
+            )}
             <Button variant="outline" size="sm" onClick={exportTable}>
               <Download className="h-3.5 w-3.5 mr-1" />
               {lang === "zh" ? "导出表格" : "Export CSV"}

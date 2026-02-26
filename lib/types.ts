@@ -38,3 +38,11 @@ export interface Batch {
   description: string;
   disabled?: boolean;
 }
+
+/** 表格页「保存到仓库」使用的编辑数据，存于 data/table-edits.json */
+export interface TableEdits {
+  columns: { name: string; type: "text" | "multiselect"; options?: string[] }[];
+  cellData: Record<string, Record<string, string>>;
+  columnOrder?: string[];
+  colWidths?: Record<string, number>;
+}

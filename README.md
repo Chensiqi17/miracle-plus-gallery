@@ -38,7 +38,7 @@
     ```bash
     pnpm dev
     ```
-    访问 http://localhost:3000
+    浏览器访问 **http://localhost:3000**（若 3000 被占用，Next 会改用 **http://localhost:3001**，以终端提示为准）。
 
 ## 发布到线上
 
@@ -49,8 +49,12 @@
 1. 将仓库推送到 GitHub（若尚未推送）。
 2. 打开 [vercel.com](https://vercel.com)，用 GitHub 登录。
 3. 点击 **Add New → Project**，选择 `miracle-plus-gallery` 仓库。
-4. **Framework Preset** 选 Next.js，**Build Command** 保持 `next build`，**Output Directory** 填 `out`（若 Vercel 未自动识别静态导出）。
-5. 点击 **Deploy**，等待构建完成即可获得一个 `xxx.vercel.app` 的线上地址。
+4. **Framework Preset** 选 Next.js，**Build Command** 保持 `next build`，其余用默认即可（无需填 Output Directory）。
+5. **若要使用表格页「保存到仓库」**：在项目 **Settings → Environment Variables** 里添加（见根目录 `env.example`）：
+   - **TABLE_SAVE_SECRET**：自己设一个密码，点「保存到仓库」时在网页里输入。
+   - **GITHUB_TOKEN**：在 GitHub → Settings → Developer settings → Personal access tokens 新建，勾选 `repo`，把生成的 token 贴到这里。
+   - **GITHUB_REPO**：填 `你的用户名/仓库名`，如 `Nimbus318/miracle-plus-gallery`。
+6. 点击 **Deploy**，等待构建完成即可获得 `xxx.vercel.app` 的线上地址。
 
 ### 方式二：Netlify
 

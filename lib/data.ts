@@ -65,6 +65,27 @@ export function getAllProjects(): Project[] {
   }
 }
 
+/** 读取表格自定义列与单元格数据（来自 data/table-edits.json），用于「保存到仓库」后下次部署展示 */
+export function getTableEdits(): import("./types").TableEdits | null {
+  try {
+    const filePath = path.join(DATA_DIR, "table-edits.json");
+    if (!fs.existsSync(filePath)) return null;
+    const content = fs.readFileSync(filePath, "utf-8");
+    const data = JSON.parse(content) as import("./types").TableEdits;
+    if (!data || typeof data !== "object") return null;
+    const columns = Array.isArray(data.columns) ? data.columns : [];
+    const cellData = data.cellData && typeof data.cellData === "object" ? data.cellData : {};
+    return {
+      columns,
+      cellData,
+      columnOrder: Array.isArray(data.columnOrder) ? data.columnOrder : undefined,
+      colWidths: data.colWidths && typeof data.colWidths === "object" ? data.colWidths : undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
 // --- 派生查询 (Derived Queries) ---
 
 export function getProjectById(id: string): Project | undefined {
