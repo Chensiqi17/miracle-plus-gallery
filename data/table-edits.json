@@ -3,17 +3,31 @@
     {
       "name": "Notes",
       "type": "text"
+    },
+    {
+      "name": "Next Step",
+      "type": "multiselect",
+      "options": [
+        "Yes",
+        "No",
+        "TBD"
+      ]
     }
   ],
-  "cellData": {},
+  "cellData": {
+    "2025S-001": {
+      "Next Step": ""
+    }
+  },
   "columnOrder": [
     "batch_id",
     "name",
     "one_liner",
     "description",
-    "tags",
     "founders",
-    "custom:Notes"
+    "custom:Next Step",
+    "custom:Notes",
+    "tags"
   ],
   "colWidths": {
     "batch_id": 90,
@@ -22,6 +36,7 @@
     "description": 320,
     "tags": 280,
     "founders": 400,
-    "custom:Notes": 280
+    "custom:Notes": 314,
+    "custom:Next Step": 261
   }
 }
