@@ -1,0 +1,75 @@
+{
+  "columns": [
+    {
+      "name": "Notes",
+      "type": "text"
+    },
+    {
+      "name": "Next Step",
+      "type": "multiselect",
+      "options": [
+        "Yes",
+        "No",
+        "TBD"
+      ]
+    }
+  ],
+  "cellData": {
+    "2025S-001": {
+      "Next Step": ""
+    },
+    "2025F-001": {
+      "Next Step": "Yes"
+    },
+    "2025F-002": {
+      "Next Step": "No"
+    },
+    "2025F-004": {
+      "Next Step": "Yes"
+    },
+    "2025F-005": {
+      "Next Step": "Yes"
+    },
+    "2025F-003": {
+      "Next Step": "Yes"
+    },
+    "2025F-006": {
+      "Next Step": "Yes"
+    },
+    "2025F-007": {
+      "Next Step": "No"
+    },
+    "2025F-008": {
+      "Next Step": "Yes"
+    },
+    "2025F-009": {
+      "Next Step": "No"
+    },
+    "2025F-010": {
+      "Next Step": "No"
+    },
+    "2025F-011": {
+      "Next Step": "No"
+    }
+  },
+  "columnOrder": [
+    "batch_id",
+    "name",
+    "one_liner",
+    "custom:Next Step",
+    "description",
+    "founders",
+    "custom:Notes",
+    "tags"
+  ],
+  "colWidths": {
+    "batch_id": 90,
+    "name": 140,
+    "one_liner": 138,
+    "description": 237,
+    "tags": 280,
+    "founders": 308,
+    "custom:Notes": 314,
+    "custom:Next Step": 144
+  }
+}
