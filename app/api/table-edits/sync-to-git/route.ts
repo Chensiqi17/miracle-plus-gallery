@@ -37,14 +37,23 @@ export async function POST(req: NextRequest) {
   }
 
   const raw = await redis.get(KV_KEY);
-  if (!raw || typeof raw !== "string") {
-    return NextResponse.json({ error: "No data in KV to sync" }, { status: 400 });
+  if (raw == null) {
+    return NextResponse.json({ error: "No data in KV to sync. Save the table first (点「保存」)." }, { status: 400 });
   }
   let body: TableEdits;
-  try {
-    body = JSON.parse(raw) as TableEdits;
-  } catch {
+  if (typeof raw === "string") {
+    try {
+      body = JSON.parse(raw) as TableEdits;
+    } catch {
+      return NextResponse.json({ error: "Invalid data in KV" }, { status: 400 });
+    }
+  } else if (raw && typeof raw === "object" && "cellData" in raw) {
+    body = raw as unknown as TableEdits;
+  } else {
     return NextResponse.json({ error: "Invalid data in KV" }, { status: 400 });
+  }
+  if (!body.columns && (!body.cellData || Object.keys(body.cellData).length === 0)) {
+    return NextResponse.json({ error: "KV data is empty. Save the table first." }, { status: 400 });
   }
 
   const token = process.env.GITHUB_TOKEN ?? process.env.TABLE_EDIT_GITHUB_TOKEN;
