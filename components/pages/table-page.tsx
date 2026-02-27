@@ -158,6 +158,8 @@ export default function TablePage({
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [saveStatus, setSaveStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [saveError, setSaveError] = useState<string>("");
+  const [syncStatus, setSyncStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
+  const [syncError, setSyncError] = useState<string>("");
 
   // --- Custom columns ---
   const [customCols, setCustomCols] = useState<CustomColumn[]>([]);
@@ -174,20 +176,23 @@ export default function TablePage({
   const [columnOrder, setColumnOrder] = useState<string[]>(() => [...BUILTIN_COL_KEYS]);
 
   useEffect(() => {
-    if (initialTableEdits && initialTableEdits.columns?.length >= 0) {
-      const cols = normalizeCustomCols(initialTableEdits.columns);
+    const applyEdits = (edits: TableEdits | null) => {
+      if (!edits || (!edits.columns?.length && !Object.keys(edits.cellData ?? {}).length)) return false;
+      const cols = normalizeCustomCols(edits.columns ?? []);
       setCustomCols(cols);
-      customDataRef.current = initialTableEdits.cellData ?? {};
+      customDataRef.current = edits.cellData ?? {};
       setCustomDataVersion((v) => v + 1);
-      setColWidths({ ...DEFAULT_WIDTHS, ...(initialTableEdits.colWidths ?? {}) });
+      setColWidths({ ...DEFAULT_WIDTHS, ...(edits.colWidths ?? {}) });
       const customKeys = cols.map((c) => `custom:${c.name}`);
-      const savedOrder = initialTableEdits.columnOrder ?? [];
+      const savedOrder = edits.columnOrder ?? [];
       const validOrder = savedOrder.filter(
         (k) => BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) || customKeys.includes(k)
       );
       const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
       setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
-    } else {
+      return true;
+    };
+    const fallbackLocal = () => {
       const raw = loadJson<unknown>(LS_COLS_KEY, []);
       const cols = normalizeCustomCols(raw);
       setCustomCols(cols);
@@ -197,12 +202,29 @@ export default function TablePage({
       const savedOrder = loadJson<string[]>(LS_ORDER_KEY, []);
       const customKeys = cols.map((c) => `custom:${c.name}`);
       const validOrder = savedOrder.filter(
-        (k) => BUILTIN_COL_KEYS.includes(k as typeof BUILTIN_COL_KEYS[number]) || customKeys.includes(k)
+        (k) => BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) || customKeys.includes(k)
       );
       const newCustomKeys = customKeys.filter((k) => !validOrder.includes(k));
       setColumnOrder(validOrder.length > 0 ? [...validOrder, ...newCustomKeys] : [...BUILTIN_COL_KEYS, ...customKeys]);
-    }
-    setIsHydrated(true);
+    };
+    (async () => {
+      try {
+        const res = await fetch("/api/table-edits");
+        if (res.ok) {
+          const data = await res.json().catch(() => null);
+          if (data && applyEdits(data)) {
+            setIsHydrated(true);
+            return;
+          }
+        }
+      } catch (_) {}
+      if (initialTableEdits && applyEdits(initialTableEdits)) {
+        setIsHydrated(true);
+        return;
+      }
+      fallbackLocal();
+      setIsHydrated(true);
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps -- hydrate once on mount
   }, []);
 
@@ -493,14 +515,7 @@ export default function TablePage({
     [displayOrder, persistOrder]
   );
 
-  const saveToRepo = useCallback(async () => {
-    const secret =
-      lang === "zh"
-        ? window.prompt("输入保存密码（即 Vercel 中配置的 TABLE_SAVE_SECRET）：")
-        : window.prompt("Enter save password (TABLE_SAVE_SECRET from Vercel env):");
-    if (secret == null || secret.trim() === "") return;
-    setSaveStatus("loading");
-    setSaveError("");
+  const getPayload = useCallback(() => {
     const validOrder = columnOrder.filter(
       (k) =>
         BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) ||
@@ -508,21 +523,35 @@ export default function TablePage({
     );
     const customKeys = customCols.map((c) => `custom:${c.name}`);
     const order = [...validOrder, ...customKeys.filter((k) => !validOrder.includes(k))];
-    const payload = {
+    return {
       columns: customCols,
       cellData: customDataRef.current,
       columnOrder: order.length > 0 ? order : [...BUILTIN_COL_KEYS, ...customKeys],
       colWidths: colWidthsRef.current,
     };
+  }, [columnOrder, customCols]);
+
+  const promptSecret = useCallback(() => {
+    return lang === "zh"
+      ? window.prompt("输入保存密码（Vercel 中 TABLE_SAVE_SECRET）：")
+      : window.prompt("Enter save password (TABLE_SAVE_SECRET):");
+  }, [lang]);
+
+  /** 保存到 KV（快） */
+  const saveToKV = useCallback(async () => {
+    const secret = promptSecret();
+    if (secret == null || secret.trim() === "") return;
+    setSaveStatus("loading");
+    setSaveError("");
     try {
-      const res = await fetch("/api/save-table-edits", {
+      const res = await fetch("/api/table-edits", {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-save-secret": secret.trim() },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(getPayload()),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setSaveError(data.error || data.details || res.statusText);
+        setSaveError(data.error || res.statusText);
         setSaveStatus("err");
         return;
       }
@@ -532,7 +561,33 @@ export default function TablePage({
       setSaveError(e instanceof Error ? e.message : String(e));
       setSaveStatus("err");
     }
-  }, [lang, columnOrder, customCols]);
+  }, [getPayload, promptSecret]);
+
+  /** 同步 KV 到 Git（慢） */
+  const syncToGit = useCallback(async () => {
+    const secret = promptSecret();
+    if (secret == null || secret.trim() === "") return;
+    setSyncStatus("loading");
+    setSyncError("");
+    try {
+      const res = await fetch("/api/table-edits/sync-to-git", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-save-secret": secret.trim() },
+        body: JSON.stringify({}),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSyncError(data.error || data.details || res.statusText);
+        setSyncStatus("err");
+        return;
+      }
+      setSyncStatus("ok");
+      setTimeout(() => setSyncStatus("idle"), 3000);
+    } catch (e) {
+      setSyncError(e instanceof Error ? e.message : String(e));
+      setSyncStatus("err");
+    }
+  }, [promptSecret]);
 
   const ResizeHandle = ({ colKey }: { colKey: string }) => (
     <div
@@ -607,7 +662,7 @@ export default function TablePage({
             <Button
               variant="outline"
               size="sm"
-              onClick={saveToRepo}
+              onClick={saveToKV}
               disabled={saveStatus === "loading"}
             >
               <Save className="h-3.5 w-3.5 mr-1" />
@@ -616,17 +671,41 @@ export default function TablePage({
                   ? "保存中…"
                   : "Saving…"
                 : lang === "zh"
-                  ? "保存到仓库"
-                  : "Save to repo"}
+                  ? "保存"
+                  : "Save"}
             </Button>
             {saveStatus === "ok" && (
               <span className="text-sm text-green-600 dark:text-green-400">
-                {lang === "zh" ? "已保存，下次部署后生效" : "Saved. Will apply after next deploy."}
+                {lang === "zh" ? "已保存" : "Saved"}
               </span>
             )}
             {saveStatus === "err" && saveError && (
               <span className="text-sm text-destructive" title={saveError}>
                 {lang === "zh" ? "保存失败" : "Save failed"}
+              </span>
+            )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={syncToGit}
+              disabled={syncStatus === "loading"}
+            >
+              {syncStatus === "loading"
+                ? lang === "zh"
+                  ? "同步中…"
+                  : "Syncing…"
+                : lang === "zh"
+                  ? "同步到 Git"
+                  : "Sync to Git"}
+            </Button>
+            {syncStatus === "ok" && (
+              <span className="text-sm text-green-600 dark:text-green-400">
+                {lang === "zh" ? "已同步到仓库" : "Synced to repo"}
+              </span>
+            )}
+            {syncStatus === "err" && syncError && (
+              <span className="text-sm text-destructive" title={syncError}>
+                {lang === "zh" ? "同步失败" : "Sync failed"}
               </span>
             )}
             <Button variant="outline" size="sm" onClick={exportTable}>
