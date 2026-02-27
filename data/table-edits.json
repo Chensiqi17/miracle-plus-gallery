@@ -29,26 +29,47 @@
     },
     "2025F-005": {
       "Next Step": "Yes"
+    },
+    "2025F-003": {
+      "Next Step": "Yes"
+    },
+    "2025F-006": {
+      "Next Step": "Yes"
+    },
+    "2025F-007": {
+      "Next Step": "No"
+    },
+    "2025F-008": {
+      "Next Step": "Yes"
+    },
+    "2025F-009": {
+      "Next Step": "No"
+    },
+    "2025F-010": {
+      "Next Step": "No"
+    },
+    "2025F-011": {
+      "Next Step": "No"
     }
   },
   "columnOrder": [
     "batch_id",
     "name",
     "one_liner",
+    "custom:Next Step",
     "description",
     "founders",
-    "custom:Next Step",
     "custom:Notes",
     "tags"
   ],
   "colWidths": {
     "batch_id": 90,
     "name": 140,
-    "one_liner": 234,
-    "description": 320,
+    "one_liner": 138,
+    "description": 237,
     "tags": 280,
-    "founders": 400,
+    "founders": 308,
     "custom:Notes": 314,
-    "custom:Next Step": 261
+    "custom:Next Step": 144
   }
 }
