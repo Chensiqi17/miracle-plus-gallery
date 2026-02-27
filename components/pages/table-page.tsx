@@ -577,17 +577,29 @@ export default function TablePage({
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setSyncError(data.error || data.details || res.statusText);
+        const msg = [data.error, data.details].filter(Boolean).join(" — ") || res.statusText;
+        setSyncError(msg);
         setSyncStatus("err");
+        if (lang === "zh") {
+          window.alert("同步到 Git 失败，请把下面整段复制发给我：\n\n" + msg);
+        } else {
+          window.alert("Sync to Git failed. Please copy and send me:\n\n" + msg);
+        }
         return;
       }
       setSyncStatus("ok");
       setTimeout(() => setSyncStatus("idle"), 3000);
     } catch (e) {
-      setSyncError(e instanceof Error ? e.message : String(e));
+      const msg = e instanceof Error ? e.message : String(e);
+      setSyncError(msg);
       setSyncStatus("err");
+      if (lang === "zh") {
+        window.alert("同步到 Git 失败，请把下面整段复制发给我：\n\n" + msg);
+      } else {
+        window.alert("Sync to Git failed. Please copy and send me:\n\n" + msg);
+      }
     }
-  }, [promptSecret]);
+  }, [promptSecret, lang]);
 
   const ResizeHandle = ({ colKey }: { colKey: string }) => (
     <div
@@ -704,8 +716,8 @@ export default function TablePage({
               </span>
             )}
             {syncStatus === "err" && syncError && (
-              <span className="text-sm text-destructive" title={syncError}>
-                {lang === "zh" ? "同步失败" : "Sync failed"}
+              <span className="text-sm text-destructive max-w-[280px] truncate" title={syncError}>
+                {lang === "zh" ? "同步失败：" : "Sync failed: "}{syncError}
               </span>
             )}
             <Button variant="outline" size="sm" onClick={exportTable}>
