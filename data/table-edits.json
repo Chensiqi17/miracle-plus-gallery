@@ -16,7 +16,7 @@
   ],
   "cellData": {
     "2025S-001": {
-      "Next Step": ""
+      "Next Step": "No"
     },
     "2025F-001": {
       "Next Step": "Yes"
@@ -49,6 +49,1613 @@
       "Next Step": "No"
     },
     "2025F-011": {
+      "Next Step": "No"
+    },
+    "2025F-012": {
+      "Next Step": "Yes"
+    },
+    "2025F-013": {
+      "Next Step": "No"
+    },
+    "2025F-014": {
+      "Next Step": "Yes"
+    },
+    "2025F-015": {
+      "Next Step": "Yes"
+    },
+    "2025F-016": {
+      "Next Step": "No"
+    },
+    "2025F-017": {
+      "Next Step": "TBD"
+    },
+    "2025F-018": {
+      "Next Step": "Yes"
+    },
+    "2025F-019": {
+      "Next Step": "TBD"
+    },
+    "2025F-020": {
+      "Next Step": "TBD"
+    },
+    "2025F-021": {
+      "Next Step": "Yes"
+    },
+    "2025F-022": {
+      "Next Step": "Yes"
+    },
+    "2025F-023": {
+      "Next Step": "Yes"
+    },
+    "2025F-024": {
+      "Next Step": "Yes"
+    },
+    "2025F-025": {
+      "Next Step": "Yes"
+    },
+    "2025F-026": {
+      "Next Step": "Yes"
+    },
+    "2025F-027": {
+      "Next Step": "Yes"
+    },
+    "2025F-028": {
+      "Next Step": "Yes"
+    },
+    "2025F-029": {
+      "Next Step": "Yes"
+    },
+    "2025F-030": {
+      "Next Step": "Yes"
+    },
+    "2025F-031": {
+      "Next Step": "Yes"
+    },
+    "2025F-032": {
+      "Next Step": "No"
+    },
+    "2025F-033": {
+      "Next Step": "No"
+    },
+    "2025F-035": {
+      "Next Step": "No"
+    },
+    "2025F-036": {
+      "Next Step": "Yes"
+    },
+    "2025F-037": {
+      "Next Step": "No"
+    },
+    "2025F-038": {
+      "Next Step": "Yes"
+    },
+    "2025F-039": {
+      "Next Step": "Yes"
+    },
+    "2025F-040": {
+      "Next Step": "Yes"
+    },
+    "2025F-041": {
+      "Next Step": "TBD"
+    },
+    "2025F-042": {
+      "Next Step": "Yes"
+    },
+    "2025F-043": {
+      "Next Step": "Yes"
+    },
+    "2025F-044": {
+      "Next Step": "No"
+    },
+    "2025F-045": {
+      "Next Step": "No"
+    },
+    "2025F-046": {
+      "Next Step": "No"
+    },
+    "2025F-047": {
+      "Next Step": "Yes"
+    },
+    "2025F-048": {
+      "Next Step": "No"
+    },
+    "2025F-049": {
+      "Next Step": "Yes"
+    },
+    "2025F-050": {
+      "Next Step": "Yes"
+    },
+    "2025F-051": {
+      "Next Step": "No"
+    },
+    "2025S-002": {
+      "Next Step": "No"
+    },
+    "2025S-003": {
+      "Next Step": "No"
+    },
+    "2025S-004": {
+      "Next Step": "Yes"
+    },
+    "2025S-005": {
+      "Next Step": "No"
+    },
+    "2025S-006": {
+      "Next Step": "No"
+    },
+    "2025S-007": {
+      "Next Step": "Yes"
+    },
+    "2025S-008": {
+      "Next Step": "TBD"
+    },
+    "2025S-009": {
+      "Next Step": "No"
+    },
+    "2025S-010": {
+      "Next Step": "No"
+    },
+    "2025S-011": {
+      "Next Step": "No"
+    },
+    "2025S-012": {
+      "Next Step": "TBD",
+      "Notes": "清华特奖"
+    },
+    "2025S-013": {
+      "Next Step": "No"
+    },
+    "2025S-014": {
+      "Next Step": "No"
+    },
+    "2025S-015": {
+      "Next Step": "No"
+    },
+    "2025S-016": {
+      "Next Step": "Yes"
+    },
+    "2025S-017": {
+      "Next Step": "Yes"
+    },
+    "2025S-018": {
+      "Next Step": "No"
+    },
+    "2025S-019": {
+      "Next Step": "No"
+    },
+    "2025S-020": {
+      "Next Step": "No"
+    },
+    "2025S-021": {
+      "Next Step": "No"
+    },
+    "2025S-022": {
+      "Next Step": "TBD",
+      "Notes": "射频专家\n"
+    },
+    "2025S-023": {
+      "Next Step": "Yes"
+    },
+    "2025S-024": {
+      "Next Step": "No"
+    },
+    "2025S-025": {
+      "Next Step": "No"
+    },
+    "2025S-026": {
+      "Next Step": "Yes",
+      "Notes": "邱锡鹏所在项目\n"
+    },
+    "2025S-027": {
+      "Next Step": "Yes"
+    },
+    "2025S-028": {
+      "Next Step": "No"
+    },
+    "2025S-029": {
+      "Next Step": "No"
+    },
+    "2025S-030": {
+      "Next Step": "No"
+    },
+    "2025S-031": {
+      "Next Step": "No"
+    },
+    "2025S-032": {
+      "Next Step": "Yes"
+    },
+    "2025S-033": {
+      "Next Step": "No"
+    },
+    "2025S-034": {
+      "Next Step": "Yes"
+    },
+    "2025S-035": {
+      "Next Step": "Yes"
+    },
+    "2025S-036": {
+      "Next Step": "No"
+    },
+    "2025S-037": {
+      "Next Step": "No"
+    },
+    "2025S-038": {
+      "Next Step": "Yes",
+      "Notes": "之前 Jack 聊过；Dong 说回深圳可以再聊下，但疑似没有聊"
+    },
+    "2025S-039": {
+      "Next Step": "No"
+    },
+    "2025S-040": {
+      "Next Step": "No"
+    },
+    "2025S-041": {
+      "Next Step": "Yes",
+      "Notes": "CEO 背景不错\n"
+    },
+    "2025S-042": {
+      "Next Step": "No"
+    },
+    "2025S-043": {
+      "Next Step": "Yes",
+      "Notes": "奇绩连续投资\n"
+    },
+    "2025S-044": {
+      "Next Step": "Yes"
+    },
+    "2025S-045": {
+      "Next Step": "No"
+    },
+    "2025S-046": {
+      "Next Step": "Yes",
+      "Notes": "“相机”"
+    },
+    "2025S-047": {
+      "Next Step": "Yes",
+      "Notes": "美团 PM"
+    },
+    "2025S-048": {
+      "Next Step": "No"
+    },
+    "2025S-049": {
+      "Next Step": "No"
+    },
+    "2025S-050": {
+      "Next Step": "Yes",
+      "Notes": "疑似红杉投了，至少是红杉 YUE"
+    },
+    "2025S-051": {
+      "Next Step": "No"
+    },
+    "2025S-052": {
+      "Next Step": "Yes"
+    },
+    "2025S-053": {
+      "Next Step": "No"
+    },
+    "2025S-054": {
+      "Next Step": "No"
+    },
+    "2024F-001": {
+      "Notes": "这个公司暴雷了\n",
+      "Next Step": "No"
+    },
+    "2024F-002": {
+      "Next Step": "TBD",
+      "Notes": "红杉被投，红杉 YUE"
+    },
+    "2024F-003": {
+      "Notes": "已上众筹；之前找过我，没聊",
+      "Next Step": "TBD"
+    },
+    "2024F-004": {
+      "Next Step": "No"
+    },
+    "2024F-005": {
+      "Next Step": "No"
+    },
+    "2024F-006": {
+      "Next Step": "No"
+    },
+    "2024F-007": {
+      "Next Step": "No"
+    },
+    "2024F-008": {
+      "Next Step": "No"
+    },
+    "2024F-009": {
+      "Next Step": "Yes"
+    },
+    "2024F-010": {
+      "Next Step": "TBD",
+      "Notes": "记得人比较登"
+    },
+    "2024F-011": {
+      "Next Step": "Yes",
+      "Notes": "非常能捣鼓的人，和 Same 认识跟他们有点关系"
+    },
+    "2024F-012": {
+      "Next Step": "Yes",
+      "Notes": "Betty 见过了"
+    },
+    "2024F-013": {
+      "Next Step": "No"
+    },
+    "2024F-014": {
+      "Next Step": "TBD",
+      "Notes": "女 CEO，其他信息暂时没 update"
+    },
+    "2024F-015": {
+      "Next Step": "No"
+    },
+    "2024F-016": {
+      "Next Step": "Yes",
+      "Notes": "近期会有众筹产品"
+    },
+    "2024F-017": {
+      "Next Step": "No"
+    },
+    "2024F-018": {
+      "Next Step": "Yes"
+    },
+    "2024F-019": {
+      "Notes": "公司好像要垮了；之前聊过几次\n",
+      "Next Step": "Yes"
+    },
+    "2024F-020": {
+      "Next Step": "No"
+    },
+    "2024F-021": {
+      "Next Step": "No"
+    },
+    "2024F-022": {
+      "Next Step": "No"
+    },
+    "2024F-023": {
+      "Next Step": "TBD"
+    },
+    "2024F-024": {
+      "Next Step": "No"
+    },
+    "2024F-025": {
+      "Next Step": "No"
+    },
+    "2024F-026": {
+      "Next Step": "No"
+    },
+    "2024F-027": {
+      "Next Step": "Yes",
+      "Notes": "这人非常活跃\n"
+    },
+    "2024F-028": {
+      "Next Step": "Yes",
+      "Notes": "方向蛮有意思\n"
+    },
+    "2024F-030": {
+      "Next Step": "Yes",
+      "Notes": "转做 prediction market"
+    },
+    "2024F-031": {
+      "Next Step": "Yes"
+    },
+    "2024F-032": {
+      "Next Step": "TBD"
+    },
+    "2024F-033": {
+      "Next Step": "No"
+    },
+    "2024F-034": {
+      "Next Step": "No"
+    },
+    "2024F-035": {
+      "Next Step": "Yes",
+      "Notes": "最近比较火"
+    },
+    "2024F-036": {
+      "Next Step": "Yes",
+      "Notes": "人比较 nice，在湾区比较活跃"
+    },
+    "2024F-037": {
+      "Next Step": "No"
+    },
+    "2024F-038": {
+      "Next Step": "No"
+    },
+    "2024F-039": {
+      "Next Step": "No"
+    },
+    "2024F-040": {
+      "Next Step": "No"
+    },
+    "2024F-041": {
+      "Next Step": "No"
+    },
+    "2024F-042": {
+      "Next Step": "No"
+    },
+    "2024F-043": {
+      "Next Step": "Yes",
+      "Notes": "团队背景还可以"
+    },
+    "2024F-044": {
+      "Next Step": "TBD"
+    },
+    "2024F-045": {
+      "Next Step": "No",
+      "Notes": "之前红杉 YUE 没通过"
+    },
+    "2024F-046": {
+      "Next Step": "Yes",
+      "Notes": "大疆出身"
+    },
+    "2024F-047": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2024F-048": {
+      "Next Step": "No"
+    },
+    "2024F-050": {
+      "Next Step": "No"
+    },
+    "2024F-049": {
+      "Next Step": "TBD"
+    },
+    "2024F-051": {
+      "Next Step": "TBD",
+      "Notes": "年后融资"
+    },
+    "2024F-052": {
+      "Next Step": "No"
+    },
+    "2024F-053": {
+      "Next Step": "No"
+    },
+    "2024F-054": {
+      "Next Step": "No"
+    },
+    "2024F-055": {
+      "Next Step": "No"
+    },
+    "2024S-001": {
+      "Next Step": "Yes"
+    },
+    "2024S-002": {
+      "Next Step": "No",
+      "Notes": "公司此前吃过官司，疑似因为“雷军”事件"
+    },
+    "2024S-003": {
+      "Next Step": "Yes",
+      "Notes": "GGV Fellow"
+    },
+    "2024S-004": {
+      "Next Step": "No"
+    },
+    "2024S-005": {
+      "Next Step": "No"
+    },
+    "2024S-006": {
+      "Next Step": "No"
+    },
+    "2024S-007": {
+      "Next Step": "No"
+    },
+    "2024S-009": {
+      "Next Step": "No"
+    },
+    "2024S-008": {
+      "Next Step": "No"
+    },
+    "2024S-010": {
+      "Next Step": "No",
+      "Notes": "风评比较差"
+    },
+    "2024S-011": {
+      "Next Step": "No"
+    },
+    "2024S-012": {
+      "Next Step": "No"
+    },
+    "2024S-013": {
+      "Next Step": "No"
+    },
+    "2024S-014": {
+      "Next Step": "Yes",
+      "Notes": "后连续创业"
+    },
+    "2024S-015": {
+      "Next Step": "No"
+    },
+    "2024S-016": {
+      "Next Step": "Yes"
+    },
+    "2024S-017": {
+      "Next Step": "Yes"
+    },
+    "2024S-018": {
+      "Next Step": "No"
+    },
+    "2024S-019": {
+      "Next Step": "Yes"
+    },
+    "2024S-020": {
+      "Next Step": "No"
+    },
+    "2024S-021": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜，应该已经加入字节"
+    },
+    "2024S-022": {
+      "Next Step": "No"
+    },
+    "2024S-023": {
+      "Next Step": "No"
+    },
+    "2024S-024": {
+      "Next Step": "No"
+    },
+    "2024S-025": {
+      "Next Step": "No"
+    },
+    "2024S-026": {
+      "Next Step": "Yes",
+      "Notes": "可以关注下这个公司出来人"
+    },
+    "2024S-027": {
+      "Next Step": "No"
+    },
+    "2024S-028": {
+      "Next Step": "No"
+    },
+    "2024S-029": {
+      "Next Step": "No"
+    },
+    "2024S-030": {
+      "Next Step": "TBD",
+      "Notes": "这公司后面没声了"
+    },
+    "2024S-031": {
+      "Next Step": "No"
+    },
+    "2024S-032": {
+      "Next Step": "Yes"
+    },
+    "2024S-033": {
+      "Next Step": "No"
+    },
+    "2024S-034": {
+      "Next Step": "No"
+    },
+    "2024S-035": {
+      "Next Step": "No"
+    },
+    "2024S-036": {
+      "Next Step": "No"
+    },
+    "2024S-037": {
+      "Next Step": "No"
+    },
+    "2024S-038": {
+      "Next Step": "No"
+    },
+    "2024S-039": {
+      "Next Step": "Yes"
+    },
+    "2024S-040": {
+      "Next Step": "No"
+    },
+    "2024S-041": {
+      "Next Step": "Yes",
+      "Notes": "疑似最近在融资，OpenClaw 方向"
+    },
+    "2024S-042": {
+      "Next Step": "No"
+    },
+    "2024S-043": {
+      "Next Step": "No"
+    },
+    "2024S-044": {
+      "Next Step": "No"
+    },
+    "2024S-045": {
+      "Next Step": "Yes"
+    },
+    "2024S-046": {
+      "Next Step": "No"
+    },
+    "2024S-047": {
+      "Next Step": "TBD",
+      "Notes": "聊过黄思铭，非常有个性"
+    },
+    "2024S-048": {
+      "Next Step": "TBD",
+      "Notes": "COO 看上去还不错"
+    },
+    "2024S-049": {
+      "Next Step": "No"
+    },
+    "2024S-050": {
+      "Next Step": "No"
+    },
+    "2024S-051": {
+      "Next Step": "Yes"
+    },
+    "2024S-052": {
+      "Next Step": "No"
+    },
+    "2024S-053": {
+      "Next Step": "No"
+    },
+    "2023F-001": {
+      "Next Step": "Yes",
+      "Notes": "公司诈骗被爆出来了；但Jack带Betty见过"
+    },
+    "2023F-002": {
+      "Next Step": "No"
+    },
+    "2023F-003": {
+      "Next Step": "Yes"
+    },
+    "2023F-004": {
+      "Next Step": "No"
+    },
+    "2023F-005": {
+      "Next Step": "No"
+    },
+    "2023F-006": {
+      "Next Step": "Yes"
+    },
+    "2023F-007": {
+      "Next Step": "No"
+    },
+    "2023F-008": {
+      "Next Step": "No"
+    },
+    "2023F-009": {
+      "Next Step": "No"
+    },
+    "2023F-010": {
+      "Next Step": "No"
+    },
+    "2023F-011": {
+      "Next Step": "Yes"
+    },
+    "2023F-012": {
+      "Next Step": "Yes"
+    },
+    "2023F-013": {
+      "Next Step": "No"
+    },
+    "2023F-014": {
+      "Next Step": "Yes"
+    },
+    "2023F-015": {
+      "Next Step": "No"
+    },
+    "2023F-016": {
+      "Next Step": "Yes",
+      "Notes": "之前聊过，可以 catchup；\n人比较木讷"
+    },
+    "2023F-017": {
+      "Next Step": "No"
+    },
+    "2023F-018": {
+      "Next Step": "Yes",
+      "Notes": "之前聊过，可以 catchup"
+    },
+    "2023F-019": {
+      "Next Step": "Yes",
+      "Notes": "最近新项目爆火"
+    },
+    "2023F-020": {
+      "Next Step": "Yes",
+      "Notes": "之前聊过，可以 catchup"
+    },
+    "2023F-021": {
+      "Next Step": "Yes"
+    },
+    "2023F-022": {
+      "Next Step": "No"
+    },
+    "2023F-023": {
+      "Next Step": "No"
+    },
+    "2023F-024": {
+      "Next Step": "Yes"
+    },
+    "2023F-025": {
+      "Next Step": "No"
+    },
+    "2023F-026": {
+      "Next Step": "Yes",
+      "Notes": "看上去 CEO 还不错"
+    },
+    "2023F-027": {
+      "Next Step": "No"
+    },
+    "2023F-028": {
+      "Next Step": "Yes",
+      "Notes": "看上去 founder 很能折腾"
+    },
+    "2023F-029": {
+      "Next Step": "Yes"
+    },
+    "2023F-030": {
+      "Next Step": "No"
+    },
+    "2023F-031": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2023F-032": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜，当年这个方向应该是还可以的"
+    },
+    "2023F-033": {
+      "Next Step": "Yes"
+    },
+    "2023F-034": {
+      "Next Step": "No"
+    },
+    "2023F-035": {
+      "Next Step": "No"
+    },
+    "2023F-036": {
+      "Next Step": "No"
+    },
+    "2023F-037": {
+      "Next Step": "No"
+    },
+    "2023F-038": {
+      "Next Step": "TBD",
+      "Notes": "年轻高潜"
+    },
+    "2023F-039": {
+      "Next Step": "No"
+    },
+    "2023F-040": {
+      "Next Step": "No"
+    },
+    "2023F-041": {
+      "Next Step": "Yes"
+    },
+    "2023F-042": {
+      "Next Step": "No"
+    },
+    "2023F-043": {
+      "Next Step": "No"
+    },
+    "2023F-044": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2023F-045": {
+      "Next Step": "No"
+    },
+    "2023F-046": {
+      "Next Step": "No"
+    },
+    "2023F-047": {
+      "Next Step": "Yes"
+    },
+    "2023F-048": {
+      "Next Step": "No"
+    },
+    "2023F-049": {
+      "Next Step": "Yes",
+      "Notes": "去年下半年产品爆了"
+    },
+    "2023F-050": {
+      "Next Step": "Yes"
+    },
+    "2023F-051": {
+      "Next Step": "No"
+    },
+    "2023F-052": {
+      "Next Step": "No"
+    },
+    "2023F-053": {
+      "Next Step": "No"
+    },
+    "2023F-054": {
+      "Notes": "年轻高潜",
+      "Next Step": "Yes"
+    },
+    "2023F-055": {
+      "Next Step": "No"
+    },
+    "2023F-056": {
+      "Next Step": "No"
+    },
+    "2023F-057": {
+      "Next Step": "No"
+    },
+    "2023F-058": {
+      "Next Step": "No"
+    },
+    "2023F-059": {
+      "Next Step": "No"
+    },
+    "2023F-060": {
+      "Next Step": "No"
+    },
+    "2023F-061": {
+      "Next Step": "No"
+    },
+    "2023F-062": {
+      "Next Step": "Yes、No"
+    },
+    "2023F-063": {
+      "Next Step": "No"
+    },
+    "2023F-064": {
+      "Next Step": "No"
+    },
+    "2023F-065": {
+      "Next Step": "No"
+    },
+    "2023S-001": {
+      "Next Step": "No"
+    },
+    "2023S-002": {
+      "Next Step": "No"
+    },
+    "2023S-003": {
+      "Notes": "看上去是高潜？",
+      "Next Step": "Yes"
+    },
+    "2023S-004": {
+      "Next Step": "No"
+    },
+    "2023S-005": {
+      "Next Step": "No"
+    },
+    "2023S-006": {
+      "Next Step": "No"
+    },
+    "2023S-007": {
+      "Next Step": "Yes",
+      "Notes": "比较有声量"
+    },
+    "2023S-008": {
+      "Next Step": "No"
+    },
+    "2023S-009": {
+      "Next Step": "No"
+    },
+    "2023S-010": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2023S-011": {
+      "Next Step": "No"
+    },
+    "2023S-013": {
+      "Next Step": "Yes"
+    },
+    "2023S-014": {
+      "Next Step": "No"
+    },
+    "2023S-015": {
+      "Next Step": "No"
+    },
+    "2023S-016": {
+      "Next Step": "Yes",
+      "Notes": "CPO看上去还可以"
+    },
+    "2023S-017": {
+      "Next Step": "No"
+    },
+    "2023S-018": {
+      "Next Step": "No",
+      "Notes": "年轻高潜"
+    },
+    "2023S-019": {
+      "Next Step": "No"
+    },
+    "2023S-020": {
+      "Next Step": "No"
+    },
+    "2023S-021": {
+      "Next Step": "No"
+    },
+    "2023S-022": {
+      "Next Step": "No"
+    },
+    "2023S-023": {
+      "Next Step": "No"
+    },
+    "2023S-024": {
+      "Next Step": "No"
+    },
+    "2023S-025": {
+      "Next Step": "No"
+    },
+    "2023S-026": {
+      "Next Step": "No"
+    },
+    "2023S-027": {
+      "Next Step": "No"
+    },
+    "2023S-028": {
+      "Next Step": "No"
+    },
+    "2023S-029": {
+      "Next Step": "No"
+    },
+    "2023S-030": {
+      "Next Step": "No"
+    },
+    "2023S-031": {
+      "Next Step": "No"
+    },
+    "2023S-032": {
+      "Next Step": "No"
+    },
+    "2023S-033": {
+      "Next Step": "Yes",
+      "Notes": "蛮有意思"
+    },
+    "2023S-034": {
+      "Next Step": "No"
+    },
+    "2023S-035": {
+      "Next Step": "No"
+    },
+    "2023S-036": {
+      "Next Step": "No",
+      "Notes": "看上去是年轻高潜"
+    },
+    "2023S-037": {
+      "Next Step": "No"
+    },
+    "2023S-038": {
+      "Next Step": "No"
+    },
+    "2023S-039": {
+      "Next Step": "No"
+    },
+    "2023S-040": {
+      "Notes": "年轻高潜",
+      "Next Step": "Yes"
+    },
+    "2023S-041": {
+      "Next Step": "No"
+    },
+    "2023S-042": {
+      "Notes": "对被投有帮助",
+      "Next Step": "Yes"
+    },
+    "2023S-043": {
+      "Next Step": "No"
+    },
+    "2023S-044": {
+      "Next Step": "No"
+    },
+    "2023S-045": {
+      "Next Step": "No"
+    },
+    "2023S-046": {
+      "Next Step": "No"
+    },
+    "2023S-047": {
+      "Next Step": "No"
+    },
+    "2023S-048": {
+      "Next Step": "TBD"
+    },
+    "2023S-049": {
+      "Next Step": "Yes"
+    },
+    "2023S-050": {
+      "Next Step": "No"
+    },
+    "2023S-051": {
+      "Next Step": "No"
+    },
+    "2023S-052": {
+      "Next Step": "No"
+    },
+    "2023S-053": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2023S-054": {
+      "Next Step": "No"
+    },
+    "2023S-055": {
+      "Next Step": "No"
+    },
+    "2023S-056": {
+      "Next Step": "Yes",
+      "Notes": "方向还比较有意思"
+    },
+    "2023S-058": {
+      "Next Step": "No"
+    },
+    "2023S-059": {
+      "Next Step": "No"
+    },
+    "2023S-060": {
+      "Next Step": "No"
+    },
+    "2022F-001": {
+      "Next Step": "No"
+    },
+    "2022F-002": {
+      "Notes": "年轻高潜",
+      "Next Step": "TBD"
+    },
+    "2022F-003": {
+      "Notes": "史杰好像出来了",
+      "Next Step": "No"
+    },
+    "2022F-004": {
+      "Notes": "年轻高潜",
+      "Next Step": "TBD"
+    },
+    "2022F-005": {
+      "Next Step": "No"
+    },
+    "2022F-006": {
+      "Next Step": "No"
+    },
+    "2022F-007": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2022F-008": {
+      "Next Step": "TBD"
+    },
+    "2022F-009": {
+      "Next Step": "No"
+    },
+    "2022F-010": {
+      "Next Step": "No"
+    },
+    "2022F-011": {
+      "Next Step": "No"
+    },
+    "2022F-012": {
+      "Next Step": "TBD",
+      "Notes": "年轻高潜"
+    },
+    "2022F-013": {
+      "Next Step": "No"
+    },
+    "2022F-014": {
+      "Next Step": "Yes"
+    },
+    "2022F-015": {
+      "Next Step": "No",
+      "Notes": "有个网易的人"
+    },
+    "2022F-016": {
+      "Next Step": "No"
+    },
+    "2022F-017": {
+      "Next Step": "No"
+    },
+    "2022F-018": {
+      "Next Step": "No"
+    },
+    "2022F-019": {
+      "Next Step": "No"
+    },
+    "2022F-020": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2022F-021": {
+      "Next Step": "No"
+    },
+    "2022F-022": {
+      "Next Step": "No"
+    },
+    "2022F-023": {
+      "Next Step": "No"
+    },
+    "2022F-024": {
+      "Next Step": "No"
+    },
+    "2022F-025": {
+      "Next Step": "No"
+    },
+    "2022F-026": {
+      "Next Step": "No"
+    },
+    "2022F-027": {
+      "Next Step": "No"
+    },
+    "2022F-028": {
+      "Next Step": "No"
+    },
+    "2022F-029": {
+      "Next Step": "Yes"
+    },
+    "2022F-030": {
+      "Next Step": "Yes"
+    },
+    "2022F-031": {
+      "Next Step": "No"
+    },
+    "2022F-032": {
+      "Next Step": "No"
+    },
+    "2022F-033": {
+      "Next Step": "No"
+    },
+    "2022F-034": {
+      "Next Step": "No"
+    },
+    "2022F-035": {
+      "Next Step": "No"
+    },
+    "2022F-036": {
+      "Next Step": "No"
+    },
+    "2022F-037": {
+      "Next Step": "No"
+    },
+    "2022F-038": {
+      "Next Step": "No"
+    },
+    "2022F-039": {
+      "Next Step": "No"
+    },
+    "2022F-040": {
+      "Next Step": "No"
+    },
+    "2022F-041": {
+      "Next Step": "No"
+    },
+    "2022F-042": {
+      "Next Step": "No"
+    },
+    "2022F-043": {
+      "Next Step": "No"
+    },
+    "2022F-044": {
+      "Next Step": "Yes",
+      "Notes": "年轻高潜"
+    },
+    "2022F-045": {
+      "Next Step": "TBD"
+    },
+    "2022F-046": {
+      "Next Step": "No"
+    },
+    "2022F-047": {
+      "Next Step": "No"
+    },
+    "2022F-048": {
+      "Next Step": "No"
+    },
+    "2022F-049": {
+      "Next Step": "No"
+    },
+    "2022F-050": {
+      "Next Step": "Yes"
+    },
+    "2022F-051": {
+      "Next Step": "TBD"
+    },
+    "2022F-052": {
+      "Next Step": "No"
+    },
+    "2022S-001": {
+      "Next Step": "No"
+    },
+    "2022S-002": {
+      "Next Step": "Yes"
+    },
+    "2022S-004": {
+      "Next Step": "No"
+    },
+    "2022S-007": {
+      "Next Step": "No"
+    },
+    "2022S-009": {
+      "Next Step": "No"
+    },
+    "2022S-010": {
+      "Next Step": "No"
+    },
+    "2022S-011": {
+      "Next Step": "No"
+    },
+    "2022S-012": {
+      "Next Step": "No"
+    },
+    "2022S-013": {
+      "Next Step": "No"
+    },
+    "2022S-015": {
+      "Next Step": "No"
+    },
+    "2022S-016": {
+      "Next Step": "No"
+    },
+    "2022S-017": {
+      "Next Step": "No"
+    },
+    "2022S-018": {
+      "Next Step": "No"
+    },
+    "2022S-021": {
+      "Next Step": "TBD"
+    },
+    "2022S-023": {
+      "Next Step": "No"
+    },
+    "2022S-024": {
+      "Next Step": "No",
+      "Notes": "可以扫下这里面的人"
+    },
+    "2022S-051": {
+      "Next Step": "No"
+    },
+    "2022S-052": {
+      "Next Step": "No"
+    },
+    "2022S-053": {
+      "Next Step": "Yes"
+    },
+    "2022S-050": {
+      "Next Step": "No"
+    },
+    "2022S-049": {
+      "Next Step": "No"
+    },
+    "2022S-048": {
+      "Next Step": "No"
+    },
+    "2022S-047": {
+      "Next Step": "No"
+    },
+    "2022S-046": {
+      "Next Step": "No"
+    },
+    "2022S-044": {
+      "Next Step": "No"
+    },
+    "2022S-043": {
+      "Next Step": "No"
+    },
+    "2022S-042": {
+      "Next Step": "No"
+    },
+    "2022S-041": {
+      "Next Step": "No"
+    },
+    "2022S-040": {
+      "Next Step": "No"
+    },
+    "2022S-039": {
+      "Next Step": "No"
+    },
+    "2022S-038": {
+      "Next Step": "No"
+    },
+    "2022S-037": {
+      "Next Step": "No"
+    },
+    "2022S-036": {
+      "Next Step": "No"
+    },
+    "2022S-035": {
+      "Next Step": "No"
+    },
+    "2022S-034": {
+      "Next Step": "No"
+    },
+    "2022S-033": {
+      "Next Step": "No"
+    },
+    "2022S-032": {
+      "Next Step": "No"
+    },
+    "2022S-031": {
+      "Next Step": "Yes"
+    },
+    "2022S-030": {
+      "Next Step": "No"
+    },
+    "2022S-029": {
+      "Next Step": "No"
+    },
+    "2022S-028": {
+      "Next Step": "No"
+    },
+    "2022S-027": {
+      "Next Step": "No"
+    },
+    "2022S-026": {
+      "Next Step": "Yes"
+    },
+    "2022S-025": {
+      "Next Step": "Yes"
+    },
+    "2022S-022": {
+      "Next Step": "Yes"
+    },
+    "2022S-020": {
+      "Next Step": "Yes"
+    },
+    "2022S-019": {
+      "Next Step": "No"
+    },
+    "2022S-014": {
+      "Next Step": "No"
+    },
+    "2022S-008": {
+      "Next Step": "No"
+    },
+    "2022S-006": {
+      "Next Step": "No"
+    },
+    "2022S-005": {
+      "Next Step": "Yes"
+    },
+    "2022S-003": {
+      "Next Step": "Yes"
+    },
+    "2021F-001": {
+      "Next Step": "No"
+    },
+    "2021F-002": {
+      "Next Step": "No"
+    },
+    "2021F-003": {
+      "Next Step": "No"
+    },
+    "2021F-004": {
+      "Next Step": "No"
+    },
+    "2021F-005": {
+      "Next Step": "No"
+    },
+    "2021F-006": {
+      "Next Step": "No"
+    },
+    "2021F-007": {
+      "Next Step": "TBD"
+    },
+    "2021F-008": {
+      "Next Step": "No"
+    },
+    "2021F-009": {
+      "Next Step": "No"
+    },
+    "2021F-010": {
+      "Next Step": "No"
+    },
+    "2021F-011": {
+      "Next Step": "No"
+    },
+    "2021F-012": {
+      "Next Step": "No"
+    },
+    "2021F-013": {
+      "Next Step": "Yes"
+    },
+    "2021F-014": {
+      "Next Step": "No"
+    },
+    "2021F-015": {
+      "Next Step": "No"
+    },
+    "2021F-016": {
+      "Next Step": "No"
+    },
+    "2021F-017": {
+      "Next Step": "No"
+    },
+    "2021F-018": {
+      "Next Step": "No"
+    },
+    "2021F-019": {
+      "Next Step": "No"
+    },
+    "2021F-020": {
+      "Next Step": "No"
+    },
+    "2021F-021": {
+      "Next Step": "No"
+    },
+    "2021F-022": {
+      "Next Step": "Yes"
+    },
+    "2021F-023": {
+      "Next Step": "No"
+    },
+    "2021F-024": {
+      "Next Step": "No"
+    },
+    "2021F-025": {
+      "Next Step": "No"
+    },
+    "2021F-026": {
+      "Next Step": "TBD"
+    },
+    "2021F-027": {
+      "Next Step": "No"
+    },
+    "2021F-028": {
+      "Next Step": "No"
+    },
+    "2021F-029": {
+      "Next Step": "TBD"
+    },
+    "2021F-030": {
+      "Next Step": "Yes"
+    },
+    "2021F-031": {
+      "Next Step": "No"
+    },
+    "2021F-032": {
+      "Next Step": "No"
+    },
+    "2021F-033": {
+      "Next Step": "Yes"
+    },
+    "2021F-034": {
+      "Next Step": "No"
+    },
+    "2021F-035": {
+      "Next Step": "Yes"
+    },
+    "2021F-036": {
+      "Next Step": "TBD"
+    },
+    "2021F-037": {
+      "Next Step": "No"
+    },
+    "2021F-038": {
+      "Next Step": "No"
+    },
+    "2021F-039": {
+      "Next Step": "No"
+    },
+    "2021F-040": {
+      "Next Step": "TBD"
+    },
+    "2021F-041": {
+      "Next Step": "No"
+    },
+    "2021F-042": {
+      "Next Step": "No"
+    },
+    "2021F-043": {
+      "Next Step": "No"
+    },
+    "2021F-044": {
+      "Next Step": "No"
+    },
+    "2021F-045": {
+      "Next Step": "TBD"
+    },
+    "2021F-046": {
+      "Next Step": "No"
+    },
+    "2021F-047": {
+      "Next Step": "No"
+    },
+    "2021F-048": {
+      "Next Step": "Yes"
+    },
+    "2021F-049": {
+      "Next Step": "Yes"
+    },
+    "2021F-050": {
+      "Next Step": "No"
+    },
+    "2021F-051": {
+      "Next Step": "No"
+    },
+    "2021F-052": {
+      "Next Step": "No"
+    },
+    "2021S-001": {
+      "Next Step": "Yes"
+    },
+    "2021S-002": {
+      "Next Step": "No"
+    },
+    "2021S-003": {
+      "Next Step": "No"
+    },
+    "2021S-004": {
+      "Next Step": "No"
+    },
+    "2021S-005": {
+      "Next Step": "No"
+    },
+    "2021S-006": {
+      "Next Step": "No"
+    },
+    "2021S-007": {
+      "Next Step": "No"
+    },
+    "2021S-008": {
+      "Next Step": "No"
+    },
+    "2021S-009": {
+      "Next Step": "No"
+    },
+    "2021S-010": {
+      "Next Step": "No"
+    },
+    "2021S-011": {
+      "Next Step": "TBD"
+    },
+    "2021S-012": {
+      "Next Step": "No"
+    },
+    "2021S-013": {
+      "Next Step": "No"
+    },
+    "2021S-014": {
+      "Next Step": "TBD"
+    },
+    "2021S-015": {
+      "Next Step": "No"
+    },
+    "2021S-016": {
+      "Next Step": "No"
+    },
+    "2021S-017": {
+      "Next Step": "No"
+    },
+    "2021S-018": {
+      "Next Step": "No"
+    },
+    "2021S-019": {
+      "Next Step": "No"
+    },
+    "2021S-020": {
+      "Next Step": "No"
+    },
+    "2021S-021": {
+      "Next Step": "No"
+    },
+    "2021S-022": {
+      "Next Step": "No"
+    },
+    "2021S-023": {
+      "Next Step": "No"
+    },
+    "2021S-024": {
+      "Next Step": "No"
+    },
+    "2021S-025": {
+      "Next Step": "No"
+    },
+    "2021S-026": {
+      "Next Step": "No"
+    },
+    "2021S-027": {
+      "Next Step": "No"
+    },
+    "2021S-028": {
+      "Next Step": "No"
+    },
+    "2021S-029": {
+      "Next Step": "No"
+    },
+    "2021S-030": {
+      "Next Step": "No"
+    },
+    "2021S-031": {
+      "Next Step": "No"
+    },
+    "2021S-032": {
+      "Next Step": "No"
+    },
+    "2021S-033": {
+      "Next Step": "No"
+    },
+    "2021S-034": {
       "Next Step": "No"
     }
   },
