@@ -179,6 +179,7 @@ export default function TablePage({
 
   const [batchFilter, setBatchFilter] = useState<string>("all");
   const [tagFilter, setTagFilter] = useState<string>("all");
+  const [customFilters, setCustomFilters] = useState<Record<string, string>>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortKey, setSortKey] = useState<SortKey>("batch_id");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
@@ -494,6 +495,7 @@ export default function TablePage({
   // --- Filter + sort ---
   const filteredAndSorted = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
+    const activeCustomFilters = Object.entries(customFilters).filter(([, v]) => v !== "all");
     let list = displayProjects.filter((p) => {
       if (batchFilter !== "all" && p.batch_id !== batchFilter) return false;
       if (tagFilter !== "all") {
@@ -506,6 +508,11 @@ export default function TablePage({
         } else {
           if (!p.tags?.includes(tagFilter)) return false;
         }
+      }
+      for (const [colName, filterVal] of activeCustomFilters) {
+        const cellVal = customDataRef.current[p.id]?.[colName] || "";
+        const selected = parseMultiValue(cellVal);
+        if (!selected.includes(filterVal)) return false;
       }
       if (q) {
         const text = buildSearchText(p);
@@ -528,7 +535,7 @@ export default function TablePage({
       return String(va).localeCompare(String(vb), "zh") * dir;
     });
     return list;
-  }, [displayProjects, batchFilter, tagFilter, searchQuery, sortKey, sortDir, buildSearchText]);
+  }, [displayProjects, batchFilter, tagFilter, customFilters, searchQuery, sortKey, sortDir, buildSearchText, customDataVersion]);
 
   const exportTable = useCallback(() => {
     const rows = filteredAndSorted;
@@ -861,7 +868,31 @@ export default function TablePage({
               </SelectContent>
             </Select>
           </div>
-          <Button variant="outline" size="sm" onClick={() => { setBatchFilter("all"); setTagFilter("all"); setSearchQuery(""); }}>
+          {customCols
+            .filter((c) => c.type === "multiselect" && (c.options ?? []).length > 0)
+            .map((c) => (
+              <div key={c.name} className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground whitespace-nowrap">{c.name}</span>
+                <Select
+                  value={customFilters[c.name] ?? "all"}
+                  onValueChange={(v) => setCustomFilters((prev) => ({ ...prev, [c.name]: v }))}
+                >
+                  <SelectTrigger className="w-[160px]"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">{t.filter_all}</SelectItem>
+                    {(c.options ?? []).map((opt) => (
+                      <SelectItem key={opt} value={opt}>
+                        <span className="flex items-center gap-1.5">
+                          <span className={`inline-block w-2 h-2 rounded-full ${getOptionColor(c.optionColors, opt).dot}`} />
+                          {opt}
+                        </span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            ))}
+          <Button variant="outline" size="sm" onClick={() => { setBatchFilter("all"); setTagFilter("all"); setCustomFilters({}); setSearchQuery(""); }}>
             {t.reset}
           </Button>
           <span className="text-sm text-muted-foreground ml-2">
