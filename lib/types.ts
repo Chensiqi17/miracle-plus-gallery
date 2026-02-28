@@ -55,7 +55,7 @@ export type ProjectOverrides = Record<
 
 /** 表格页「保存到仓库」使用的编辑数据，存于 data/table-edits.json / KV */
 export interface TableEdits {
-  columns: { name: string; type: "text" | "multiselect"; options?: string[] }[];
+  columns: { name: string; type: "text" | "multiselect"; options?: string[]; optionColors?: Record<string, string> }[];
   cellData: Record<string, Record<string, string>>;
   /** 原字段覆盖：projectId -> 只包含有改动的字段 */
   overrides?: ProjectOverrides;

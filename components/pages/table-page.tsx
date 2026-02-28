@@ -24,6 +24,8 @@ import {
   Download,
   GripVertical,
   Save,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 
 interface TablePageProps {
@@ -53,7 +55,8 @@ export type CustomColumnType = "text" | "multiselect";
 export interface CustomColumn {
   name: string;
   type: CustomColumnType;
-  options?: string[]; // 仅 multiselect 时有值
+  options?: string[];
+  optionColors?: Record<string, string>;
 }
 
 function normalizeCustomCols(raw: unknown): CustomColumn[] {
@@ -62,14 +65,37 @@ function normalizeCustomCols(raw: unknown): CustomColumn[] {
     if (typeof item === "string") return { name: item, type: "text" as const };
     if (item && typeof item === "object" && "name" in item && typeof (item as CustomColumn).name === "string") {
       const c = item as CustomColumn;
+      const colors = c.optionColors && typeof c.optionColors === "object" ? c.optionColors : undefined;
       return {
         name: c.name,
         type: c.type === "multiselect" ? "multiselect" : "text",
         options: Array.isArray(c.options) ? c.options.filter((x) => typeof x === "string") : undefined,
+        ...(colors ? { optionColors: colors } : {}),
       };
     }
     return { name: String(item), type: "text" as const };
   });
+}
+
+type OptionColorKey = "default" | "gray" | "red" | "orange" | "yellow" | "green" | "blue" | "purple" | "pink";
+
+const OPTION_COLOR_PALETTE: Record<OptionColorKey, { bg: string; text: string; dot: string }> = {
+  default: { bg: "bg-primary/10", text: "text-primary", dot: "bg-primary" },
+  gray: { bg: "bg-gray-200/60 dark:bg-gray-700/40", text: "text-gray-700 dark:text-gray-300", dot: "bg-gray-500" },
+  red: { bg: "bg-red-100 dark:bg-red-900/30", text: "text-red-700 dark:text-red-300", dot: "bg-red-500" },
+  orange: { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-700 dark:text-orange-300", dot: "bg-orange-500" },
+  yellow: { bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-700 dark:text-yellow-300", dot: "bg-yellow-500" },
+  green: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-700 dark:text-green-300", dot: "bg-green-500" },
+  blue: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-300", dot: "bg-blue-500" },
+  purple: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-700 dark:text-purple-300", dot: "bg-purple-500" },
+  pink: { bg: "bg-pink-100 dark:bg-pink-900/30", text: "text-pink-700 dark:text-pink-300", dot: "bg-pink-500" },
+};
+
+const COLOR_KEYS = Object.keys(OPTION_COLOR_PALETTE) as OptionColorKey[];
+
+function getOptionColor(optionColors: Record<string, string> | undefined, optName: string) {
+  const key = (optionColors?.[optName] ?? "default") as OptionColorKey;
+  return OPTION_COLOR_PALETTE[key] ?? OPTION_COLOR_PALETTE.default;
 }
 
 const DEFAULT_WIDTHS: Record<string, number> = {
@@ -347,6 +373,92 @@ export default function TablePage({
       return customDataRef.current[projectId]?.[colName] || "";
     },
     [customDataVersion]
+  );
+
+  const renameOption = useCallback(
+    (colName: string, oldName: string, newName: string) => {
+      if (!newName.trim() || oldName === newName) return;
+      const cols = customCols.map((c) => {
+        if (c.name !== colName) return c;
+        const newOptions = (c.options ?? []).map((o) => (o === oldName ? newName : o));
+        const newColors = { ...(c.optionColors ?? {}) };
+        if (newColors[oldName] !== undefined) {
+          newColors[newName] = newColors[oldName];
+          delete newColors[oldName];
+        }
+        return { ...c, options: newOptions, optionColors: Object.keys(newColors).length > 0 ? newColors : undefined };
+      });
+      persistCols(cols);
+      const next = { ...customDataRef.current };
+      for (const pid of Object.keys(next)) {
+        const val = next[pid]?.[colName];
+        if (val) {
+          const parts = parseMultiValue(val);
+          const updated = parts.map((p) => (p === oldName ? newName : p));
+          next[pid] = { ...next[pid], [colName]: updated.join(MULTI_SEP) };
+        }
+      }
+      customDataRef.current = next;
+      localStorage.setItem(LS_DATA_KEY, JSON.stringify(next));
+      setCustomDataVersion((v) => v + 1);
+    },
+    [customCols, persistCols]
+  );
+
+  const changeOptionColor = useCallback(
+    (colName: string, optName: string, colorKey: string) => {
+      const cols = customCols.map((c) => {
+        if (c.name !== colName) return c;
+        const newColors = { ...(c.optionColors ?? {}) };
+        if (colorKey === "default") delete newColors[optName];
+        else newColors[optName] = colorKey;
+        return { ...c, optionColors: Object.keys(newColors).length > 0 ? newColors : undefined };
+      });
+      persistCols(cols);
+    },
+    [customCols, persistCols]
+  );
+
+  const addOptionToCol = useCallback(
+    (colName: string, optName: string) => {
+      if (!optName.trim()) return;
+      const cols = customCols.map((c) => {
+        if (c.name !== colName) return c;
+        if ((c.options ?? []).includes(optName)) return c;
+        return { ...c, options: [...(c.options ?? []), optName] };
+      });
+      persistCols(cols);
+    },
+    [customCols, persistCols]
+  );
+
+  const deleteOptionFromCol = useCallback(
+    (colName: string, optName: string) => {
+      const cols = customCols.map((c) => {
+        if (c.name !== colName) return c;
+        const newOptions = (c.options ?? []).filter((o) => o !== optName);
+        const newColors = { ...(c.optionColors ?? {}) };
+        delete newColors[optName];
+        return {
+          ...c,
+          options: newOptions,
+          optionColors: Object.keys(newColors).length > 0 ? newColors : undefined,
+        };
+      });
+      persistCols(cols);
+      const next = { ...customDataRef.current };
+      for (const pid of Object.keys(next)) {
+        const val = next[pid]?.[colName];
+        if (val) {
+          const parts = parseMultiValue(val).filter((p) => p !== optName);
+          next[pid] = { ...next[pid], [colName]: parts.join(MULTI_SEP) };
+        }
+      }
+      customDataRef.current = next;
+      localStorage.setItem(LS_DATA_KEY, JSON.stringify(next));
+      setCustomDataVersion((v) => v + 1);
+    },
+    [customCols, persistCols]
   );
 
   // --- Tags ---
@@ -925,8 +1037,14 @@ export default function TablePage({
                             key={colKey}
                             value={getCustomCell(p.id, customCol.name)}
                             options={customCol.options ?? []}
+                            optionColors={customCol.optionColors}
                             onChange={(v) => updateCell(p.id, customCol.name, v)}
+                            onRenameOption={(oldN, newN) => renameOption(customCol.name, oldN, newN)}
+                            onChangeOptionColor={(optN, ck) => changeOptionColor(customCol.name, optN, ck)}
+                            onAddOption={(n) => addOptionToCol(customCol.name, n)}
+                            onDeleteOption={(n) => deleteOptionFromCol(customCol.name, n)}
                             placeholder={lang === "zh" ? "点击选择…" : "Click to select…"}
+                            lang={lang}
                           />
                         ) : (
                           <EditableCell
@@ -937,38 +1055,50 @@ export default function TablePage({
                           />
                         );
                       }
+                      if (colKey === "name") {
+                        return (
+                          <EditableCell
+                            key={colKey}
+                            value={p.name ?? ""}
+                            onChange={(v) => updateOverride(p.id, "name", v)}
+                            placeholder={lang === "zh" ? "项目名称" : "Project name"}
+                          />
+                        );
+                      }
+                      if (colKey === "one_liner") {
+                        return (
+                          <EditableCell
+                            key={colKey}
+                            value={p.one_liner ?? ""}
+                            onChange={(v) => updateOverride(p.id, "one_liner", v)}
+                            placeholder={lang === "zh" ? "一句话介绍" : "One-liner"}
+                          />
+                        );
+                      }
+                      if (colKey === "description") {
+                        return (
+                          <EditableCell
+                            key={colKey}
+                            value={p.description ?? ""}
+                            onChange={(v) => updateOverride(p.id, "description", v)}
+                            placeholder={lang === "zh" ? "项目简介" : "Description"}
+                          />
+                        );
+                      }
+                      if (colKey === "tags") {
+                        return (
+                          <EditableCell
+                            key={colKey}
+                            value={(p.tags ?? []).join("、")}
+                            onChange={(v) => updateOverride(p.id, "tags", v.split(/[,，、\s]+/).map((t) => t.trim()).filter(Boolean))}
+                            placeholder={lang === "zh" ? "标签，用顿号或逗号分隔" : "Tags, comma-separated"}
+                          />
+                        );
+                      }
                       return (
                         <td key={colKey} className="p-3 align-top w-0">
                           <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">
                             {colKey === "batch_id" && <span className="font-mono text-muted-foreground">{p.batch_id}</span>}
-                            {colKey === "name" && (
-                              <EditableCell
-                                value={p.name ?? ""}
-                                onChange={(v) => updateOverride(p.id, "name", v)}
-                                placeholder={lang === "zh" ? "项目名称" : "Project name"}
-                              />
-                            )}
-                            {colKey === "one_liner" && (
-                              <EditableCell
-                                value={p.one_liner ?? ""}
-                                onChange={(v) => updateOverride(p.id, "one_liner", v)}
-                                placeholder={lang === "zh" ? "一句话介绍" : "One-liner"}
-                              />
-                            )}
-                            {colKey === "description" && (
-                              <EditableCell
-                                value={p.description ?? ""}
-                                onChange={(v) => updateOverride(p.id, "description", v)}
-                                placeholder={lang === "zh" ? "项目简介" : "Description"}
-                              />
-                            )}
-                            {colKey === "tags" && (
-                              <EditableCell
-                                value={(p.tags ?? []).join("、")}
-                                onChange={(v) => updateOverride(p.id, "tags", v.split(/[,，、\s]+/).map((t) => t.trim()).filter(Boolean))}
-                                placeholder={lang === "zh" ? "标签，用顿号或逗号分隔" : "Tags, comma-separated"}
-                              />
-                            )}
                             {colKey === "founders" && <FoundersCell founders={p.founders} />}
                           </div>
                         </td>
@@ -1039,19 +1169,36 @@ function FoundersCell({ founders }: { founders?: Project["founders"] }) {
 function MultiSelectCell({
   value,
   options,
+  optionColors,
   onChange,
+  onRenameOption,
+  onChangeOptionColor,
+  onAddOption,
+  onDeleteOption,
   placeholder,
+  lang,
 }: {
   value: string;
   options: string[];
+  optionColors?: Record<string, string>;
   onChange: (v: string) => void;
+  onRenameOption?: (oldName: string, newName: string) => void;
+  onChangeOptionColor?: (optName: string, colorKey: string) => void;
+  onAddOption?: (name: string) => void;
+  onDeleteOption?: (name: string) => void;
   placeholder: string;
+  lang?: string;
 }) {
   const [open, setOpen] = useState(false);
   const selected = useMemo(() => parseMultiValue(value), [value]);
   const [draft, setDraft] = useState<string[]>(selected);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [dropdownRect, setDropdownRect] = useState<{ top: number; left: number } | null>(null);
+  const [editingOpt, setEditingOpt] = useState<string | null>(null);
+  const [editDraft, setEditDraft] = useState("");
+  const [colorPickerOpt, setColorPickerOpt] = useState<string | null>(null);
+  const [newOptDraft, setNewOptDraft] = useState("");
+  const editInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setDraft(parseMultiValue(value));
@@ -1074,6 +1221,9 @@ function MultiSelectCell({
       const portalRoot = document.getElementById("multiselect-dropdown-portal");
       if (portalRoot?.contains(target)) return;
       setOpen(false);
+      setEditingOpt(null);
+      setColorPickerOpt(null);
+      setNewOptDraft("");
       const next = draft.join(MULTI_SEP);
       if (next !== value) onChange(next);
     };
@@ -1081,7 +1231,28 @@ function MultiSelectCell({
     return () => document.removeEventListener("mousedown", onMouseDown);
   }, [open, draft, value, onChange]);
 
-  if (options.length === 0) {
+  useEffect(() => {
+    if (editingOpt && editInputRef.current) editInputRef.current.focus();
+  }, [editingOpt]);
+
+  const commitRename = () => {
+    if (editingOpt && editDraft.trim() && editDraft.trim() !== editingOpt) {
+      const newName = editDraft.trim();
+      onRenameOption?.(editingOpt, newName);
+      setDraft((prev) => prev.map((p) => (p === editingOpt ? newName : p)));
+    }
+    setEditingOpt(null);
+  };
+
+  const commitNewOption = () => {
+    const name = newOptDraft.trim();
+    if (name && !options.includes(name)) {
+      onAddOption?.(name);
+    }
+    setNewOptDraft("");
+  };
+
+  if (options.length === 0 && !onAddOption) {
     return (
       <td className="p-3 align-top w-0">
         <span className="text-muted-foreground/40 text-xs italic">{placeholder}</span>
@@ -1096,29 +1267,140 @@ function MultiSelectCell({
     createPortal(
       <div
         id="multiselect-dropdown-portal"
-        className="min-w-[140px] max-h-[220px] overflow-y-auto rounded-md border bg-popover text-popover-foreground p-2 shadow-md z-[100]"
+        className="min-w-[200px] max-w-[320px] max-h-[320px] overflow-y-auto rounded-md border bg-popover text-popover-foreground p-2 shadow-md z-[100]"
         style={{
           position: "fixed",
           left: dropdownRect.left,
           top: dropdownRect.top,
         }}
       >
-        {options.map((opt) => (
-          <label
-            key={opt}
-            className="flex items-center gap-2 py-1.5 px-2 rounded hover:bg-muted/80 cursor-pointer text-sm"
-          >
-            <Checkbox
-              checked={draft.includes(opt)}
-              onCheckedChange={(checked) => {
-                setDraft((prev) =>
-                  checked === true ? [...prev, opt] : prev.filter((x) => x !== opt)
-                );
-              }}
-            />
-            <span>{opt}</span>
-          </label>
-        ))}
+        {options.map((opt) => {
+          const color = getOptionColor(optionColors, opt);
+          const isEditing = editingOpt === opt;
+          const isColorOpen = colorPickerOpt === opt;
+          return (
+            <div key={opt} className="group/opt">
+              <div className="flex items-center gap-1.5 py-1 px-1 rounded hover:bg-muted/80">
+                <button
+                  type="button"
+                  className={`w-3.5 h-3.5 rounded-full shrink-0 border border-border/40 ${color.dot}`}
+                  title={lang === "zh" ? "更改颜色" : "Change color"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setColorPickerOpt(isColorOpen ? null : opt);
+                  }}
+                />
+                <Checkbox
+                  checked={draft.includes(opt)}
+                  onCheckedChange={(checked) => {
+                    setDraft((prev) =>
+                      checked === true ? [...prev, opt] : prev.filter((x) => x !== opt)
+                    );
+                  }}
+                />
+                {isEditing ? (
+                  <input
+                    ref={editInputRef}
+                    type="text"
+                    value={editDraft}
+                    onChange={(e) => setEditDraft(e.target.value)}
+                    onBlur={commitRename}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") commitRename();
+                      if (e.key === "Escape") setEditingOpt(null);
+                    }}
+                    className="flex-1 min-w-0 text-sm px-1 py-0.5 border border-ring rounded bg-background focus:outline-none focus:ring-1 focus:ring-ring"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                ) : (
+                  <span className={`flex-1 min-w-0 text-sm truncate px-1 py-0.5 rounded ${color.bg} ${color.text}`}>
+                    {opt}
+                  </span>
+                )}
+                <button
+                  type="button"
+                  className="opacity-0 group-hover/opt:opacity-100 transition-opacity text-muted-foreground hover:text-foreground shrink-0 p-0.5"
+                  title={lang === "zh" ? "重命名" : "Rename"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setEditingOpt(opt);
+                    setEditDraft(opt);
+                    setColorPickerOpt(null);
+                  }}
+                >
+                  <Pencil className="h-3 w-3" />
+                </button>
+                <button
+                  type="button"
+                  className="opacity-0 group-hover/opt:opacity-100 transition-opacity text-muted-foreground hover:text-destructive shrink-0 p-0.5"
+                  title={lang === "zh" ? "删除选项" : "Delete option"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onDeleteOption?.(opt);
+                    setDraft((prev) => prev.filter((x) => x !== opt));
+                  }}
+                >
+                  <Trash2 className="h-3 w-3" />
+                </button>
+              </div>
+              {isColorOpen && (
+                <div className="flex flex-wrap gap-1.5 px-6 py-1.5">
+                  {COLOR_KEYS.map((ck) => {
+                    const c = OPTION_COLOR_PALETTE[ck];
+                    const isActive = (optionColors?.[opt] ?? "default") === ck;
+                    return (
+                      <button
+                        key={ck}
+                        type="button"
+                        className={`w-5 h-5 rounded-full ${c.dot} ${isActive ? "ring-2 ring-ring ring-offset-1 ring-offset-background" : "hover:ring-1 hover:ring-ring/50"}`}
+                        title={ck}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          onChangeOptionColor?.(opt, ck);
+                          setColorPickerOpt(null);
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {onAddOption && (
+          <div className="border-t border-border/40 mt-1.5 pt-1.5">
+            <div className="flex items-center gap-1.5 px-1">
+              <Plus className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
+              <input
+                type="text"
+                value={newOptDraft}
+                onChange={(e) => setNewOptDraft(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") commitNewOption();
+                }}
+                placeholder={lang === "zh" ? "添加选项…" : "Add option…"}
+                className="flex-1 min-w-0 text-sm px-1.5 py-1 border border-border rounded bg-background focus:outline-none focus:ring-1 focus:ring-ring placeholder:text-muted-foreground/50"
+                onClick={(e) => e.stopPropagation()}
+              />
+              {newOptDraft.trim() && (
+                <button
+                  type="button"
+                  className="text-xs text-primary hover:underline shrink-0 px-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    commitNewOption();
+                  }}
+                >
+                  {lang === "zh" ? "添加" : "Add"}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </div>,
       document.body
     );
@@ -1135,14 +1417,17 @@ function MultiSelectCell({
       >
         {selected.length > 0 ? (
           <div className="flex flex-wrap gap-1.5">
-            {selected.map((opt) => (
-              <span
-                key={opt}
-                className="inline-block text-xs px-1.5 py-0.5 rounded bg-primary/10 text-primary"
-              >
-                {opt}
-              </span>
-            ))}
+            {selected.map((opt) => {
+              const color = getOptionColor(optionColors, opt);
+              return (
+                <span
+                  key={opt}
+                  className={`inline-block text-xs px-1.5 py-0.5 rounded ${color.bg} ${color.text}`}
+                >
+                  {opt}
+                </span>
+              );
+            })}
           </div>
         ) : (
           <span className="text-muted-foreground/40 text-xs italic">{placeholder}</span>
