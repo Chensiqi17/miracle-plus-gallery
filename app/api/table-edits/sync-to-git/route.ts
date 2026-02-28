@@ -47,12 +47,16 @@ export async function POST(req: NextRequest) {
     } catch {
       return NextResponse.json({ error: "Invalid data in KV" }, { status: 400 });
     }
-  } else if (raw && typeof raw === "object" && "cellData" in raw) {
+  } else if (raw && typeof raw === "object" && ("cellData" in raw || "overrides" in raw || "columns" in raw)) {
     body = raw as unknown as TableEdits;
   } else {
     return NextResponse.json({ error: "Invalid data in KV" }, { status: 400 });
   }
-  if (!body.columns && (!body.cellData || Object.keys(body.cellData).length === 0)) {
+  const hasData =
+    (body.columns && body.columns.length > 0) ||
+    (body.cellData && Object.keys(body.cellData).length > 0) ||
+    (body.overrides && Object.keys(body.overrides).length > 0);
+  if (!hasData) {
     return NextResponse.json({ error: "KV data is empty. Save the table first." }, { status: 400 });
   }
 
