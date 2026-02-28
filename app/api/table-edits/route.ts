@@ -16,9 +16,24 @@ function parseBody(raw: unknown): TableEdits | null {
   const r = raw as Record<string, unknown>;
   const columns = Array.isArray(r.columns) ? r.columns : [];
   const cellData = r.cellData && typeof r.cellData === "object" ? (r.cellData as Record<string, Record<string, string>>) : {};
+  let overrides: TableEdits["overrides"] = undefined;
+  if (r.overrides && typeof r.overrides === "object") {
+    overrides = {};
+    for (const [pid, o] of Object.entries(r.overrides)) {
+      if (o && typeof o === "object") {
+        const obj = o as Record<string, unknown>;
+        overrides[pid] = {};
+        if (typeof obj.name === "string") overrides[pid].name = obj.name;
+        if (typeof obj.one_liner === "string") overrides[pid].one_liner = obj.one_liner;
+        if (typeof obj.description === "string") overrides[pid].description = obj.description;
+        if (Array.isArray(obj.tags)) overrides[pid].tags = obj.tags.filter((t): t is string => typeof t === "string");
+      }
+    }
+  }
   return {
     columns,
     cellData,
+    overrides: Object.keys(overrides ?? {}).length > 0 ? overrides : undefined,
     columnOrder: Array.isArray(r.columnOrder) ? r.columnOrder : undefined,
     colWidths: r.colWidths && typeof r.colWidths === "object" ? (r.colWidths as Record<string, number>) : undefined,
   };

@@ -145,6 +145,7 @@ function main() {
     current = null;
   };
 
+  // ID = 批次 + 序号；表格内 overrides/cellData 按此 id 存储。重解析时若项目顺序不变则 id 不变；若增删/调换顺序会导致错位，表格页会提示清除「孤立数据」。
   const makeId = (index) => `2023F-${String(index).padStart(3, "0")}`;
 
   // 用一个简单的规则判断“这一行是不是新项目名”：

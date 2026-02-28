@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback, useRef, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
-import { Project, Batch, TableEdits } from "@/lib/types";
+import { Project, Batch, TableEdits, ProjectOverrides } from "@/lib/types";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
@@ -175,14 +175,39 @@ export default function TablePage({
   // --- Column order (for drag-to-reorder) ---
   const [columnOrder, setColumnOrder] = useState<string[]>(() => [...BUILTIN_COL_KEYS]);
 
+  // --- 原字段覆盖（项目名称、一句话、简介、标签在表格内编辑后存于此） ---
+  const [overrides, setOverrides] = useState<ProjectOverrides>({});
+  const overridesRef = useRef(overrides);
+  overridesRef.current = overrides;
+
+  /** 合并原数据与覆盖，用于表格展示与筛选排序 */
+  const displayProjects = useMemo(
+    () => initialProjects.map((p) => ({ ...p, ...overrides[p.id] })),
+    [initialProjects, overrides]
+  );
+
+  /** 当前数据中不存在的项目 ID（overrides/cellData 里存的），多因重新解析 MD 导致顺序变化或增删项目 */
+  const orphanedIds = useMemo(() => {
+    const valid = new Set(initialProjects.map((p) => p.id));
+    const fromOverrides = Object.keys(overrides).filter((id) => !valid.has(id));
+    const fromCell = Object.keys(customDataRef.current).filter((id) => !valid.has(id));
+    return [...new Set([...fromOverrides, ...fromCell])];
+  }, [initialProjects, overrides, customDataVersion]);
+
   useEffect(() => {
-    const applyEdits = (edits: TableEdits | null) => {
-      if (!edits || (!edits.columns?.length && !Object.keys(edits.cellData ?? {}).length)) return false;
+    const applyEdits = (edits: TableEdits | null): boolean => {
+      const hasData =
+        edits &&
+        (edits.columns?.length > 0 ||
+          Object.keys(edits.cellData ?? {}).length > 0 ||
+          (edits.overrides && Object.keys(edits.overrides).length > 0));
+      if (!hasData) return false;
       const cols = normalizeCustomCols(edits.columns ?? []);
       setCustomCols(cols);
       customDataRef.current = edits.cellData ?? {};
       setCustomDataVersion((v) => v + 1);
       setColWidths({ ...DEFAULT_WIDTHS, ...(edits.colWidths ?? {}) });
+      setOverrides(edits.overrides ?? {});
       const customKeys = cols.map((c) => `custom:${c.name}`);
       const savedOrder = edits.columnOrder ?? [];
       const validOrder = savedOrder.filter(
@@ -329,7 +354,7 @@ export default function TablePage({
     const dSet = new Set<string>();
     const eSet = new Set<string>();
     const wSet = new Set<string>();
-    initialProjects.forEach((p) => {
+    displayProjects.forEach((p) => {
       p.tags?.forEach((tag) => dSet.add(tag));
       (p.founders || []).forEach((f) => {
         (f.education || []).forEach((e) => eSet.add(e));
@@ -341,7 +366,7 @@ export default function TablePage({
       eduTags: Array.from(eSet).sort(),
       workTags: Array.from(wSet).sort(),
     };
-  }, [initialProjects]);
+  }, [displayProjects]);
 
   // --- Full-text search ---
   const buildSearchText = useCallback((p: Project) => {
@@ -357,7 +382,7 @@ export default function TablePage({
   // --- Filter + sort ---
   const filteredAndSorted = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    let list = initialProjects.filter((p) => {
+    let list = displayProjects.filter((p) => {
       if (batchFilter !== "all" && p.batch_id !== batchFilter) return false;
       if (tagFilter !== "all") {
         if (tagFilter.startsWith("edu:")) {
@@ -391,7 +416,7 @@ export default function TablePage({
       return String(va).localeCompare(String(vb), "zh") * dir;
     });
     return list;
-  }, [initialProjects, batchFilter, tagFilter, searchQuery, sortKey, sortDir, buildSearchText]);
+  }, [displayProjects, batchFilter, tagFilter, searchQuery, sortKey, sortDir, buildSearchText]);
 
   const exportTable = useCallback(() => {
     const rows = filteredAndSorted;
@@ -526,16 +551,76 @@ export default function TablePage({
     return {
       columns: customCols,
       cellData: customDataRef.current,
+      overrides: overridesRef.current,
       columnOrder: order.length > 0 ? order : [...BUILTIN_COL_KEYS, ...customKeys],
       colWidths: colWidthsRef.current,
     };
   }, [columnOrder, customCols]);
+
+  const updateOverride = useCallback(
+    (projectId: string, field: keyof ProjectOverrides[string], value: string | string[]) => {
+      setOverrides((prev) => ({
+        ...prev,
+        [projectId]: { ...(prev[projectId] ?? {}), [field]: value as never },
+      }));
+    },
+    []
+  );
 
   const promptSecret = useCallback(() => {
     return lang === "zh"
       ? window.prompt("输入保存密码（Vercel 中 TABLE_SAVE_SECRET）：")
       : window.prompt("Enter save password (TABLE_SAVE_SECRET):");
   }, [lang]);
+
+  /** 清除「孤立」的 overrides/cellData（对应已不存在的项目 ID），并保存到 KV */
+  const clearOrphanedEdits = useCallback(async () => {
+    if (orphanedIds.length === 0) return;
+    const ok =
+      lang === "zh"
+        ? window.confirm(`将清除 ${orphanedIds.length} 条对应已不存在项目的编辑数据，并保存到 KV。确定？`)
+        : window.confirm(`Clear ${orphanedIds.length} orphaned edit(s) and save to KV?`);
+    if (!ok) return;
+    const secret = promptSecret();
+    if (secret == null || secret.trim() === "") return;
+    const nextOverrides = { ...overrides };
+    orphanedIds.forEach((id) => delete nextOverrides[id]);
+    const nextCellData = { ...customDataRef.current };
+    orphanedIds.forEach((id) => delete nextCellData[id]);
+    setOverrides(nextOverrides);
+    customDataRef.current = nextCellData;
+    setCustomDataVersion((v) => v + 1);
+    const validOrder = columnOrder.filter(
+      (k) =>
+        BUILTIN_COL_KEYS.includes(k as (typeof BUILTIN_COL_KEYS)[number]) ||
+        customCols.some((c) => `custom:${c.name}` === k)
+    );
+    const customKeys = customCols.map((c) => `custom:${c.name}`);
+    const order = [...validOrder, ...customKeys.filter((k) => !validOrder.includes(k))];
+    const payload = {
+      columns: customCols,
+      cellData: nextCellData,
+      overrides: nextOverrides,
+      columnOrder: order.length > 0 ? order : [...BUILTIN_COL_KEYS, ...customKeys],
+      colWidths: colWidthsRef.current,
+    };
+    try {
+      const res = await fetch("/api/table-edits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-save-secret": secret.trim() },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        if (lang === "zh") window.alert("已清除孤立数据并保存。");
+        else window.alert("Orphaned data cleared and saved.");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        window.alert(data.error || res.statusText);
+      }
+    } catch (e) {
+      window.alert(e instanceof Error ? e.message : String(e));
+    }
+  }, [orphanedIds, overrides, columnOrder, customCols, lang, promptSecret]);
 
   /** 保存到 KV（快） */
   const saveToKV = useCallback(async () => {
@@ -731,6 +816,21 @@ export default function TablePage({
           </div>
         </div>
 
+        {orphanedIds.length > 0 && (
+          <div className="mb-4 rounded-lg border border-amber-500/50 bg-amber-500/10 px-4 py-3 text-sm text-amber-800 dark:text-amber-200">
+            {lang === "zh"
+              ? `检测到 ${orphanedIds.length} 条编辑数据对应的项目 ID 在当前数据中不存在（可能因重新解析 MD 或增删/调换项目导致）。`
+              : `${orphanedIds.length} edit(s) reference project IDs that no longer exist (e.g. after re-parsing MD or reordering).`}{" "}
+            <button
+              type="button"
+              onClick={clearOrphanedEdits}
+              className="ml-2 font-medium underline hover:no-underline"
+            >
+              {lang === "zh" ? "清除孤立数据并保存" : "Clear orphaned data and save"}
+            </button>
+          </div>
+        )}
+
         {/* Table: minWidth so columns can't be compressed; col widths in px so resize works */}
         <div className="rounded-lg border border-border/60 overflow-hidden">
           <div className="overflow-x-auto">
@@ -841,10 +941,34 @@ export default function TablePage({
                         <td key={colKey} className="p-3 align-top w-0">
                           <div className="min-w-0 overflow-hidden break-words whitespace-pre-wrap">
                             {colKey === "batch_id" && <span className="font-mono text-muted-foreground">{p.batch_id}</span>}
-                            {colKey === "name" && <span className="font-medium">{p.name}</span>}
-                            {colKey === "one_liner" && <span className="text-muted-foreground">{p.one_liner || "—"}</span>}
-                            {colKey === "description" && <span className="text-muted-foreground">{p.description || "—"}</span>}
-                            {colKey === "tags" && <TagsCell project={p} />}
+                            {colKey === "name" && (
+                              <EditableCell
+                                value={p.name ?? ""}
+                                onChange={(v) => updateOverride(p.id, "name", v)}
+                                placeholder={lang === "zh" ? "项目名称" : "Project name"}
+                              />
+                            )}
+                            {colKey === "one_liner" && (
+                              <EditableCell
+                                value={p.one_liner ?? ""}
+                                onChange={(v) => updateOverride(p.id, "one_liner", v)}
+                                placeholder={lang === "zh" ? "一句话介绍" : "One-liner"}
+                              />
+                            )}
+                            {colKey === "description" && (
+                              <EditableCell
+                                value={p.description ?? ""}
+                                onChange={(v) => updateOverride(p.id, "description", v)}
+                                placeholder={lang === "zh" ? "项目简介" : "Description"}
+                              />
+                            )}
+                            {colKey === "tags" && (
+                              <EditableCell
+                                value={(p.tags ?? []).join("、")}
+                                onChange={(v) => updateOverride(p.id, "tags", v.split(/[,，、\s]+/).map((t) => t.trim()).filter(Boolean))}
+                                placeholder={lang === "zh" ? "标签，用顿号或逗号分隔" : "Tags, comma-separated"}
+                              />
+                            )}
                             {colKey === "founders" && <FoundersCell founders={p.founders} />}
                           </div>
                         </td>
